@@ -1,0 +1,1027 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Clone Accelerator - 2-Day Workshop Agenda</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 40px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+
+        .hero .subtitle {
+            font-size: 1.5em;
+            margin-bottom: 30px;
+            opacity: 0.95;
+        }
+
+        .hero .promise {
+            background: rgba(255,255,255,0.2);
+            padding: 20px 30px;
+            border-radius: 10px;
+            font-size: 1.1em;
+            max-width: 800px;
+            margin: 0 auto;
+            backdrop-filter: blur(10px);
+        }
+
+        .info-bar {
+            display: flex;
+            justify-content: space-around;
+            padding: 30px;
+            background: #f8f9fa;
+            border-bottom: 3px solid #667eea;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .info-item {
+            text-align: center;
+        }
+
+        .info-item .label {
+            font-size: 0.85em;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+        }
+
+        .info-item .value {
+            font-size: 1.3em;
+            font-weight: 700;
+            color: #667eea;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .section {
+            margin-bottom: 50px;
+        }
+
+        .section-title {
+            font-size: 2em;
+            color: #667eea;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+        }
+
+        .day-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            margin-top: 40px;
+        }
+
+        .day-header h2 {
+            font-size: 2.2em;
+            margin-bottom: 10px;
+        }
+
+        .day-header .theme {
+            font-size: 1.2em;
+            opacity: 0.9;
+            font-style: italic;
+        }
+
+        .session {
+            background: #f8f9fa;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-radius: 12px;
+            border-left: 5px solid #667eea;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .session:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.2);
+        }
+
+        .session-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .session-time {
+            font-size: 1.1em;
+            font-weight: 700;
+            color: #667eea;
+        }
+
+        .session-duration {
+            background: #667eea;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 600;
+        }
+
+        .session-title {
+            font-size: 1.4em;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .facilitator {
+            color: #764ba2;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .session-content {
+            color: #555;
+        }
+
+        .session-content h4 {
+            color: #667eea;
+            margin-top: 15px;
+            margin-bottom: 8px;
+            font-size: 1.1em;
+        }
+
+        .session-content ul {
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+
+        .session-content li {
+            margin-bottom: 8px;
+        }
+
+        .highlight-box {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+
+        .success-box {
+            background: #d4edda;
+            border-left: 4px solid #28a745;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+
+        .value-box {
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+            color: white;
+            padding: 20px;
+            margin: 15px 0 20px 0;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .value-box .hours {
+            font-size: 2.5em;
+            font-weight: 800;
+            margin-bottom: 5px;
+        }
+
+        .value-box .label {
+            font-size: 1.1em;
+            opacity: 0.95;
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .tool-card {
+            background: white;
+            border: 2px solid #667eea;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .tool-card h4 {
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+
+        .tool-card .price {
+            font-size: 1.3em;
+            font-weight: 700;
+            color: #28a745;
+        }
+
+        .deliverables {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .deliverable-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .deliverable-card h3 {
+            font-size: 1.3em;
+            margin-bottom: 15px;
+            border-bottom: 2px solid rgba(255,255,255,0.3);
+            padding-bottom: 10px;
+        }
+
+        .deliverable-card ul {
+            list-style: none;
+        }
+
+        .deliverable-card li:before {
+            content: "✓ ";
+            font-weight: bold;
+            margin-right: 8px;
+        }
+
+        .deliverable-card li {
+            margin-bottom: 10px;
+            padding-left: 5px;
+        }
+
+        .break {
+            background: #e9ecef;
+            padding: 15px;
+            text-align: center;
+            border-radius: 10px;
+            margin: 20px 0;
+            font-weight: 600;
+            color: #666;
+        }
+
+        .pricing-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 15px;
+            margin: 30px 0;
+        }
+
+        .pricing-section h3 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .pricing-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .pricing-card {
+            background: white;
+            color: #333;
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .pricing-card .price {
+            font-size: 2.5em;
+            font-weight: 800;
+            color: #667eea;
+            margin: 20px 0;
+        }
+
+        .pricing-card .badge {
+            background: #28a745;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+
+        .footer {
+            background: #2d3748;
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2em;
+            }
+
+            .hero .subtitle {
+                font-size: 1.2em;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .session-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+
+        .sticky-nav {
+            position: sticky;
+            top: 0;
+            background: white;
+            padding: 15px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 100;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .nav-btn {
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+
+        .nav-btn:hover {
+            background: #764ba2;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="hero">
+            <h1>THE AI CLONE ACCELERATOR</h1>
+            <div class="subtitle">Get 39-57 Hours Back Every Week—Automate Your Repetitive Tasks</div>
+            <div class="promise">
+                "In 2 days, you'll build 4 working clones that automate your most time-consuming tasks. Everyone leaves with working clones, proven results, and 39-57 hours per week back—worth $203K-$1.48M/year."
+            </div>
+        </div>
+
+        <div class="info-bar">
+            <div class="info-item">
+                <div class="label">Duration</div>
+                <div class="value">2 Days (4 hrs each)</div>
+            </div>
+            <div class="info-item">
+                <div class="label">You'll Build</div>
+                <div class="value">4 AI Clones</div>
+            </div>
+            <div class="info-item">
+                <div class="label">Time Saved</div>
+                <div class="value">39-57 hrs/week</div>
+            </div>
+            <div class="info-item">
+                <div class="label">Annual Value</div>
+                <div class="value">$203K-$1.48M</div>
+            </div>
+        </div>
+
+        <nav class="sticky-nav">
+            <a href="#day1" class="nav-btn">Day 1</a>
+            <a href="#day2" class="nav-btn">Day 2</a>
+            <a href="#deliverables" class="nav-btn">What You Get</a>
+            <a href="#tools" class="nav-btn">Tools Required</a>
+            <a href="#pricing" class="nav-btn">Pricing</a>
+        </nav>
+
+        <div class="content">
+            <section class="section" id="tools">
+                <h2 class="section-title">Tools Required (Set Up Before Day 1)</h2>
+                <div class="tools-grid">
+                    <div class="tool-card">
+                        <h4>ChatGPT Plus</h4>
+                        <div class="price">$20/month</div>
+                        <p>Required - For building communication & content clones</p>
+                    </div>
+                    <div class="tool-card">
+                        <h4>Granola AI</h4>
+                        <div class="price">Free Tier</div>
+                        <p>Required - For meeting intelligence</p>
+                    </div>
+                    <div class="tool-card">
+                        <h4>Buffer</h4>
+                        <div class="price">Free Tier</div>
+                        <p>Required - For content scheduling</p>
+                    </div>
+                    <div class="tool-card">
+                        <h4>Claude Pro (Optional)</h4>
+                        <div class="price">$20/month</div>
+                        <p>Optional - For decision-making assistant</p>
+                    </div>
+                </div>
+                <div class="highlight-box">
+                    <strong>Total Ongoing Cost:</strong> $20/month (+ free tiers) | All sign-ups must be complete before Day 1
+                </div>
+            </section>
+
+            <div class="day-header" id="day1">
+                <h2>DAY 1: BUILD YOUR FIRST 3 CLONES</h2>
+                <div class="theme">"By 4pm today, you'll have 3 working clones tested on real work—and 29-40 hours back every week"</div>
+            </div>
+
+            <div class="session">
+                <div class="session-header">
+                    <div class="session-time">12:00 PM</div>
+                    <div class="session-duration">20 min</div>
+                </div>
+                <div class="session-title">Opening: The Clone Mindset</div>
+                <div class="facilitator">Facilitator: Vishen</div>
+                <div class="session-content">
+                    <ul>
+                        <li>The promise: "By 4pm today, you'll have 3 working clones and 29-40 hours back every week"</li>
+                        <li>The Aman Tokyo principle: Invisible service</li>
+                        <li>Quick poll: "What repetitive task steals the most time from your week?"</li>
+                        <li>Overview: "We're building today, not just learning"</li>
+                    </ul>
+                    <div class="success-box">
+                        <strong>The 3-Step Build Method (Use for Every Clone):</strong><br>
+                        1. CAPTURE (15 min) - Gather your examples<br>
+                        2. BUILD (30 min) - Create the clone together<br>
+                        3. TEST (10 min) - Try it on real work + share results
+                    </div>
+                </div>
+            </div>
+
+            <div class="session">
+                <div class="session-header">
+                    <div class="session-time">12:20 PM</div>
+                    <div class="session-duration">70 min</div>
+                </div>
+                <div class="session-title">CLONE #1: Your Communication Clone</div>
+                <div class="facilitator">Facilitator: Manon</div>
+                <div class="session-content">
+                    <div class="value-box">
+                        <div class="hours">15-23 hours/week saved</div>
+                        <div class="label">Stop wasting 3-4 hours per day in your inbox. Automate email responses, messages, and updates. That's worth $78K-$600K/year depending on your hourly rate.</div>
+                    </div>
+
+                    <h4>Part 1: CAPTURE Your Voice (15 min)</h4>
+                    <ul>
+                        <li>Pull up 5 emails/messages you've sent</li>
+                        <li>Screen share in breakout rooms (groups of 3)</li>
+                        <li>Identify patterns: emoji usage, formality, length, style</li>
+                        <li><strong>Deliverable:</strong> Voice Profile notes</li>
+                    </ul>
+
+                    <h4>Part 2: BUILD Your Communication Clone (35 min)</h4>
+                    <ul>
+                        <li>Create Custom GPT: "[Your Name]'s Writing Voice"</li>
+                        <li>Upload your 5 writing samples</li>
+                        <li>Copy system instructions (template provided)</li>
+                        <li>Test immediately: "Write an email declining this meeting"</li>
+                        <li>Refine until it sounds like you</li>
+                        <li>Everyone shares in chat: "Does it sound like you? Y/N"</li>
+                    </ul>
+
+                    <h4>Part 3: TEST & Deploy (20 min)</h4>
+                    <p><strong>3 Real Use Cases - Pick One and Try It Now:</strong></p>
+                    <ul>
+                        <li><strong>Use Case A:</strong> Email Response</li>
+                        <li><strong>Use Case B:</strong> Team Update</li>
+                        <li><strong>Use Case C:</strong> LinkedIn Post</li>
+                        <li>Everyone posts screenshot in chat</li>
+                        <li>3 volunteers show their before/after</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="break">⏸️ BREAK (15 minutes) - 1:30 PM</div>
+
+            <div class="session">
+                <div class="session-header">
+                    <div class="session-time">1:45 PM</div>
+                    <div class="session-duration">70 min</div>
+                </div>
+                <div class="session-title">CLONE #2: Your Meeting Intelligence Clone</div>
+                <div class="facilitator">Facilitator: Vishen</div>
+                <div class="session-content">
+                    <div class="value-box">
+                        <div class="hours">9-10 hours/week saved</div>
+                        <div class="label">Stop wasting 30 minutes after every meeting. Auto-capture notes and action items. That's worth $47K-$260K/year depending on your hourly rate.</div>
+                    </div>
+
+                    <h4>Part 1: CAPTURE Your Meeting Style (10 min)</h4>
+                    <ul>
+                        <li>Think of your last important meeting</li>
+                        <li>What did you wish you had documented?</li>
+                        <li>Poll: What's your #1 meeting pain point?</li>
+                    </ul>
+
+                    <h4>Part 2: BUILD Your Meeting Clone (40 min)</h4>
+                    <p><strong>Setup Granola AI (15 min):</strong></p>
+                    <ul>
+                        <li>Install Granola app (everyone follows along)</li>
+                        <li>Connect to calendar</li>
+                        <li>Test with sample meeting recording (provided)</li>
+                        <li>Review what it captures automatically</li>
+                    </ul>
+
+                    <p><strong>Create Your Meeting Templates (25 min):</strong></p>
+                    <ul>
+                        <li><strong>Template 1:</strong> Action Items Tracker (10 min)</li>
+                        <li><strong>Template 2:</strong> Meeting Brief Generator (10 min)</li>
+                        <li>Test on same sample meeting</li>
+                        <li>Pick ONE template that solves your biggest pain point</li>
+                    </ul>
+
+                    <h4>Part 3: TEST in Simulation (20 min)</h4>
+                    <p><strong>Breakout Rooms (groups of 4):</strong></p>
+                    <ul>
+                        <li>5 min: One person shares a real business challenge</li>
+                        <li>5 min: Group discusses (Granola recording)</li>
+                        <li>5 min: Granola processes it</li>
+                        <li>5 min: Review the output - did it capture everything?</li>
+                        <li>Back in main room: 2 volunteers share their results</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="break">⏸️ BREAK (15 minutes) - 2:55 PM</div>
+
+            <div class="session">
+                <div class="session-header">
+                    <div class="session-time">3:10 PM</div>
+                    <div class="session-duration">50 min</div>
+                </div>
+                <div class="session-title">CLONE #3: Your Content Creation Clone</div>
+                <div class="facilitator">Facilitator: Iman</div>
+                <div class="session-content">
+                    <div class="value-box">
+                        <div class="hours">5-7 hours/week saved</div>
+                        <div class="label">Stop agonizing over social posts for hours. Turn voice notes into content in minutes. That's worth $26K-$182K/year depending on your hourly rate.</div>
+                    </div>
+
+                    <h4>Part 1: CAPTURE Your Content Brain (10 min)</h4>
+                    <ul>
+                        <li>Open your ChatGPT Communication Clone (Clone #1)</li>
+                        <li>Upload 3-5 of your best LinkedIn posts/tweets</li>
+                        <li>Add instruction: "You also create social content in my voice"</li>
+                        <li><strong>You just upgraded Clone #1 to also create content</strong></li>
+                    </ul>
+
+                    <h4>Part 2: BUILD Voice-to-Content Pipeline (25 min)</h4>
+                    <p><strong>Everyone does together:</strong></p>
+                    <ul>
+                        <li><strong>Step 1:</strong> Record a 3-minute voice note about ANY topic</li>
+                        <li><strong>Step 2:</strong> Upload to ChatGPT - "Transcribe and extract key message"</li>
+                        <li><strong>Step 3:</strong> Generate content (LinkedIn post, Twitter thread, Email intro)</li>
+                        <li><strong>Result:</strong> You just created 3 pieces of content in 10 minutes</li>
+                    </ul>
+
+                    <h4>Part 3: TEST & Automate (15 min)</h4>
+                    <p><strong>Schedule Your Content:</strong></p>
+                    <ul>
+                        <li>Open Buffer (free account)</li>
+                        <li>Copy your LinkedIn post</li>
+                        <li>Schedule it for tomorrow</li>
+                        <li><strong>Challenge:</strong> Can you queue 5 posts in the next 10 minutes?</li>
+                        <li>Quick share: Drop your scheduled post links in chat</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="session">
+                <div class="session-header">
+                    <div class="session-time">4:00 PM</div>
+                    <div class="session-duration">15 min</div>
+                </div>
+                <div class="session-title">Day 1 Wrap & Homework</div>
+                <div class="facilitator">All Facilitators</div>
+                <div class="session-content">
+                    <div class="success-box">
+                        <strong>What You Built Today:</strong><br>
+                        ✅ Clone #1: Communication Clone (15-23 hrs/week saved)<br>
+                        ✅ Clone #2: Meeting Intelligence Clone (9-10 hrs/week saved)<br>
+                        ✅ Clone #3: Content Creation Clone (5-7 hrs/week saved)<br><br>
+                        <strong>Total Time Saved: 29-40 hours/week</strong><br>
+                        Worth $151K-$1.04M/year depending on your hourly rate.
+                    </div>
+
+                    <h4>Quick Reflection:</h4>
+                    <ul>
+                        <li>In chat: Which clone will give you the most time back?</li>
+                        <li>3 volunteers share: "Here's what I built + how many hours it's saving me"</li>
+                    </ul>
+
+                    <h4>Homework (Optional But Valuable):</h4>
+                    <ul>
+                        <li>Use your Communication Clone: Draft 2 real emails</li>
+                        <li>Use your Meeting Clone: In your next meeting</li>
+                        <li>Use your Content Clone: Generate 3 more posts, schedule them</li>
+                        <li>Bring questions tomorrow: What broke? What needs tweaking?</li>
+                    </ul>
+
+                    <div class="highlight-box">
+                        <strong>Preview Day 2:</strong><br>
+                        • Clone #4: Decision-Making Assistant (10-17 hrs/week saved)<br>
+                        • Integration: Make all clones work together<br>
+                        • BUILD SPRINT: 45 min to perfect ONE clone<br>
+                        • SHOWCASE: Everyone presents their best clone (3 min each)<br>
+                        • <strong>Final Total: 39-57 hours/week saved</strong>
+                    </div>
+                </div>
+            </div>
+
+            <div class="day-header" id="day2">
+                <h2>DAY 2: ADVANCED CLONE + INTEGRATION + SHOWCASE</h2>
+                <div class="theme">"Perfect your clones, see everyone's results, leave with 39-57 hours back every week"</div>
+            </div>
+
+            <div class="session">
+                <div class="session-header">
+                    <div class="session-time">12:00 PM</div>
+                    <div class="session-duration">30 min</div>
+                </div>
+                <div class="session-title">Day 1 Wins & Troubleshooting</div>
+                <div class="facilitator">All Facilitators</div>
+                <div class="session-content">
+                    <h4>Rapid-Fire Problem Solving:</h4>
+                    <ul>
+                        <li>5 min: Poll - "Which clone did you use? What happened?"</li>
+                        <li>20 min: Troubleshooting common issues
+                            <ul>
+                                <li>"My Communication Clone sounds too formal"</li>
+                                <li>"Granola didn't capture everything"</li>
+                                <li>"My content sounds too AI-ish"</li>
+                                <li>Facilitators fix issues live on screen</li>
+                            </ul>
+                        </li>
+                        <li>5 min: Showcase 2 best homework results</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="session">
+                <div class="session-header">
+                    <div class="session-time">12:30 PM</div>
+                    <div class="session-duration">60 min</div>
+                </div>
+                <div class="session-title">CLONE #4: Your Decision-Making Assistant</div>
+                <div class="facilitator">Facilitator: Vishen</div>
+                <div class="session-content">
+                    <div class="value-box">
+                        <div class="hours">10-17 hours/week saved</div>
+                        <div class="label">Stop wasting 2-3 hours daily on prioritization and decisions. Get strategic recommendations instantly. That's worth $52K-$442K/year depending on your hourly rate.</div>
+                    </div>
+
+                    <h4>Part 1: CAPTURE Your Decision Framework (15 min)</h4>
+                    <p><strong>Exercise: "How I Make Decisions"</strong></p>
+                    <p>Everyone documents in chat/notes:</p>
+                    <ul>
+                        <li>Your non-negotiables (What do you never compromise on?)</li>
+                        <li>Your framework (What questions do you always ask?)</li>
+                        <li>Recent decision example (Walk through your thought process)</li>
+                        <li><strong>Template provided:</strong> Decision-Making Framework</li>
+                    </ul>
+
+                    <h4>Part 2: BUILD Your Decision Assistant (30 min)</h4>
+                    <p><strong>Create Claude Project: "My Strategic Twin"</strong></p>
+                    <ul>
+                        <li>Create new Claude Project (everyone follows along)</li>
+                        <li>Add custom instructions with your framework</li>
+                        <li>Upload: Business goals, OKRs, past strategy docs</li>
+                        <li><strong>Test It Right Now:</strong> Ask about a REAL decision you're facing</li>
+                        <li>Breakout rooms (groups of 3): Share + refine together</li>
+                    </ul>
+
+                    <h4>Part 3: TEST Real Scenarios (15 min)</h4>
+                    <p><strong>3 Common Use Cases - Try One:</strong></p>
+                    <ul>
+                        <li><strong>Scenario A:</strong> Daily Prioritization</li>
+                        <li><strong>Scenario B:</strong> Opportunity Evaluation</li>
+                        <li><strong>Scenario C:</strong> Problem Solving</li>
+                        <li>Quick share: Post your AI's advice in chat - is it good?</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="break">⏸️ BREAK (15 minutes) - 1:30 PM</div>
+
+            <div class="session">
+                <div class="session-header">
+                    <div class="session-time">1:45 PM</div>
+                    <div class="session-duration">30 min</div>
+                </div>
+                <div class="session-title">INTEGRATION: Making Your Clones Work Together</div>
+                <div class="facilitator">All Facilitators</div>
+                <div class="session-content">
+                    <h4>The Power of Connected Clones</h4>
+
+                    <p><strong>Workflow Example 1: Meeting → Content Pipeline</strong></p>
+                    <ul>
+                        <li>Granola records meeting (Clone #2)</li>
+                        <li>Extract key insight from transcript</li>
+                        <li>Feed to Content Clone (Clone #3)</li>
+                        <li>Generate LinkedIn post about the insight</li>
+                        <li>Schedule in Buffer</li>
+                        <li><strong>Everyone builds this workflow right now (20 min)</strong></li>
+                    </ul>
+
+                    <p><strong>Workflow Example 2: Decision → Communication</strong></p>
+                    <ul>
+                        <li>Ask Strategic Twin for advice (Clone #4)</li>
+                        <li>Make decision</li>
+                        <li>Feed decision to Communication Clone (Clone #1)</li>
+                        <li>Generate team announcement email</li>
+                        <li><strong>Try this workflow (10 min)</strong></li>
+                    </ul>
+
+                    <div class="success-box">
+                        <strong>The Goal:</strong> Your clones aren't isolated - they feed each other
+                    </div>
+                </div>
+            </div>
+
+            <div class="session">
+                <div class="session-header">
+                    <div class="session-time">2:15 PM</div>
+                    <div class="session-duration">45 min</div>
+                </div>
+                <div class="session-title">BUILD SPRINT: Perfect Your Best Clone</div>
+                <div class="facilitator">All Facilitators Available for Support</div>
+                <div class="session-content">
+                    <div class="highlight-box">
+                        <strong>Pick ONE clone that will give you the most hours back. Spend 45 minutes making it perfect.</strong>
+                    </div>
+
+                    <h4>Options:</h4>
+                    <ul>
+                        <li><strong>Option A:</strong> Deep-dive into one clone (add more examples, refine prompts)</li>
+                        <li><strong>Option B:</strong> Build a new clone using the same frameworks</li>
+                        <li><strong>Option C:</strong> Create a workflow combining 2+ clones</li>
+                    </ul>
+
+                    <h4>Build Sprint Format:</h4>
+                    <ul>
+                        <li>0-15 min: Build alone, facilitators floating</li>
+                        <li>15-30 min: Breakout rooms for peer feedback (groups of 3)</li>
+                        <li>30-45 min: Final refinements</li>
+                    </ul>
+
+                    <p><strong>Facilitator Support:</strong></p>
+                    <ul>
+                        <li>Breakout room 1: Manon (Communication/Content clones)</li>
+                        <li>Breakout room 2: Vishen (Meeting/Decision clones)</li>
+                        <li>Breakout room 3: Vyk (Technical issues/integrations)</li>
+                    </ul>
+
+                    <div class="success-box">
+                        <strong>Deliverable:</strong> You'll present this in 15 minutes
+                    </div>
+                </div>
+            </div>
+
+            <div class="break">⏸️ BREAK (10 minutes) - 3:00 PM<br>Prepare your 3-minute presentation</div>
+
+            <div class="session">
+                <div class="session-header">
+                    <div class="session-time">3:10 PM</div>
+                    <div class="session-duration">45 min</div>
+                </div>
+                <div class="session-title">SHOWCASE: See Everyone's Clones</div>
+                <div class="facilitator">Lightning Presentations</div>
+                <div class="session-content">
+                    <h4>Instructions for Presenters (3 minutes each):</h4>
+                    <ul>
+                        <li><strong>1.</strong> Which clone did you build/perfect? (15 sec)</li>
+                        <li><strong>2.</strong> Quick demo - Show it working live (90 sec)</li>
+                        <li><strong>3.</strong> How many hours per week will this give you back? (30 sec)</li>
+                        <li><strong>4.</strong> One tip for others (15 sec)</li>
+                    </ul>
+
+                    <h4>Format:</h4>
+                    <ul>
+                        <li>15-20 people: 3 min each = 45-60 min</li>
+                        <li>Timer visible on screen</li>
+                        <li>Screenshots/screen share encouraged</li>
+                        <li>Quick claps/reactions after each person</li>
+                    </ul>
+
+                    <div class="success-box">
+                        <strong>Why This Matters:</strong><br>
+                        • You see 15-20 working clones (not just yours)<br>
+                        • You get ideas for what to build next<br>
+                        • You validate: "Everyone here built something real"
+                    </div>
+                </div>
+            </div>
+
+            <div class="session">
+                <div class="session-header">
+                    <div class="session-time">3:55 PM</div>
+                    <div class="session-duration">15 min</div>
+                </div>
+                <div class="session-title">Closing & Next Steps</div>
+                <div class="facilitator">Vishen</div>
+                <div class="session-content">
+                    <div class="success-box">
+                        <strong>What You Built in 48 Hours:</strong><br>
+                        ✅ Clone #1: Communication (15-23 hrs/week saved)<br>
+                        ✅ Clone #2: Meeting Intelligence (9-10 hrs/week saved)<br>
+                        ✅ Clone #3: Content Creation (5-7 hrs/week saved)<br>
+                        ✅ Clone #4: Decision-Making Assistant (10-17 hrs/week saved)<br>
+                        ✅ PLUS: Whatever you built in the sprint<br><br>
+                        <strong>TOTAL TIME SAVED: 39-57 hours/week</strong><br>
+                        <strong>Worth $203K-$1.48M/year depending on your hourly rate.</strong><br><br>
+                        That's 2-3 full workdays back. Every single week. To build, create, spend with family, or focus on what you're passionate about.
+                    </div>
+
+                    <h4>The Framework You Can Use Forever:</h4>
+                    <p><strong>CAPTURE → BUILD → TEST</strong> (for any repetitive task)</p>
+
+                    <h4>What You're Taking With You:</h4>
+                    <ul>
+                        <li>4 working clones saving you 39-57 hours every week</li>
+                        <li>The CAPTURE → BUILD → TEST framework to clone any future task</li>
+                        <li>All recordings, templates, and prompts</li>
+                        <li>Your life back—time to build, create, spend with family, or rest</li>
+                    </ul>
+
+                    <h4>Final Reflection:</h4>
+                    <p><strong>In chat:</strong> "What will you do with all the time you're getting back?"</p>
+
+                    <p><strong>Thank You:</strong></p>
+                    <ul>
+                        <li>Certificate of completion (emailed)</li>
+                        <li>Group screenshot</li>
+                        <li>You're now an AI orchestrator with 39-57 hours back every week</li>
+                    </ul>
+                </div>
+            </div>
+
+            <section class="section" id="deliverables">
+                <h2 class="section-title">What You Leave With</h2>
+                <div class="deliverables">
+                    <div class="deliverable-card">
+                        <h3>4 Working Clones</h3>
+                        <ul>
+                            <li>Communication Clone (tested on real emails)</li>
+                            <li>Meeting Intelligence Clone (tested on meetings)</li>
+                            <li>Content Creation Clone (posts queued in Buffer)</li>
+                            <li>Decision-Making Assistant (tested on real decisions)</li>
+                        </ul>
+                    </div>
+
+                    <div class="deliverable-card">
+                        <h3>Build Sprint Output</h3>
+                        <ul>
+                            <li>1 Polished Clone from 45-min sprint</li>
+                            <li>Refined and ready for Monday morning</li>
+                            <li>Validated by peers during breakouts</li>
+                        </ul>
+                    </div>
+
+                    <div class="deliverable-card">
+                        <h3>Community Examples</h3>
+                        <ul>
+                            <li>15-20 working examples from showcase</li>
+                            <li>Ideas for your next clones</li>
+                            <li>Proof that everyone built something real</li>
+                        </ul>
+                    </div>
+
+                    <div class="deliverable-card">
+                        <h3>Frameworks & Templates</h3>
+                        <ul>
+                            <li>CAPTURE → BUILD → TEST method</li>
+                            <li>All prompts and instructions</li>
+                            <li>Voice Profile template</li>
+                            <li>Decision-Making Framework</li>
+                            <li>All session recordings</li>
+                        </ul>
+                    </div>
+
+                    <div class="deliverable-card">
+                        <h3>Time & Life Back</h3>
+                        <ul>
+                            <li>39-57 hours per week saved</li>
+                            <li>That's 2-3 extra workdays EVERY week</li>
+                            <li>Worth $203K-$1.48M/year</li>
+                            <li>Time to build what matters</li>
+                            <li>Time with family and friends</li>
+                            <li>Your life back</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section" id="pricing">
+                <div class="pricing-section">
+                    <h3>Investment & Pricing</h3>
+                    <div class="pricing-cards">
+                        <div class="pricing-card">
+                            <div class="badge">EARLY BIRD</div>
+                            <div class="price">$1,295</div>
+                            <p>For seminar attendees</p>
+                            <hr style="margin: 20px 0;">
+                            <p><strong>What's Included:</strong></p>
+                            <ul style="text-align: left; margin-top: 15px;">
+                                <li>8 hours live hands-on workshop</li>
+                                <li>Build 4+ working clones</li>
+                                <li>All templates & frameworks</li>
+                                <li>39-57 hours saved per week (forever)</li>
+                                <li>All recordings and materials</li>
+                                <li>Certificate of completion</li>
+                            </ul>
+                        </div>
+
+                        <div class="pricing-card">
+                            <div class="badge" style="background: #6c757d;">REGULAR</div>
+                            <div class="price">$1,995</div>
+                            <p>Standard pricing</p>
+                            <hr style="margin: 20px 0;">
+                            <p><strong>Payment Options:</strong></p>
+                            <ul style="text-align: left; margin-top: 15px;">
+                                <li>Pay in full: $1,995</li>
+                                <li>2 payments: $1,047 × 2</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div style="background: rgba(255,255,255,0.2); padding: 20px; border-radius: 10px; margin-top: 30px; backdrop-filter: blur(10px);">
+                        <strong style="font-size: 1.4em;">The ROI:</strong><br>
+                        <p style="margin-top: 15px; font-size: 1.1em;">
+                            <strong>Time saved:</strong> 39-57 hours per week<br>
+                            <strong>Annual value at $100/hour:</strong> $202,800-$296,400<br>
+                            <strong>Annual value at $500/hour:</strong> $1.01M-$1.48M<br>
+                            <strong>Investment:</strong> $1,295 (one-time)<br>
+                            <strong>Payback:</strong> Less than 1 day of your time
+                        </p>
+                        <p style="margin-top: 15px;"><strong>The real value?</strong> Getting your life back. Spending time on what you're actually passionate about instead of repetitive tasks.</p>
+                    </div>
+
+                    <div style="background: rgba(255,255,255,0.2); padding: 20px; border-radius: 10px; margin-top: 20px; backdrop-filter: blur(10px);">
+                        <strong style="font-size: 1.2em;">Tools Required:</strong><br>
+                        <ul style="margin-top: 10px;">
+                            <li>ChatGPT Plus: $20/month (required)</li>
+                            <li>Granola AI: Free tier sufficient</li>
+                            <li>Buffer: Free tier sufficient</li>
+                            <li>Claude Pro: $20/month (optional)</li>
+                        </ul>
+                        <p style="margin-top: 15px;"><strong>Ongoing cost:</strong> $20-40/month to keep clones running</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div class="footer">
+            <p style="font-size: 1.3em; margin-bottom: 10px; font-weight: 600;">Stop wasting time on repetitive tasks.</p>
+            <p style="font-size: 1.1em;">Build 4 AI clones in 2 days. Get 39-57 hours back every week. Focus on what you're passionate about.</p>
+        </div>
+    </div>
+</body>
+</html>

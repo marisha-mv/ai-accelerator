@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workshop Setup Checklist - AI Clone Accelerator | Mindvalley</title>
+    <meta name="description" content="Get ready for the AI Clone Accelerator workshop. Set up your tools and prepare to build 5 AI clones.">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --mv-primary-purple: #7A12D4;
+            --mv-orange-accent: #FF6B35;
+            --mv-cool-grey-700: #2D3748;
+            --mv-cool-grey-500: #718096;
+            --mv-cool-grey-300: #CBD5E0;
+            --mv-cool-grey-250: #E2E8F0;
+            --mv-grey-lighter: #F7FAFC;
+            --mv-white: #FFFFFF;
+            --mv-success: #10B981;
+            --mv-warning: #F59E0B;
+            --mv-danger: #EF4444;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--mv-cool-grey-700);
+            background: var(--mv-grey-lighter);
+        }
+
+        /* Typography */
+        .mv-type--title1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            line-height: 1.1;
+            letter-spacing: -1px;
+        }
+
+        .mv-type--title2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 800;
+            line-height: 1.2;
+        }
+
+        .mv-type--title3 {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            font-weight: 700;
+            line-height: 1.3;
+        }
+
+        .mv-type--body {
+            font-size: 1.125rem;
+            line-height: 1.7;
+        }
+
+        /* Container */
+        .mv-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Hero */
+        .hero {
+            background: linear-gradient(135deg, var(--mv-primary-purple) 0%, #9D4EDD 100%);
+            color: white;
+            padding: 4rem 1.5rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 50% 0%, rgba(255,255,255,0.1) 0%, transparent 70%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .success-badge {
+            display: inline-block;
+            background: var(--mv-success);
+            color: white;
+            padding: 0.75rem 2rem;
+            border-radius: 50px;
+            font-size: 0.875rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .hero h1 {
+            margin-bottom: 1.5rem;
+        }
+
+        .hero p {
+            font-size: 1.375rem;
+            opacity: 0.95;
+            line-height: 1.6;
+        }
+
+        /* Progress Bar */
+        .progress-section {
+            background: white;
+            padding: 2rem 1.5rem;
+            border-bottom: 1px solid var(--mv-cool-grey-250);
+        }
+
+        .progress-bar-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .progress-label {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--mv-cool-grey-500);
+            margin-bottom: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .progress-bar {
+            height: 12px;
+            background: var(--mv-cool-grey-250);
+            border-radius: 50px;
+            overflow: hidden;
+            margin-bottom: 0.5rem;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--mv-success) 0%, #059669 100%);
+            border-radius: 50px;
+            width: 0%;
+            transition: width 0.5s ease;
+        }
+
+        .progress-text {
+            font-size: 0.875rem;
+            color: var(--mv-cool-grey-500);
+            text-align: right;
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: 4rem 1.5rem;
+        }
+
+        .section {
+            margin-bottom: 4rem;
+        }
+
+        .section-title {
+            font-size: clamp(1.75rem, 3vw, 2.5rem);
+            font-weight: 800;
+            color: var(--mv-cool-grey-700);
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--mv-cool-grey-500);
+            margin-bottom: 3rem;
+            font-size: 1.25rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
+
+        /* Checklist Items */
+        .checklist {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .checklist-item {
+            background: white;
+            border: 2px solid var(--mv-cool-grey-250);
+            border-radius: 20px;
+            padding: 2.5rem;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .checklist-item.completed {
+            border-color: var(--mv-success);
+            background: rgba(16, 185, 129, 0.03);
+        }
+
+        .checklist-item:hover {
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            transform: translateY(-2px);
+        }
+
+        .item-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .checkbox {
+            flex-shrink: 0;
+            width: 40px;
+            height: 40px;
+            border: 3px solid var(--mv-cool-grey-300);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            background: white;
+        }
+
+        .checkbox:hover {
+            border-color: var(--mv-primary-purple);
+        }
+
+        .checklist-item.completed .checkbox {
+            background: var(--mv-success);
+            border-color: var(--mv-success);
+        }
+
+        .checkbox::after {
+            content: '✓';
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 800;
+            opacity: 0;
+            transform: scale(0);
+            transition: all 0.3s;
+        }
+
+        .checklist-item.completed .checkbox::after {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .item-content {
+            flex: 1;
+        }
+
+        .item-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--mv-cool-grey-700);
+            margin-bottom: 0.75rem;
+        }
+
+        .item-description {
+            color: var(--mv-cool-grey-500);
+            line-height: 1.7;
+            margin-bottom: 1.25rem;
+            font-size: 1.0625rem;
+        }
+
+        .tool-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--mv-grey-lighter);
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            margin-right: 0.5rem;
+        }
+
+        .tool-cost {
+            color: var(--mv-success);
+            font-weight: 700;
+        }
+
+        .tool-cost.paid {
+            color: var(--mv-warning);
+        }
+
+        .action-button {
+            display: inline-block;
+            background: var(--mv-primary-purple);
+            color: white;
+            padding: 0.875rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1rem;
+            transition: all 0.3s;
+            margin-top: 1rem;
+        }
+
+        .action-button:hover {
+            background: #6A0FB8;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(122, 18, 212, 0.3);
+        }
+
+        .action-button.secondary {
+            background: var(--mv-cool-grey-250);
+            color: var(--mv-cool-grey-700);
+        }
+
+        .action-button.secondary:hover {
+            background: var(--mv-cool-grey-300);
+        }
+
+        /* Info Box */
+        .info-box {
+            background: linear-gradient(135deg, rgba(122, 18, 212, 0.08) 0%, rgba(157, 78, 221, 0.08) 100%);
+            border-left: 5px solid var(--mv-primary-purple);
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin: 1.5rem 0;
+        }
+
+        .info-box-title {
+            font-weight: 700;
+            color: var(--mv-primary-purple);
+            margin-bottom: 0.75rem;
+            font-size: 1.0625rem;
+        }
+
+        .info-box-content {
+            color: var(--mv-cool-grey-700);
+            line-height: 1.7;
+            font-size: 1rem;
+        }
+
+        .info-box ul {
+            margin-left: 1.5rem;
+            margin-top: 0.75rem;
+        }
+
+        .info-box li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Warning Box */
+        .warning-box {
+            background: rgba(245, 158, 11, 0.1);
+            border-left: 5px solid var(--mv-warning);
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin: 2rem 0;
+        }
+
+        /* Success Box */
+        .success-box {
+            background: rgba(16, 185, 129, 0.1);
+            border-left: 5px solid var(--mv-success);
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin: 2rem 0;
+        }
+
+        /* Countdown */
+        .countdown-box {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 16px;
+            text-align: center;
+            margin: 3rem auto;
+            max-width: 600px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        }
+
+        .countdown-title {
+            font-size: 1.125rem;
+            font-weight: 700;
+            color: var(--mv-cool-grey-700);
+            margin-bottom: 1.5rem;
+        }
+
+        .countdown {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+
+        .countdown-item {
+            background: var(--mv-grey-lighter);
+            padding: 1.5rem 1rem;
+            border-radius: 12px;
+        }
+
+        .countdown-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--mv-primary-purple);
+            display: block;
+            line-height: 1;
+        }
+
+        .countdown-label {
+            font-size: 0.75rem;
+            color: var(--mv-cool-grey-500);
+            text-transform: uppercase;
+            margin-top: 0.5rem;
+            font-weight: 600;
+        }
+
+        /* FAQ */
+        .faq-item {
+            background: white;
+            border: 1px solid var(--mv-cool-grey-250);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .faq-question {
+            font-weight: 700;
+            color: var(--mv-cool-grey-700);
+            margin-bottom: 0.75rem;
+            font-size: 1.0625rem;
+        }
+
+        .faq-answer {
+            color: var(--mv-cool-grey-500);
+            line-height: 1.7;
+            font-size: 1rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--mv-cool-grey-700);
+            color: white;
+            padding: 3rem 1.5rem;
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero {
+                padding: 3rem 1.5rem;
+            }
+
+            .main-content {
+                padding: 3rem 1.5rem;
+            }
+
+            .checklist-item {
+                padding: 1.75rem;
+            }
+
+            .item-header {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .checkbox {
+                width: 35px;
+                height: 35px;
+            }
+
+            .countdown {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hero -->
+    <div class="hero">
+        <div class="hero-content">
+            <div class="success-badge">✓ You're Enrolled!</div>
+            <h1 class="mv-type--title1">Welcome to the AI Clone Accelerator</h1>
+            <p>You're all set! Let's get your tools ready so you can build 5 working AI clones during the workshop.</p>
+        </div>
+    </div>
+
+    <!-- Progress Bar -->
+    <div class="progress-section">
+        <div class="progress-bar-container">
+            <div class="progress-label">Setup Progress</div>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progress-fill"></div>
+            </div>
+            <div class="progress-text"><span id="progress-count">0</span> of 5 tools ready</div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="mv-container">
+
+            <!-- Workshop Countdown -->
+            <div class="countdown-box">
+                <div class="countdown-title">Workshop Starts In:</div>
+                <div class="countdown">
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="days">00</span>
+                        <span class="countdown-label">Days</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="hours">00</span>
+                        <span class="countdown-label">Hours</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="minutes">00</span>
+                        <span class="countdown-label">Minutes</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="seconds">00</span>
+                        <span class="countdown-label">Seconds</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Important Dates -->
+            <div class="warning-box">
+                <h3 style="font-weight: 700; color: var(--mv-warning); margin-bottom: 1rem; font-size: 1.25rem;">📅 Important Dates</h3>
+                <p style="color: var(--mv-cool-grey-700); line-height: 1.8; font-size: 1.0625rem;">
+                    <strong>Workshop Dates:</strong> March 15-16, 2026<br>
+                    <strong>Time:</strong> 12:00 PM - 4:00 PM EST (both days)<br>
+                    <strong>Platform:</strong> Live on Zoom (link sent 24 hours before)<br>
+                    <strong>Setup Deadline:</strong> Complete checklist by March 14, 2026
+                </p>
+            </div>
+
+            <!-- Setup Checklist -->
+            <section class="section">
+                <h2 class="section-title">🛠️ Pre-Workshop Setup Checklist</h2>
+                <p class="section-subtitle">Set up these 5 tools BEFORE the workshop. You'll need them to build your AI clones. Complete this checklist by March 14.</p>
+
+                <div class="checklist">
+
+                    <!-- Tool 1: ChatGPT Plus -->
+                    <div class="checklist-item" data-item="1">
+                        <div class="item-header">
+                            <div class="checkbox" onclick="toggleComplete(1)"></div>
+                            <div class="item-content">
+                                <h3 class="item-title">1. ChatGPT Plus Account</h3>
+                                <div class="tool-badge">
+                                    <span class="tool-cost paid">$20/month</span>
+                                    <span>• Required</span>
+                                </div>
+                                <p class="item-description">
+                                    You'll use ChatGPT Plus to build Clone #1 (Communication) and Clone #3 (Content Creation). The free version won't work—you need access to Custom GPTs.
+                                </p>
+
+                                <div class="info-box">
+                                    <div class="info-box-title">📝 How to Set Up:</div>
+                                    <div class="info-box-content">
+                                        <ol style="margin-left: 1.25rem; line-height: 1.8;">
+                                            <li>Go to <a href="https://chat.openai.com/signup" target="_blank" style="color: var(--mv-primary-purple); font-weight: 600;">chat.openai.com</a></li>
+                                            <li>Sign up or log in to your account</li>
+                                            <li>Click "Upgrade to Plus" (top left)</li>
+                                            <li>Subscribe for $20/month</li>
+                                            <li>Verify you can access "Explore GPTs" in the sidebar</li>
+                                        </ol>
+                                    </div>
+                                </div>
+
+                                <a href="https://chat.openai.com/signup" target="_blank" class="action-button">Set Up ChatGPT Plus →</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tool 2: Granola AI -->
+                    <div class="checklist-item" data-item="2">
+                        <div class="item-header">
+                            <div class="checkbox" onclick="toggleComplete(2)"></div>
+                            <div class="item-content">
+                                <h3 class="item-title">2. Granola AI Account</h3>
+                                <div class="tool-badge">
+                                    <span class="tool-cost">FREE</span>
+                                    <span>• Required</span>
+                                </div>
+                                <p class="item-description">
+                                    Granola captures meeting notes automatically. You'll use this to build Clone #2 (Meeting Intelligence). The free tier is sufficient for the workshop.
+                                </p>
+
+                                <div class="info-box">
+                                    <div class="info-box-title">📝 How to Set Up:</div>
+                                    <div class="info-box-content">
+                                        <ol style="margin-left: 1.25rem; line-height: 1.8;">
+                                            <li>Go to <a href="https://granola.so" target="_blank" style="color: var(--mv-primary-purple); font-weight: 600;">granola.so</a></li>
+                                            <li>Sign up with your email</li>
+                                            <li>Download the Granola app (Mac or Windows)</li>
+                                            <li>Install and grant microphone permissions</li>
+                                            <li>Connect your calendar (Google or Outlook)</li>
+                                        </ol>
+                                    </div>
+                                </div>
+
+                                <a href="https://granola.so" target="_blank" class="action-button">Set Up Granola AI →</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tool 3: Buffer -->
+                    <div class="checklist-item" data-item="3">
+                        <div class="item-header">
+                            <div class="checkbox" onclick="toggleComplete(3)"></div>
+                            <div class="item-content">
+                                <h3 class="item-title">3. Buffer Account</h3>
+                                <div class="tool-badge">
+                                    <span class="tool-cost">FREE</span>
+                                    <span>• Required</span>
+                                </div>
+                                <p class="item-description">
+                                    Buffer schedules your social media content. You'll use this with Clone #3 (Content Creation) to automate your posting. Free tier allows 10 scheduled posts.
+                                </p>
+
+                                <div class="info-box">
+                                    <div class="info-box-title">📝 How to Set Up:</div>
+                                    <div class="info-box-content">
+                                        <ol style="margin-left: 1.25rem; line-height: 1.8;">
+                                            <li>Go to <a href="https://buffer.com/signup" target="_blank" style="color: var(--mv-primary-purple); font-weight: 600;">buffer.com</a></li>
+                                            <li>Sign up with email or Google</li>
+                                            <li>Connect your LinkedIn, Twitter, or Facebook account</li>
+                                            <li>Complete the quick onboarding tour</li>
+                                            <li>Test by scheduling one post (you'll delete it later)</li>
+                                        </ol>
+                                    </div>
+                                </div>
+
+                                <a href="https://buffer.com/signup" target="_blank" class="action-button">Set Up Buffer →</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tool 4: Claude Pro (Optional) -->
+                    <div class="checklist-item" data-item="4">
+                        <div class="item-header">
+                            <div class="checkbox" onclick="toggleComplete(4)"></div>
+                            <div class="item-content">
+                                <h3 class="item-title">4. Claude Pro Account (Optional)</h3>
+                                <div class="tool-badge">
+                                    <span class="tool-cost paid">$20/month</span>
+                                    <span>• Optional</span>
+                                </div>
+                                <p class="item-description">
+                                    Claude Pro is for Clone #5 (Strategy Twin). This is optional—we'll provide alternative options during the workshop if you don't want to subscribe.
+                                </p>
+
+                                <div class="info-box">
+                                    <div class="info-box-title">📝 How to Set Up (If You Want This Clone):</div>
+                                    <div class="info-box-content">
+                                        <ol style="margin-left: 1.25rem; line-height: 1.8;">
+                                            <li>Go to <a href="https://claude.ai" target="_blank" style="color: var(--mv-primary-purple); font-weight: 600;">claude.ai</a></li>
+                                            <li>Sign up or log in</li>
+                                            <li>Click "Upgrade to Claude Pro"</li>
+                                            <li>Subscribe for $20/month</li>
+                                            <li>Verify you can create Projects (sidebar option)</li>
+                                        </ol>
+                                        <p style="margin-top: 1rem; font-style: italic; font-size: 0.9375rem;">
+                                            <strong>Alternative:</strong> We'll show you how to use ChatGPT Plus for this clone if you prefer.
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <a href="https://claude.ai" target="_blank" class="action-button secondary">Set Up Claude Pro (Optional) →</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tool 5: Prepare Your Examples -->
+                    <div class="checklist-item" data-item="5">
+                        <div class="item-header">
+                            <div class="checkbox" onclick="toggleComplete(5)"></div>
+                            <div class="item-content">
+                                <h3 class="item-title">5. Gather Your Examples</h3>
+                                <div class="tool-badge">
+                                    <span class="tool-cost">FREE</span>
+                                    <span>• Required</span>
+                                </div>
+                                <p class="item-description">
+                                    To clone your voice and style, you'll need examples of your actual work. Gather these BEFORE the workshop so you're ready to build.
+                                </p>
+
+                                <div class="info-box">
+                                    <div class="info-box-title">📝 What to Gather:</div>
+                                    <div class="info-box-content">
+                                        <ul style="line-height: 1.8;">
+                                            <li><strong>5-10 emails you've sent</strong> (your best writing, in your voice)</li>
+                                            <li><strong>3-5 social media posts</strong> (LinkedIn, Twitter, etc.)</li>
+                                            <li><strong>1-2 strategy documents</strong> (if you have them: OKRs, goals, past decisions)</li>
+                                            <li><strong>List of FAQs your team asks</strong> (common questions you answer repeatedly)</li>
+                                        </ul>
+                                        <p style="margin-top: 1rem; font-style: italic;">
+                                            <strong>Pro Tip:</strong> Save these in a folder on your desktop labeled "AI Clone Workshop" so they're easy to find on workshop day.
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <button onclick="toggleComplete(5)" class="action-button secondary">Mark as Complete →</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- What to Expect -->
+            <section class="section">
+                <h2 class="section-title">📅 What to Expect Next</h2>
+
+                <div style="display: grid; gap: 1.5rem; margin-top: 2rem;">
+                    <div style="background: white; padding: 2rem; border-radius: 16px; border-left: 5px solid var(--mv-primary-purple);">
+                        <h4 style="font-weight: 700; color: var(--mv-cool-grey-700); margin-bottom: 0.75rem; font-size: 1.125rem;">7 Days Before Workshop</h4>
+                        <p style="color: var(--mv-cool-grey-500); line-height: 1.7;">You'll receive an email with the workshop agenda, Zoom link, and final preparation instructions. Make sure all tools are set up by this point.</p>
+                    </div>
+
+                    <div style="background: white; padding: 2rem; border-radius: 16px; border-left: 5px solid var(--mv-primary-purple);">
+                        <h4 style="font-weight: 700; color: var(--mv-cool-grey-700); margin-bottom: 0.75rem; font-size: 1.125rem;">24 Hours Before Workshop</h4>
+                        <p style="color: var(--mv-cool-grey-500); line-height: 1.7;">Final reminder email with Zoom link, tech check instructions, and what to have ready. Test your microphone and camera.</p>
+                    </div>
+
+                    <div style="background: white; padding: 2rem; border-radius: 16px; border-left: 5px solid var(--mv-success);">
+                        <h4 style="font-weight: 700; color: var(--mv-cool-grey-700); margin-bottom: 0.75rem; font-size: 1.125rem;">Workshop Day 1 (March 15)</h4>
+                        <p style="color: var(--mv-cool-grey-500); line-height: 1.7;">
+                            <strong>12:00 PM - 4:00 PM EST</strong><br>
+                            Join Zoom 5 minutes early. You'll build Clone #1 (Communication), Clone #2 (Meeting Intelligence), and Clone #3 (Content Creation). Test each clone on your real work before moving on.
+                        </p>
+                    </div>
+
+                    <div style="background: white; padding: 2rem; border-radius: 16px; border-left: 5px solid var(--mv-success);">
+                        <h4 style="font-weight: 700; color: var(--mv-cool-grey-700); margin-bottom: 0.75rem; font-size: 1.125rem;">Workshop Day 2 (March 16)</h4>
+                        <p style="color: var(--mv-cool-grey-500); line-height: 1.7;">
+                            <strong>12:00 PM - 4:00 PM EST</strong><br>
+                            Build Clone #4 (Team Q&A) and Clone #5 (Strategy Twin). Then: Integration session, 45-minute Build Sprint to perfect your best clone, and Showcase where you present your results.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Quick Wins -->
+            <section class="section">
+                <h2 class="section-title">🎯 Quick Wins While You Wait</h2>
+
+                <div class="success-box">
+                    <h3 style="font-weight: 700; color: var(--mv-success); margin-bottom: 1rem; font-size: 1.25rem;">Start Thinking About Your Clones Now</h3>
+                    <p style="color: var(--mv-cool-grey-700); line-height: 1.8; font-size: 1.0625rem; margin-bottom: 1rem;">
+                        Get a head start by thinking about which repetitive tasks you want to automate:
+                    </p>
+                    <ul style="margin-left: 1.5rem; color: var(--mv-cool-grey-700); line-height: 1.8;">
+                        <li>What types of emails do you send over and over?</li>
+                        <li>How much time do you spend on meeting notes each week?</li>
+                        <li>What content do you need to create regularly?</li>
+                        <li>What questions does your team ask you repeatedly?</li>
+                        <li>What decisions do you make over and over?</li>
+                    </ul>
+                    <p style="margin-top: 1rem; font-style: italic; color: var(--mv-cool-grey-700);">
+                        <strong>Bonus:</strong> Email us your answers at support@mindvalley.com with subject "My Clone Ideas" and we'll give you personalized suggestions before the workshop!
+                    </p>
+                </div>
+            </section>
+
+            <!-- FAQ -->
+            <section class="section">
+                <h2 class="section-title">❓ Common Questions</h2>
+
+                <div class="faq-item">
+                    <div class="faq-question">What if I can't set up all the tools before the workshop?</div>
+                    <div class="faq-answer">We have a tech support team available during the workshop to help you. However, setting up beforehand means more time building clones and less time troubleshooting. Aim to complete this checklist 2-3 days before the workshop.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">Do I really need to pay for ChatGPT Plus?</div>
+                    <div class="faq-answer">Yes, it's required. The free version of ChatGPT doesn't allow Custom GPTs, which you need for your Communication and Content clones. Think of it as part of your workshop materials—$20 for a tool that will save you 20+ hours per week.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">Is Claude Pro really optional?</div>
+                    <div class="faq-answer">Yes. We'll show you how to build your Strategy Twin using either Claude Pro OR ChatGPT Plus. Choose whichever you prefer. Both work equally well.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">What if I miss Day 1 or Day 2?</div>
+                    <div class="faq-answer">Both days are required to build all 5 clones. If you absolutely must miss a session, we'll send you the recording, but you'll miss the live facilitation and peer support. Try to attend both days live for the best experience.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">Will I really build 5 working clones in 2 days?</div>
+                    <div class="faq-answer">Yes. We use the CAPTURE → BUILD → TEST method for each clone. You'll gather your examples, build the clone with step-by-step guidance, and test it on your real work—all during the live sessions. Everyone leaves with working clones.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">Can I get a refund if I change my mind?</div>
+                    <div class="faq-answer">Absolutely. You have 15 days after the workshop to request a full refund if you're not satisfied. One-click refund, no questions asked. We're confident you'll build working clones that save you real time.</div>
+                </div>
+            </section>
+
+            <!-- Need Help -->
+            <section class="section">
+                <div style="background: white; padding: 3rem; border-radius: 20px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.08);">
+                    <h2 style="font-size: 2rem; font-weight: 700; color: var(--mv-cool-grey-700); margin-bottom: 1rem;">Need Help?</h2>
+                    <p style="color: var(--mv-cool-grey-500); margin-bottom: 2rem; font-size: 1.125rem;">We're here to support you every step of the way.</p>
+                    <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                        <a href="mailto:support@mindvalley.com" class="action-button">Email Support</a>
+                        <a href="https://support.mindvalley.com" target="_blank" class="action-button secondary">Visit Help Center</a>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="mv-container">
+            <p style="margin-bottom: 0.75rem; font-size: 1rem;">© 2026 Mindvalley. All rights reserved.</p>
+            <p style="color: rgba(255,255,255,0.7); font-size: 0.875rem; margin-bottom: 1.5rem;">Questions? Email: support@mindvalley.com</p>
+        </div>
+    </footer>
+
+    <script>
+        // COUNTDOWN TIMER
+        const workshopDate = new Date('March 15, 2026 12:00:00 EST').getTime();
+
+        const countdown = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = workshopDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById('days').innerHTML = days.toString().padStart(2, '0');
+            document.getElementById('hours').innerHTML = hours.toString().padStart(2, '0');
+            document.getElementById('minutes').innerHTML = minutes.toString().padStart(2, '0');
+            document.getElementById('seconds').innerHTML = seconds.toString().padStart(2, '0');
+
+            if (distance < 0) {
+                clearInterval(countdown);
+                document.querySelector('.countdown-box').innerHTML = '<div style="padding: 2rem; font-size: 1.5rem; font-weight: 700; color: var(--mv-success);">Workshop is starting now! Join via the Zoom link in your email.</div>';
+            }
+        }, 1000);
+
+        // CHECKLIST FUNCTIONALITY
+        let completedItems = JSON.parse(localStorage.getItem('aiCloneSetup') || '[]');
+
+        // Load saved progress
+        window.addEventListener('DOMContentLoaded', function() {
+            completedItems.forEach(item => {
+                const element = document.querySelector(`[data-item="${item}"]`);
+                if (element) {
+                    element.classList.add('completed');
+                }
+            });
+            updateProgress();
+        });
+
+        function toggleComplete(itemNumber) {
+            const item = document.querySelector(`[data-item="${itemNumber}"]`);
+
+            if (completedItems.includes(itemNumber)) {
+                // Remove from completed
+                completedItems = completedItems.filter(i => i !== itemNumber);
+                item.classList.remove('completed');
+            } else {
+                // Add to completed
+                completedItems.push(itemNumber);
+                item.classList.add('completed');
+            }
+
+            // Save progress
+            localStorage.setItem('aiCloneSetup', JSON.stringify(completedItems));
+            updateProgress();
+        }
+
+        function updateProgress() {
+            const count = completedItems.length;
+            const percentage = (count / 5) * 100;
+
+            document.getElementById('progress-fill').style.width = percentage + '%';
+            document.getElementById('progress-count').textContent = count;
+
+            // Celebrate when complete
+            if (count === 5) {
+                setTimeout(() => {
+                    alert('🎉 Amazing! You\'re all set for the workshop!\n\nWe\'ll send you the Zoom link 24 hours before the workshop starts.\n\nSee you on March 15!');
+                }, 300);
+            }
+        }
+    </script>
+
+</body>
+</html>

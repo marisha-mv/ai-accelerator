@@ -1,0 +1,1337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clone Yourself With AI - Free Live Masterclass with Vishen | Mindvalley</title>
+    <meta name="description" content="Watch 5 AI Clones Work Live. See how to get 40+ hours back every week. Free 90-minute masterclass with Vishen Lakhiani.">
+
+    <style>
+        /* MINDVALLEY DESIGN SYSTEM - ENHANCED */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --mv-primary-purple: #7A12D4;
+            --mv-orange-accent: #FF6B35;
+            --mv-cool-grey-700: #2D3748;
+            --mv-cool-grey-500: #718096;
+            --mv-cool-grey-300: #CBD5E0;
+            --mv-cool-grey-250: #E2E8F0;
+            --mv-grey-lighter: #F7FAFC;
+            --mv-white: #FFFFFF;
+            --mv-black: #000000;
+            --mv-success: #10B981;
+            --mv-warning: #F59E0B;
+            --mv-danger: #EF4444;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--mv-cool-grey-700);
+            background: var(--mv-white);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Typography */
+        .mv-type--title1 {
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            font-weight: 800;
+            line-height: 1.1;
+            letter-spacing: -1px;
+        }
+
+        .mv-type--title2 {
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            font-weight: 800;
+            line-height: 1.2;
+            letter-spacing: -0.5px;
+        }
+
+        .mv-type--title3 {
+            font-size: clamp(1.5rem, 3vw, 2.4rem);
+            font-weight: 700;
+            line-height: 1.3;
+        }
+
+        .mv-type--body {
+            font-size: 1.125rem;
+            line-height: 1.7;
+            color: var(--mv-cool-grey-700);
+        }
+
+        .mv-type--body-lg {
+            font-size: 1.375rem;
+            line-height: 1.6;
+        }
+
+        .mv-type--caption {
+            font-size: 0.9375rem;
+            line-height: 1.5;
+            color: var(--mv-cool-grey-500);
+        }
+
+        /* Container */
+        .mv-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Sticky Navigation */
+        .mv-sticky-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.98);
+            border-bottom: 1px solid var(--mv-cool-grey-250);
+            z-index: 1000;
+            padding: 1rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .mv-logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--mv-primary-purple);
+            text-decoration: none;
+        }
+
+        .mv-nav-cta {
+            display: none;
+        }
+
+        @media (min-width: 768px) {
+            .mv-nav-cta {
+                display: block;
+            }
+        }
+
+        /* Hero Section */
+        .mv-hero {
+            background: linear-gradient(135deg, #F8EFFF 0%, #E8D4FF 100%);
+            padding: 120px 20px 80px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .mv-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 50% 0%, rgba(122, 18, 212, 0.08) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .mv-hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+            text-align: center;
+        }
+
+        .mv-badge {
+            display: inline-block;
+            background: var(--mv-white);
+            color: var(--mv-primary-purple);
+            padding: 0.625rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.875rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 15px rgba(122, 18, 212, 0.15);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .mv-hero h1 {
+            margin-bottom: 1.5rem;
+            color: var(--mv-cool-grey-700);
+        }
+
+        .mv-hero .subtitle {
+            font-size: clamp(1.125rem, 2vw, 1.5rem);
+            color: var(--mv-cool-grey-500);
+            margin-bottom: 3rem;
+            line-height: 1.6;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Hero Image Placeholder */
+        .mv-hero-image {
+            max-width: 800px;
+            margin: 3rem auto 0;
+            background: linear-gradient(135deg, rgba(122, 18, 212, 0.1) 0%, rgba(157, 78, 221, 0.1) 100%);
+            border: 2px dashed var(--mv-primary-purple);
+            border-radius: 16px;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .image-placeholder {
+            background: linear-gradient(135deg, rgba(122, 18, 212, 0.05) 0%, rgba(157, 78, 221, 0.05) 100%);
+            border: 2px dashed var(--mv-cool-grey-300);
+            border-radius: 12px;
+            padding: 3rem 2rem;
+            text-align: center;
+            color: var(--mv-cool-grey-500);
+        }
+
+        .image-placeholder-title {
+            font-weight: 700;
+            font-size: 1.125rem;
+            color: var(--mv-primary-purple);
+            margin-bottom: 0.75rem;
+        }
+
+        .image-placeholder-desc {
+            font-size: 0.9375rem;
+            line-height: 1.6;
+            color: var(--mv-cool-grey-500);
+        }
+
+        /* Countdown Timer */
+        .mv-countdown {
+            background: var(--mv-white);
+            padding: 2.5rem 2rem;
+            border-radius: 16px;
+            margin: 3rem auto;
+            max-width: 700px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+            border: 1px solid var(--mv-cool-grey-250);
+        }
+
+        .mv-countdown-title {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--mv-cool-grey-700);
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-align: center;
+        }
+
+        .mv-countdown-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+
+        .mv-countdown-item {
+            text-align: center;
+            padding: 1rem;
+            background: var(--mv-grey-lighter);
+            border-radius: 12px;
+        }
+
+        .mv-countdown-number {
+            font-size: clamp(2.5rem, 4vw, 3.5rem);
+            font-weight: 800;
+            color: var(--mv-primary-purple);
+            line-height: 1;
+            display: block;
+        }
+
+        .mv-countdown-label {
+            font-size: 0.75rem;
+            color: var(--mv-cool-grey-500);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-top: 0.5rem;
+            font-weight: 600;
+        }
+
+        /* Buttons */
+        .mv-btn {
+            display: inline-block;
+            padding: 1.125rem 2.5rem;
+            border-radius: 8px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1.0625rem;
+            letter-spacing: 0.3px;
+        }
+
+        .mv-btn-primary {
+            background: var(--mv-primary-purple);
+            color: var(--mv-white);
+            box-shadow: 0 4px 20px rgba(122, 18, 212, 0.3);
+        }
+
+        .mv-btn-primary:hover {
+            background: #6A0FB8;
+            box-shadow: 0 6px 25px rgba(122, 18, 212, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .mv-btn-large {
+            padding: 1.375rem 3.5rem;
+            font-size: 1.125rem;
+        }
+
+        /* Stats Bar - FIXED LAYOUT */
+        .mv-stats {
+            background: var(--mv-white);
+            border-top: 1px solid var(--mv-cool-grey-250);
+            border-bottom: 1px solid var(--mv-cool-grey-250);
+            padding: 3.5rem 1.5rem;
+        }
+
+        .mv-stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .mv-stat-item {
+            text-align: center;
+            padding: 1rem;
+        }
+
+        .mv-stat-number {
+            font-size: clamp(2.5rem, 4vw, 3.5rem);
+            font-weight: 800;
+            color: var(--mv-primary-purple);
+            line-height: 1;
+            display: block;
+            margin-bottom: 0.875rem;
+            white-space: nowrap;
+        }
+
+        .mv-stat-label {
+            font-size: 1rem;
+            color: var(--mv-cool-grey-500);
+            line-height: 1.4;
+            font-weight: 500;
+        }
+
+        /* Section Styling */
+        .mv-section {
+            padding: 6rem 1.5rem;
+        }
+
+        .mv-section-grey {
+            background: var(--mv-grey-lighter);
+        }
+
+        .mv-section-title {
+            text-align: center;
+            margin-bottom: 1.5rem;
+            color: var(--mv-cool-grey-700);
+        }
+
+        .mv-section-subtitle {
+            text-align: center;
+            max-width: 750px;
+            margin: 0 auto 4rem auto;
+            color: var(--mv-cool-grey-500);
+            font-size: 1.25rem;
+            line-height: 1.7;
+        }
+
+        /* Problem Cards - Enhanced */
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 1100px;
+            margin: 4rem auto;
+        }
+
+        .problem-card {
+            background: var(--mv-white);
+            border: 1px solid var(--mv-cool-grey-250);
+            border-radius: 16px;
+            padding: 2.5rem 2rem;
+            transition: all 0.3s ease;
+            border-left: 4px solid var(--mv-danger);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .problem-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--mv-danger) 0%, #DC2626 100%);
+        }
+
+        .problem-card:hover {
+            box-shadow: 0 15px 40px rgba(239, 68, 68, 0.12);
+            transform: translateY(-5px);
+        }
+
+        .problem-card h3 {
+            font-size: 1.375rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--mv-cool-grey-700);
+        }
+
+        .problem-value {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--mv-danger);
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .problem-card p {
+            color: var(--mv-cool-grey-500);
+            line-height: 1.7;
+            font-size: 1.0625rem;
+        }
+
+        /* Clone Cards - Enhanced */
+        .clone-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin: 4rem 0;
+        }
+
+        .clone-card {
+            background: var(--mv-white);
+            border: 1px solid var(--mv-cool-grey-250);
+            border-radius: 20px;
+            padding: 2.5rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .clone-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, var(--mv-primary-purple) 0%, #9D4EDD 100%);
+        }
+
+        .clone-card:hover {
+            box-shadow: 0 20px 50px rgba(122, 18, 212, 0.15);
+            transform: translateY(-8px);
+            border-color: var(--mv-primary-purple);
+        }
+
+        .clone-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--mv-primary-purple) 0%, #9D4EDD 100%);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin-bottom: 1.75rem;
+            box-shadow: 0 8px 20px rgba(122, 18, 212, 0.25);
+        }
+
+        .clone-card h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1.25rem;
+            color: var(--mv-cool-grey-700);
+        }
+
+        .clone-value {
+            font-size: 2.25rem;
+            font-weight: 800;
+            color: var(--mv-success);
+            margin-bottom: 1.25rem;
+            display: block;
+        }
+
+        .clone-card p {
+            color: var(--mv-cool-grey-500);
+            line-height: 1.75;
+            font-size: 1.0625rem;
+        }
+
+        /* Value Banner - Enhanced */
+        .mv-value-banner {
+            background: linear-gradient(135deg, var(--mv-success) 0%, #059669 100%);
+            color: var(--mv-white);
+            padding: 4rem 3rem;
+            border-radius: 20px;
+            text-align: center;
+            margin: 5rem auto;
+            max-width: 900px;
+            box-shadow: 0 20px 60px rgba(16, 185, 129, 0.25);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .mv-value-banner::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .mv-value-number {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 900;
+            margin-bottom: 1.25rem;
+            line-height: 1;
+            position: relative;
+            z-index: 1;
+        }
+
+        .mv-value-description {
+            font-size: 1.375rem;
+            line-height: 1.6;
+            max-width: 700px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Checklist - Enhanced */
+        .mv-checklist {
+            list-style: none;
+            max-width: 800px;
+            margin: 3rem auto;
+        }
+
+        .mv-checklist li {
+            padding: 1.5rem 0 1.5rem 3rem;
+            position: relative;
+            font-size: 1.125rem;
+            line-height: 1.7;
+            color: var(--mv-cool-grey-700);
+            border-bottom: 1px solid var(--mv-cool-grey-250);
+        }
+
+        .mv-checklist li:last-child {
+            border-bottom: none;
+        }
+
+        .mv-checklist li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            top: 1.5rem;
+            color: var(--mv-success);
+            font-size: 1.75rem;
+            font-weight: 800;
+            width: 36px;
+            height: 36px;
+            background: rgba(16, 185, 129, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Testimonials - Enhanced */
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+            margin: 4rem 0;
+        }
+
+        .mv-testimonial {
+            background: var(--mv-white);
+            border: 1px solid var(--mv-cool-grey-250);
+            border-left: 5px solid var(--mv-primary-purple);
+            padding: 2.5rem;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+            transition: all 0.3s ease;
+        }
+
+        .mv-testimonial:hover {
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+            transform: translateY(-5px);
+        }
+
+        .testimonial-avatar {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--mv-primary-purple) 0%, #9D4EDD 100%);
+            border-radius: 50%;
+            margin-bottom: 1.5rem;
+        }
+
+        .mv-testimonial-quote {
+            font-size: 1.125rem;
+            line-height: 1.8;
+            margin-bottom: 1.75rem;
+            color: var(--mv-cool-grey-700);
+            font-style: italic;
+        }
+
+        .mv-testimonial-author {
+            font-weight: 700;
+            font-size: 1.125rem;
+            color: var(--mv-primary-purple);
+            margin-bottom: 0.25rem;
+        }
+
+        .mv-testimonial-title {
+            font-size: 0.9375rem;
+            color: var(--mv-cool-grey-500);
+            margin-bottom: 1rem;
+        }
+
+        .mv-testimonial-result {
+            font-size: 1.0625rem;
+            font-weight: 700;
+            color: var(--mv-success);
+            display: inline-block;
+            background: rgba(16, 185, 129, 0.1);
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+        }
+
+        /* Vishen Bio Section */
+        .vishen-bio {
+            max-width: 1000px;
+            margin: 4rem auto;
+            background: var(--mv-white);
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+            border: 1px solid var(--mv-cool-grey-250);
+        }
+
+        .vishen-content {
+            padding: 4rem 3rem;
+        }
+
+        /* Form Container - Enhanced */
+        .mv-form-container {
+            background: var(--mv-white);
+            border-radius: 24px;
+            padding: 4rem 3rem;
+            max-width: 650px;
+            margin: 0 auto;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            border: 1px solid var(--mv-cool-grey-250);
+        }
+
+        .mv-form-title {
+            font-size: 2.25rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            color: var(--mv-cool-grey-700);
+            text-align: center;
+        }
+
+        .mv-form-subtitle {
+            text-align: center;
+            color: var(--mv-cool-grey-500);
+            margin-bottom: 3rem;
+            font-size: 1.125rem;
+            line-height: 1.6;
+        }
+
+        .mv-form-group {
+            margin-bottom: 1.75rem;
+        }
+
+        .mv-form-label {
+            display: block;
+            margin-bottom: 0.625rem;
+            font-weight: 600;
+            color: var(--mv-cool-grey-700);
+            font-size: 0.9375rem;
+        }
+
+        .mv-form-input,
+        .mv-form-select {
+            width: 100%;
+            padding: 1rem 1.25rem;
+            border: 2px solid var(--mv-cool-grey-250);
+            border-radius: 10px;
+            font-size: 1.0625rem;
+            transition: all 0.2s;
+            font-family: inherit;
+            background: var(--mv-white);
+        }
+
+        .mv-form-input:focus,
+        .mv-form-select:focus {
+            outline: none;
+            border-color: var(--mv-primary-purple);
+            box-shadow: 0 0 0 4px rgba(122, 18, 212, 0.1);
+        }
+
+        /* Trust Badges */
+        .mv-trust-badges {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin: 2.5rem 0;
+            flex-wrap: wrap;
+        }
+
+        .mv-trust-badge {
+            text-align: center;
+        }
+
+        .mv-trust-icon {
+            font-size: 2.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .mv-trust-text {
+            font-size: 0.875rem;
+            color: var(--mv-cool-grey-500);
+            font-weight: 600;
+        }
+
+        /* FAQ - Enhanced */
+        .faq-grid {
+            max-width: 900px;
+            margin: 4rem auto;
+        }
+
+        .mv-faq-item {
+            background: var(--mv-white);
+            border: 1px solid var(--mv-cool-grey-250);
+            border-radius: 16px;
+            padding: 2.5rem;
+            margin-bottom: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .mv-faq-item:hover {
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+            border-color: var(--mv-primary-purple);
+        }
+
+        .mv-faq-question {
+            font-size: 1.375rem;
+            font-weight: 700;
+            margin-bottom: 1.25rem;
+            color: var(--mv-cool-grey-700);
+        }
+
+        .mv-faq-answer {
+            color: var(--mv-cool-grey-500);
+            line-height: 1.8;
+            font-size: 1.0625rem;
+        }
+
+        /* Guarantee Badge - Enhanced */
+        .mv-guarantee {
+            background: linear-gradient(135deg, #FCD34D 0%, #F59E0B 100%);
+            color: var(--mv-cool-grey-700);
+            padding: 4rem 3rem;
+            border-radius: 24px;
+            text-align: center;
+            margin: 5rem auto;
+            max-width: 800px;
+            box-shadow: 0 20px 60px rgba(245, 158, 11, 0.25);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .mv-guarantee::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -20%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .mv-guarantee-title {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .mv-guarantee-text {
+            font-size: 1.125rem;
+            line-height: 1.7;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* CTA Box */
+        .cta-box {
+            max-width: 750px;
+            margin: 4rem auto;
+            text-align: center;
+            background: var(--mv-white);
+            padding: 4rem 3rem;
+            border-radius: 24px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+            border: 1px solid var(--mv-cool-grey-250);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--mv-cool-grey-700);
+            color: var(--mv-white);
+            padding: 4rem 1.5rem;
+            text-align: center;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .mv-section {
+                padding: 4rem 1.5rem;
+            }
+
+            .mv-form-container {
+                padding: 2.5rem 1.75rem;
+            }
+
+            .mv-countdown-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+
+            .problem-grid,
+            .clone-grid,
+            .testimonial-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .mv-value-banner,
+            .mv-guarantee,
+            .cta-box {
+                padding: 3rem 2rem;
+            }
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Sticky Navigation -->
+    <div class="mv-sticky-nav">
+        <a href="https://www.mindvalley.com" class="mv-logo">MINDVALLEY</a>
+        <div class="mv-nav-cta">
+            <a href="#register" class="mv-btn mv-btn-primary">Register Free</a>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="mv-hero">
+        <div class="mv-hero-content">
+            <div class="mv-badge">Free Live Masterclass with Vishen</div>
+            <h1 class="mv-type--title1">Clone Yourself With AI</h1>
+            <p class="subtitle">Watch 5 AI Clones Work Live—See How to Get 40+ Hours Back Every Week</p>
+
+            <!-- IMAGE PLACEHOLDER: Hero Visual -->
+            <div class="mv-hero-image">
+                <div class="image-placeholder-title">🎨 HERO IMAGE NEEDED</div>
+                <div class="image-placeholder-desc">
+                    <strong>Design Brief:</strong> Create a compelling hero image showing either:<br>
+                    • Vishen with holographic AI clones around him (futuristic feel)<br>
+                    • OR: Split screen showing "Before" (overwhelmed, stressed) vs "After" (relaxed, successful)<br>
+                    • OR: Abstract visualization of 5 AI clone avatars in Mindvalley purple gradient<br>
+                    <strong>Dimensions:</strong> 800px wide x 500px tall (2x for retina)<br>
+                    <strong>Style:</strong> Modern, clean, Mindvalley brand colors (purple gradient)<br>
+                    <strong>Format:</strong> WebP or PNG with transparency
+                </div>
+            </div>
+
+            <!-- Countdown Timer -->
+            <div class="mv-countdown">
+                <div class="mv-countdown-title">Webinar Starts In:</div>
+                <div class="mv-countdown-grid">
+                    <div class="mv-countdown-item">
+                        <span class="mv-countdown-number" id="days">00</span>
+                        <span class="mv-countdown-label">Days</span>
+                    </div>
+                    <div class="mv-countdown-item">
+                        <span class="mv-countdown-number" id="hours">00</span>
+                        <span class="mv-countdown-label">Hours</span>
+                    </div>
+                    <div class="mv-countdown-item">
+                        <span class="mv-countdown-number" id="minutes">00</span>
+                        <span class="mv-countdown-label">Minutes</span>
+                    </div>
+                    <div class="mv-countdown-item">
+                        <span class="mv-countdown-number" id="seconds">00</span>
+                        <span class="mv-countdown-label">Seconds</span>
+                    </div>
+                </div>
+            </div>
+
+            <a href="#register" class="mv-btn mv-btn-primary mv-btn-large">Claim Your Free Virtual Access</a>
+            <p class="mv-type--caption" style="margin-top: 1.25rem;">90 minutes • Live on Zoom • Free to attend</p>
+        </div>
+    </section>
+
+    <!-- Stats Bar - FIXED LAYOUT -->
+    <section class="mv-stats">
+        <div class="mv-stats-grid">
+            <div class="mv-stat-item">
+                <span class="mv-stat-number">90 min</span>
+                <span class="mv-stat-label">Live Demo Session</span>
+            </div>
+            <div class="mv-stat-item">
+                <span class="mv-stat-number">5 Clones</span>
+                <span class="mv-stat-label">Working Live</span>
+            </div>
+            <div class="mv-stat-item">
+                <span class="mv-stat-number">40+ hrs</span>
+                <span class="mv-stat-label">Saved Per Week</span>
+            </div>
+            <div class="mv-stat-item">
+                <span class="mv-stat-number">FREE</span>
+                <span class="mv-stat-label">No Cost</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Problem Section -->
+    <section class="mv-section">
+        <div class="mv-container">
+            <h2 class="mv-section-title mv-type--title2">You're Drowning in Repetitive Tasks</h2>
+            <p class="mv-section-subtitle">Most entrepreneurs waste 40-60 hours every week on the same tasks over and over. Email. Meetings. Content. Decisions. These tasks steal your life.</p>
+
+            <div class="problem-grid">
+                <div class="problem-card">
+                    <h3>Email & Communication</h3>
+                    <span class="problem-value">15-20 hrs/week</span>
+                    <p>Responding to emails, messages, updates. Your mornings are gone before you even start real work.</p>
+                </div>
+
+                <div class="problem-card">
+                    <h3>Meetings & Notes</h3>
+                    <span class="problem-value">10+ hrs/week</span>
+                    <p>Taking notes, writing follow-ups, documenting decisions. Your afternoons vanish into administrative work.</p>
+                </div>
+
+                <div class="problem-card">
+                    <h3>Content Creation</h3>
+                    <span class="problem-value">5-10 hrs/week</span>
+                    <p>LinkedIn posts, tweets, newsletters, social media. Your Sundays are consumed by content stress.</p>
+                </div>
+
+                <div class="problem-card">
+                    <h3>Daily Decisions</h3>
+                    <span class="problem-value">10-15 hrs/week</span>
+                    <p>Prioritizing tasks, evaluating opportunities, strategic thinking. Decision fatigue is draining you.</p>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 4rem;">
+                <p class="mv-type--title3" style="color: var(--mv-danger); margin-bottom: 1.25rem;">That's 40-60 Hours Per Week</p>
+                <p class="mv-type--body-lg" style="color: var(--mv-cool-grey-500);">Spent on repetitive tasks that could be automated. That's your LIFE being stolen by busy work.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Solution Preview -->
+    <section class="mv-section mv-section-grey">
+        <div class="mv-container">
+            <h2 class="mv-section-title mv-type--title2">What If You Could Automate All of It?</h2>
+            <p class="mv-section-subtitle">In this 90-minute live demo, you'll watch Vishen's 5 AI clones work in real-time. No theory. Just working AI that saves 40+ hours every week.</p>
+
+            <!-- IMAGE PLACEHOLDER: 5 Clones Visualization -->
+            <div class="image-placeholder" style="margin: 3rem auto; max-width: 1000px;">
+                <div class="image-placeholder-title">🎨 5 CLONES VISUALIZATION IMAGE NEEDED</div>
+                <div class="image-placeholder-desc">
+                    <strong>Design Brief:</strong> Create an infographic showing 5 distinct AI clone avatars/icons:<br>
+                    1. Communication Clone (email icon) - Purple<br>
+                    2. Content Creation Clone (pen/lightbulb) - Orange<br>
+                    3. Meeting Intelligence (calendar/notes) - Blue<br>
+                    4. Team Q&A Bot (chat bubble) - Green<br>
+                    5. Strategy Twin (target/brain) - Gold<br>
+                    <strong>Layout:</strong> 5 icons in a row or circular arrangement<br>
+                    <strong>Style:</strong> Modern, gradient icons with labels and time-saved badges<br>
+                    <strong>Dimensions:</strong> 1000px x 300px (2x for retina)<br>
+                    <strong>Format:</strong> WebP or PNG with transparency
+                </div>
+            </div>
+
+            <div class="clone-grid">
+                <div class="clone-card">
+                    <div class="clone-icon">📧</div>
+                    <h3>Communication Clone</h3>
+                    <span class="clone-value">15-23 hrs/week</span>
+                    <p>Automates all email responses, messages, and updates. Writes in your exact voice. Watch it handle 4 emails in 2 minutes.</p>
+                </div>
+
+                <div class="clone-card">
+                    <div class="clone-icon">✍️</div>
+                    <h3>Content Creation Clone</h3>
+                    <span class="clone-value">5-7 hrs/week</span>
+                    <p>Turns voice notes into LinkedIn posts, tweets, newsletters. Watch Vishen create 2 weeks of content in 5 minutes.</p>
+                </div>
+
+                <div class="clone-card">
+                    <div class="clone-icon">📝</div>
+                    <h3>Meeting Intelligence Clone</h3>
+                    <span class="clone-value">9-10 hrs/week</span>
+                    <p>Auto-captures meeting notes and action items. Watch it process a meeting in 30 seconds flat.</p>
+                </div>
+
+                <div class="clone-card">
+                    <div class="clone-icon">💬</div>
+                    <h3>Team Q&A Bot</h3>
+                    <span class="clone-value">5-10 hrs/week</span>
+                    <p>Answers 80% of team questions automatically. See it answer complex questions in seconds.</p>
+                </div>
+
+                <div class="clone-card">
+                    <div class="clone-icon">🎯</div>
+                    <h3>Strategy Twin</h3>
+                    <span class="clone-value">10-17 hrs/week</span>
+                    <p>Makes strategic decisions based on YOUR framework. Watch it prioritize an entire week in 60 seconds.</p>
+                </div>
+            </div>
+
+            <div class="mv-value-banner">
+                <div class="mv-value-number">39-57 Hours Per Week</div>
+                <div class="mv-value-description">That's 2-3 full work days back. Every single week. Worth $203K-$1.48M/year depending on your hourly rate.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What You'll See -->
+    <section class="mv-section">
+        <div class="mv-container">
+            <h2 class="mv-section-title mv-type--title2">Here's Exactly What You'll See in 90 Minutes</h2>
+            <p class="mv-section-subtitle">This isn't a teaching webinar. It's a DEMO. You'll watch real AI clones working live.</p>
+
+            <ul class="mv-checklist">
+                <li><strong>Vishen's transformation:</strong> How he went from 60-hour weeks to 30-hour weeks (with calendar proof)</li>
+                <li><strong>Live demo #1:</strong> Watch his Communication Clone handle 4 emails in 2 minutes</li>
+                <li><strong>Live demo #2:</strong> Watch him record a voice note and turn it into 3 pieces of content instantly</li>
+                <li><strong>Live demo #3:</strong> Watch his Meeting Intelligence process a meeting in 30 seconds</li>
+                <li><strong>Live demo #4:</strong> Watch his Team Q&A bot answer complex questions</li>
+                <li><strong>Live demo #5:</strong> Watch his Strategy Twin make a prioritization decision in 60 seconds</li>
+                <li><strong>The total picture:</strong> See the exact hours and dollar value saved per clone</li>
+                <li><strong>How to build your own:</strong> Discover the 2-day accelerator where you build all 5 clones</li>
+            </ul>
+
+            <div style="text-align: center; margin-top: 4rem;">
+                <a href="#register" class="mv-btn mv-btn-primary mv-btn-large">Save My Free Spot</a>
+                <p class="mv-type--caption" style="margin-top: 1.25rem;">No pitch until minute 60. Just pure demonstration of what's possible.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof -->
+    <section class="mv-section mv-section-grey">
+        <div class="mv-container">
+            <h2 class="mv-section-title mv-type--title2">What Others Are Saying</h2>
+            <p class="mv-section-subtitle">People who've built these clones are getting their lives back. Here's what they're experiencing:</p>
+
+            <div class="testimonial-grid">
+                <div class="mv-testimonial">
+                    <!-- IMAGE PLACEHOLDER: Testimonial Avatar -->
+                    <div class="image-placeholder" style="padding: 1.5rem; margin-bottom: 1.5rem;">
+                        <div class="image-placeholder-title" style="font-size: 0.875rem;">📸 Avatar Photo</div>
+                        <div class="image-placeholder-desc" style="font-size: 0.75rem;">80x80px headshot</div>
+                    </div>
+                    <div class="mv-testimonial-quote">"I was working 55 hours per week, missing family dinners. Now I work 32 hours and travel monthly with my kids. I got my life back."</div>
+                    <div class="mv-testimonial-author">Sarah M.</div>
+                    <div class="mv-testimonial-title">Marketing Director</div>
+                    <div class="mv-testimonial-result">✓ 23 hours/week saved</div>
+                </div>
+
+                <div class="mv-testimonial">
+                    <div class="image-placeholder" style="padding: 1.5rem; margin-bottom: 1.5rem;">
+                        <div class="image-placeholder-title" style="font-size: 0.875rem;">📸 Avatar Photo</div>
+                        <div class="image-placeholder-desc" style="font-size: 0.75rem;">80x80px headshot</div>
+                    </div>
+                    <div class="mv-testimonial-quote">"I took a 3-week vacation and my business ran without me. First time in 8 years I actually rested. These clones changed everything."</div>
+                    <div class="mv-testimonial-author">Mike T.</div>
+                    <div class="mv-testimonial-title">Startup Founder</div>
+                    <div class="mv-testimonial-result">✓ 18 hours/week saved</div>
+                </div>
+
+                <div class="mv-testimonial">
+                    <div class="image-placeholder" style="padding: 1.5rem; margin-bottom: 1.5rem;">
+                        <div class="image-placeholder-title" style="font-size: 0.875rem;">📸 Avatar Photo</div>
+                        <div class="image-placeholder-desc" style="font-size: 0.75rem;">80x80px headshot</div>
+                    </div>
+                    <div class="mv-testimonial-quote">"Decision fatigue was killing me. Now my Strategy Twin handles prioritization. I have mental space again. Started training for a triathlon."</div>
+                    <div class="mv-testimonial-author">Jennifer K.</div>
+                    <div class="mv-testimonial-title">Executive Coach</div>
+                    <div class="mv-testimonial-result">✓ 15 hours/week saved</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vishen's Authority -->
+    <section class="mv-section">
+        <div class="mv-container">
+            <h2 class="mv-section-title mv-type--title2">Meet Vishen Lakhiani</h2>
+
+            <div class="vishen-bio">
+                <!-- IMAGE PLACEHOLDER: Vishen Photo -->
+                <div class="image-placeholder" style="margin: 0; border-radius: 0; border-bottom: 1px solid var(--mv-cool-grey-250);">
+                    <div class="image-placeholder-title">🎨 VISHEN HERO IMAGE NEEDED</div>
+                    <div class="image-placeholder-desc">
+                        <strong>Design Brief:</strong> Professional photo of Vishen Lakhiani<br>
+                        • Standing or sitting in modern office/workspace<br>
+                        • Confident, approachable pose<br>
+                        • Clean background (Mindvalley office or neutral)<br>
+                        • High quality, well-lit professional photography<br>
+                        <strong>Dimensions:</strong> 1000px x 400px (banner style, 2x for retina)<br>
+                        <strong>Format:</strong> WebP or JPG, optimized for web<br>
+                        <strong>Alt text:</strong> "Vishen Lakhiani, Founder of Mindvalley"
+                    </div>
+                </div>
+
+                <div class="vishen-content">
+                    <p class="mv-type--body" style="font-size: 1.25rem; text-align: center; margin-bottom: 2.5rem; font-weight: 600;">Founder of Mindvalley • New York Times Bestselling Author • Followed by 3M+ People</p>
+
+                    <div style="max-width: 700px; margin: 0 auto;">
+                        <p class="mv-type--body" style="margin-bottom: 1.75rem; font-style: italic; font-size: 1.125rem;">"Six months ago, I was working 70-hour weeks. Drowning in email. No time for my kids. Then I discovered AI cloning."</p>
+                        <p class="mv-type--body" style="margin-bottom: 1.75rem; font-style: italic; font-size: 1.125rem;">"I spent 25 hours figuring out the right way to build AI clones that actually sound like me and save real time. I wasted weekends on trial and error."</p>
+                        <p class="mv-type--body" style="margin-bottom: 1.75rem; font-style: italic; font-size: 1.125rem;">"Today, I work 30-35 hours per week. I took a 2-week vacation without my laptop. I'm present with my family. I have my life back."</p>
+                        <p class="mv-type--body" style="font-weight: 700; color: var(--mv-success); font-size: 1.5rem; text-align: center;">"Now I want to show you the exact system—live—so you don't waste 25 hours like I did."</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- IMAGE PLACEHOLDER: Calendar Before/After -->
+            <div class="image-placeholder" style="margin: 4rem auto; max-width: 1000px;">
+                <div class="image-placeholder-title">🎨 BEFORE/AFTER CALENDAR COMPARISON NEEDED</div>
+                <div class="image-placeholder-desc">
+                    <strong>Design Brief:</strong> Side-by-side comparison showing:<br>
+                    <strong>LEFT SIDE - "Before":</strong> Calendar packed with meetings, no white space, chaotic, color-coded red/yellow<br>
+                    <strong>RIGHT SIDE - "After":</strong> Calendar with space, organized, calm, lots of white space, color-coded green<br>
+                    <strong>Layout:</strong> Split screen with arrow or "vs" in the middle<br>
+                    <strong>Style:</strong> Clean calendar UI design, realistic but simplified<br>
+                    <strong>Dimensions:</strong> 1000px x 500px (2x for retina)<br>
+                    <strong>Format:</strong> WebP or PNG
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Registration Form -->
+    <section class="mv-section mv-section-grey" id="register">
+        <div class="mv-container">
+            <div class="mv-form-container">
+                <div class="mv-badge" style="background: var(--mv-success); color: white;">Join the Next Session</div>
+                <h3 class="mv-form-title">Reserve Your Free Spot</h3>
+                <p class="mv-form-subtitle">Join hundreds of entrepreneurs who are about to see AI clones work live</p>
+
+                <form id="registration-form">
+                    <div class="mv-form-group">
+                        <label for="name" class="mv-form-label">Full Name *</label>
+                        <input type="text" id="name" name="name" class="mv-form-input" required placeholder="Enter your full name">
+                    </div>
+
+                    <div class="mv-form-group">
+                        <label for="email" class="mv-form-label">Email Address *</label>
+                        <input type="email" id="email" name="email" class="mv-form-input" required placeholder="your@email.com">
+                    </div>
+
+                    <div class="mv-form-group">
+                        <label for="timezone" class="mv-form-label">Your Timezone (Optional)</label>
+                        <select id="timezone" name="timezone" class="mv-form-select">
+                            <option value="">Select timezone</option>
+                            <option value="PST">Pacific Time (PST)</option>
+                            <option value="MST">Mountain Time (MST)</option>
+                            <option value="CST">Central Time (CST)</option>
+                            <option value="EST">Eastern Time (EST)</option>
+                            <option value="GMT">London (GMT)</option>
+                            <option value="CET">Central Europe (CET)</option>
+                            <option value="IST">India (IST)</option>
+                            <option value="SGT">Singapore (SGT)</option>
+                            <option value="AEST">Sydney (AEST)</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="mv-btn mv-btn-primary mv-btn-large" style="width: 100%; margin-top: 1.5rem;">Reserve My Free Spot Now</button>
+
+                    <div class="mv-trust-badges">
+                        <div class="mv-trust-badge">
+                            <div class="mv-trust-icon">🔒</div>
+                            <div class="mv-trust-text">Secure Registration</div>
+                        </div>
+                        <div class="mv-trust-badge">
+                            <div class="mv-trust-icon">✓</div>
+                            <div class="mv-trust-text">Instant Confirmation</div>
+                        </div>
+                        <div class="mv-trust-badge">
+                            <div class="mv-trust-icon">📧</div>
+                            <div class="mv-trust-text">Zoom Link Immediately</div>
+                        </div>
+                    </div>
+
+                    <p class="mv-type--caption" style="text-align: center; margin-top: 1.5rem; line-height: 1.6;">Your information is safe. We'll send you the Zoom link and reminders. Unsubscribe anytime.</p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="mv-section">
+        <div class="mv-container">
+            <h2 class="mv-section-title mv-type--title2">Common Questions</h2>
+            <p class="mv-section-subtitle">Everything you need to know about the webinar</p>
+
+            <div class="faq-grid">
+                <div class="mv-faq-item">
+                    <div class="mv-faq-question">Is this really free?</div>
+                    <div class="mv-faq-answer">Yes, 100% free. No credit card required. We'll send you the Zoom link immediately after you register. There IS an offer at the end (the AI Clone Accelerator workshop), but the first 60 minutes are pure demonstration and value.</div>
+                </div>
+
+                <div class="mv-faq-item">
+                    <div class="mv-faq-question">What if I can't attend live?</div>
+                    <div class="mv-faq-answer">You should attend live to see the demos in real-time, but we'll send a replay to all registrants. However, the special offer at the end is only available to live attendees.</div>
+                </div>
+
+                <div class="mv-faq-item">
+                    <div class="mv-faq-question">Do I need to be technical?</div>
+                    <div class="mv-faq-answer">Not at all. You'll see Vishen (who's not technical) demo these clones using simple tools like ChatGPT and voice notes. If you can send an email, you can understand this.</div>
+                </div>
+
+                <div class="mv-faq-item">
+                    <div class="mv-faq-question">Will you actually show the clones working or just talk about them?</div>
+                    <div class="mv-faq-answer">Vishen will screen share the ENTIRE time. You'll watch him open his inbox and let his Communication Clone handle emails. You'll watch him record a voice note and see it become content. You'll watch his Meeting Intelligence process a meeting. All live, all real.</div>
+                </div>
+
+                <div class="mv-faq-item">
+                    <div class="mv-faq-question">How is this different from just using ChatGPT?</div>
+                    <div class="mv-faq-answer">That's exactly what Vishen will explain. Most people use AI wrong (asking one-off questions). AI cloning is different—you create AI versions trained on YOUR examples that work 24/7. You'll see the difference demonstrated live.</div>
+                </div>
+
+                <div class="mv-faq-item">
+                    <div class="mv-faq-question">Can I really save 40 hours per week?</div>
+                    <div class="mv-faq-answer">Vishen saves 39-57 hours per week with his 5 clones. You'll see the exact breakdown on the webinar. Your results will depend on how many repetitive tasks you currently do, but even saving 20 hours/week is life-changing.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="mv-section">
+        <div class="mv-container">
+            <div class="cta-box">
+                <h2 class="mv-type--title2" style="margin-bottom: 1.5rem;">Your Spot is Waiting</h2>
+                <p class="mv-type--body-lg" style="margin-bottom: 2.5rem; color: var(--mv-cool-grey-500);">90 minutes that could change how you work forever</p>
+
+                <div style="background: var(--mv-grey-lighter); padding: 2.5rem; border-radius: 16px; margin-bottom: 2.5rem;">
+                    <p class="mv-type--body" style="margin-bottom: 0.75rem;">📅 <strong>[Insert Date & Time]</strong></p>
+                    <p class="mv-type--body" style="margin-bottom: 0.75rem;">⏱️ <strong>90 Minutes Live</strong></p>
+                    <p class="mv-type--body" style="margin-bottom: 0.75rem;">💻 <strong>Zoom Webinar</strong></p>
+                    <p class="mv-type--body">🎟️ <strong>Free to Attend</strong></p>
+                </div>
+
+                <a href="#register" class="mv-btn mv-btn-primary mv-btn-large">Claim Your Free Spot Now</a>
+                <p class="mv-type--caption" style="margin-top: 1.5rem;">Registration closes 24 hours before the webinar starts</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="mv-container">
+            <p style="margin-bottom: 0.75rem; font-size: 1rem;">© 2026 Mindvalley. All rights reserved.</p>
+            <p class="mv-type--caption" style="color: rgba(255,255,255,0.7); margin-bottom: 1.5rem;">Questions? Email: support@mindvalley.com</p>
+            <p class="mv-type--caption" style="color: rgba(255,255,255,0.5); font-size: 0.8125rem;">
+                <a href="#" style="color: rgba(255,255,255,0.5); text-decoration: none;">Privacy Policy</a> •
+                <a href="#" style="color: rgba(255,255,255,0.5); text-decoration: none;">Terms of Service</a> •
+                <a href="#" style="color: rgba(255,255,255,0.5); text-decoration: none;">Refund Policy</a>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // COUNTDOWN TIMER
+        const webinarDate = new Date('February 15, 2026 12:00:00 PST').getTime();
+
+        const countdown = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = webinarDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById('days').innerHTML = days.toString().padStart(2, '0');
+            document.getElementById('hours').innerHTML = hours.toString().padStart(2, '0');
+            document.getElementById('minutes').innerHTML = minutes.toString().padStart(2, '0');
+            document.getElementById('seconds').innerHTML = seconds.toString().padStart(2, '0');
+
+            if (distance < 0) {
+                clearInterval(countdown);
+                document.querySelector('.mv-countdown').innerHTML = '<div style="padding: 2rem; font-size: 1.5rem; font-weight: 700; color: var(--mv-success); text-align: center;">Webinar is starting now!</div>';
+            }
+        }, 1000);
+
+        // FORM SUBMISSION
+        document.getElementById('registration-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                timezone: document.getElementById('timezone').value
+            };
+
+            // Add your form submission logic here (API call, etc.)
+            console.log('Form submitted:', formData);
+
+            alert('Registration successful! ✓\n\nCheck your email for:\n• Zoom link\n• Calendar invite\n• Pre-webinar guide');
+
+            this.reset();
+        });
+
+        // SMOOTH SCROLL
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offsetTop = target.offsetTop - 80;
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>

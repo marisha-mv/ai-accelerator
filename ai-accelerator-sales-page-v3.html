@@ -1,0 +1,1554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The AI Clone Accelerator - Build Your Digital Twin in One Weekend</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #00354E;
+            background: #fff;
+        }
+
+        /* Mindvalley Color System */
+        :root {
+            --primary-purple: #7A12D4;
+            --orange-accent: #FF6B35;
+            --cool-grey: #B3B8C1;
+            --dark-text: #00354E;
+            --light-bg: #F8EFFF;
+            --light-orange: #FFF4E9;
+        }
+
+        /* Typography - Mindvalley Style */
+        .mv-type--title1 {
+            font-size: 4em;
+            font-weight: 800;
+            line-height: 1.1;
+            letter-spacing: -1px;
+        }
+
+        .mv-type--title2 {
+            font-size: 3.2em;
+            font-weight: 800;
+            line-height: 1.2;
+            letter-spacing: -0.5px;
+        }
+
+        .mv-type--title3 {
+            font-size: 2.4em;
+            font-weight: 700;
+            line-height: 1.3;
+        }
+
+        .mv-type--body {
+            font-size: 1.25em;
+            line-height: 1.7;
+            color: var(--dark-text);
+        }
+
+        .mv-type--body-sm {
+            font-size: 1.1em;
+            line-height: 1.6;
+            color: var(--cool-grey);
+        }
+
+        .mv-type--overline {
+            font-size: 0.85em;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--primary-purple);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--light-orange) 0%, var(--light-bg) 100%);
+            padding: 80px 20px 100px;
+            text-align: center;
+        }
+
+        .hero-container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            color: var(--dark-text);
+            margin-bottom: 30px;
+        }
+
+        .hero .subheadline {
+            font-size: 1.5em;
+            color: var(--dark-text);
+            max-width: 900px;
+            margin: 0 auto 50px;
+            line-height: 1.6;
+        }
+
+        /* Video Container */
+        .video-container {
+            max-width: 900px;
+            margin: 50px auto;
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+            border: 1px solid #e5e7eb;
+        }
+
+        .video-placeholder {
+            width: 100%;
+            aspect-ratio: 16/9;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .play-button {
+            width: 100px;
+            height: 100px;
+            background: rgba(255,255,255,0.95);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .play-button:hover {
+            transform: scale(1.1);
+            background: white;
+        }
+
+        .play-button::after {
+            content: '';
+            width: 0;
+            height: 0;
+            border-left: 30px solid var(--primary-purple);
+            border-top: 20px solid transparent;
+            border-bottom: 20px solid transparent;
+            margin-left: 8px;
+        }
+
+        /* CTA Buttons - Mindvalley Style */
+        .cta-primary {
+            display: inline-block;
+            background: var(--primary-purple);
+            color: white;
+            padding: 18px 50px;
+            font-size: 1.2em;
+            font-weight: 700;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: all 0.3s;
+            margin: 15px 10px;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(122, 18, 212, 0.3);
+        }
+
+        .cta-primary:hover {
+            background: #6A0FB8;
+            box-shadow: 0 6px 20px rgba(122, 18, 212, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .guarantee-text {
+            margin-top: 30px;
+            font-size: 1em;
+            color: var(--dark-text);
+        }
+
+        /* Stats Bar */
+        .stats-section {
+            padding: 80px 20px;
+            background: white;
+        }
+
+        .stats-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 60px;
+            text-align: center;
+        }
+
+        .stat-item {
+            padding: 30px 20px;
+        }
+
+        .stat-number {
+            font-size: 4em;
+            font-weight: 900;
+            color: var(--primary-purple);
+            display: block;
+            margin-bottom: 15px;
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-size: 1.15em;
+            color: var(--dark-text);
+            font-weight: 600;
+            line-height: 1.5;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 100px 20px;
+        }
+
+        /* Section Styling */
+        .section {
+            margin-bottom: 100px;
+        }
+
+        .section-title {
+            text-align: center;
+            color: var(--dark-text);
+            margin-bottom: 25px;
+        }
+
+        .section-subtitle {
+            font-size: 1.35em;
+            text-align: center;
+            color: var(--cool-grey);
+            max-width: 850px;
+            margin: 0 auto 60px;
+            line-height: 1.6;
+        }
+
+        /* Callout Section */
+        .callout-section {
+            background: linear-gradient(135deg, var(--light-orange) 0%, #FFEEE5 100%);
+            padding: 80px 40px;
+            border-radius: 16px;
+            margin: 60px auto;
+        }
+
+        .callout-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .callout-header h2 {
+            color: var(--dark-text);
+            margin-bottom: 25px;
+        }
+
+        .callout-header p {
+            font-size: 1.4em;
+            color: var(--dark-text);
+            max-width: 750px;
+            margin: 0 auto;
+        }
+
+        .problems-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .problem-card {
+            background: white;
+            padding: 35px;
+            border-radius: 12px;
+            border: 1px solid #e5e7eb;
+            transition: all 0.3s;
+        }
+
+        .problem-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-color: var(--orange-accent);
+        }
+
+        .problem-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--orange-accent) 0%, #FF8C5A 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+        }
+
+        .problem-card h3 {
+            font-size: 1.4em;
+            margin-bottom: 15px;
+            color: var(--dark-text);
+            font-weight: 700;
+        }
+
+        .problem-card p {
+            color: var(--cool-grey);
+            line-height: 1.7;
+            font-size: 1.05em;
+        }
+
+        /* Solution Visual Section */
+        .solution-visual {
+            text-align: center;
+            padding: 100px 40px;
+            background: linear-gradient(135deg, var(--light-bg) 0%, #E8D4FF 100%);
+            margin: 80px 0;
+            border-radius: 16px;
+        }
+
+        .solution-visual h2 {
+            color: var(--dark-text);
+            margin-bottom: 30px;
+        }
+
+        .solution-visual .intro-text {
+            font-size: 1.5em;
+            max-width: 850px;
+            margin: 0 auto 60px;
+            color: var(--dark-text);
+            line-height: 1.6;
+        }
+
+        /* Results Showcase */
+        .results-showcase {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            max-width: 1100px;
+            margin: 60px auto;
+        }
+
+        .result-card {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            border: 2px solid var(--primary-purple);
+            text-align: center;
+        }
+
+        .result-number {
+            font-size: 3.5em;
+            font-weight: 900;
+            color: var(--primary-purple);
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .result-label {
+            font-size: 1.2em;
+            color: var(--dark-text);
+            font-weight: 600;
+            line-height: 1.4;
+        }
+
+        /* Value Stack */
+        .value-stack {
+            margin: 80px 0;
+        }
+
+        .value-item {
+            background: white;
+            border-radius: 12px;
+            padding: 50px;
+            margin-bottom: 35px;
+            border: 2px solid #e5e7eb;
+            transition: all 0.3s;
+        }
+
+        .value-item:hover {
+            border-color: var(--primary-purple);
+            box-shadow: 0 10px 40px rgba(122, 18, 212, 0.1);
+        }
+
+        .value-header {
+            display: flex;
+            align-items: center;
+            gap: 35px;
+            margin-bottom: 30px;
+            padding-bottom: 30px;
+            border-bottom: 2px solid #e5e7eb;
+        }
+
+        .value-number {
+            flex-shrink: 0;
+            width: 90px;
+            height: 90px;
+            background: var(--primary-purple);
+            color: white;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3em;
+            font-weight: 900;
+        }
+
+        .value-title-section h3 {
+            font-size: 2em;
+            margin-bottom: 12px;
+            color: var(--dark-text);
+            font-weight: 800;
+        }
+
+        .value-worth {
+            display: inline-block;
+            background: #10B981;
+            color: white;
+            padding: 10px 24px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 1.2em;
+        }
+
+        .value-description {
+            font-size: 1.25em;
+            line-height: 1.7;
+            color: var(--dark-text);
+            margin-bottom: 30px;
+        }
+
+        .value-benefits {
+            background: var(--light-bg);
+            padding: 35px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+        }
+
+        .value-benefits h4 {
+            font-size: 1.4em;
+            margin-bottom: 20px;
+            color: var(--dark-text);
+            font-weight: 700;
+        }
+
+        .value-benefits ul {
+            list-style: none;
+            font-size: 1.15em;
+            line-height: 2.2;
+        }
+
+        .value-benefits li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            color: var(--dark-text);
+        }
+
+        .value-benefits li::before {
+            content: "✓";
+            color: var(--primary-purple);
+            font-weight: bold;
+            font-size: 1.3em;
+            flex-shrink: 0;
+        }
+
+        .time-saved-badge {
+            display: inline-block;
+            background: var(--primary-purple);
+            color: white;
+            padding: 14px 30px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 1.3em;
+            margin-top: 20px;
+        }
+
+        /* Total Value Banner */
+        .total-value {
+            background: var(--primary-purple);
+            color: white;
+            padding: 60px 50px;
+            border-radius: 12px;
+            text-align: center;
+            margin: 60px 0;
+        }
+
+        .total-value h3 {
+            font-size: 2.8em;
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+
+        .total-value p {
+            font-size: 1.5em;
+            opacity: 0.95;
+            line-height: 1.6;
+        }
+
+        /* Instructor Section - Mindvalley Style */
+        .instructor-section {
+            background: var(--light-bg);
+            padding: 100px 40px;
+            margin: 80px 0;
+            border-radius: 16px;
+        }
+
+        .instructor-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 50px;
+            margin-top: 70px;
+        }
+
+        .instructor-card {
+            background: white;
+            padding: 45px;
+            border-radius: 12px;
+            border: 1px solid #e5e7eb;
+        }
+
+        .instructor-avatar {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, var(--primary-purple) 0%, #9D4EDD 100%);
+            border-radius: 50%;
+            margin: 0 auto 25px;
+        }
+
+        .instructor-card h3 {
+            font-size: 1.8em;
+            margin-bottom: 10px;
+            color: var(--dark-text);
+            font-weight: 800;
+            text-align: center;
+        }
+
+        .instructor-title {
+            color: var(--primary-purple);
+            font-weight: 600;
+            font-size: 1.1em;
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .instructor-bio {
+            font-size: 1.1em;
+            line-height: 1.8;
+            color: var(--dark-text);
+            margin-bottom: 25px;
+        }
+
+        .credential-list {
+            margin: 25px 0;
+        }
+
+        .credential-item {
+            background: var(--light-bg);
+            padding: 12px 18px;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            font-size: 1em;
+            color: var(--dark-text);
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .credential-item::before {
+            content: "✓";
+            color: var(--primary-purple);
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        .featured-in {
+            margin-top: 25px;
+            padding-top: 25px;
+            border-top: 2px solid #e5e7eb;
+        }
+
+        .featured-label {
+            font-size: 0.85em;
+            color: var(--cool-grey);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .logo-grid {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .logo-badge {
+            background: var(--primary-purple);
+            color: white;
+            padding: 6px 14px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.9em;
+        }
+
+        /* Early Bird Bonuses Section */
+        .bonus-section {
+            background: linear-gradient(135deg, #FFF4E9 0%, #FFE8D6 100%);
+            padding: 80px 40px;
+            border-radius: 16px;
+            margin: 80px 0;
+            border: 3px solid var(--orange-accent);
+        }
+
+        .bonus-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .bonus-badge {
+            display: inline-block;
+            background: var(--orange-accent);
+            color: white;
+            padding: 10px 28px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 1em;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .bonus-header h2 {
+            color: var(--dark-text);
+            margin-bottom: 20px;
+        }
+
+        .bonus-header p {
+            font-size: 1.3em;
+            color: var(--dark-text);
+            max-width: 750px;
+            margin: 0 auto;
+        }
+
+        .bonus-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 35px;
+            margin-top: 50px;
+        }
+
+        .bonus-card {
+            background: white;
+            padding: 45px;
+            border-radius: 12px;
+            border: 2px solid var(--orange-accent);
+        }
+
+        .bonus-value-tag {
+            background: #10B981;
+            color: white;
+            display: inline-block;
+            padding: 10px 22px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 1.15em;
+            margin-bottom: 20px;
+        }
+
+        .bonus-card h3 {
+            font-size: 1.8em;
+            margin-bottom: 18px;
+            color: var(--dark-text);
+            font-weight: 700;
+        }
+
+        .bonus-description {
+            font-size: 1.15em;
+            line-height: 1.8;
+            color: var(--dark-text);
+            margin-bottom: 25px;
+        }
+
+        .bonus-why {
+            background: var(--light-bg);
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid var(--primary-purple);
+        }
+
+        .bonus-why strong {
+            color: var(--primary-purple);
+            display: block;
+            margin-bottom: 10px;
+            font-size: 1.05em;
+        }
+
+        /* Pricing Section */
+        .pricing-section {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: white;
+            padding: 100px 40px;
+            margin: 80px 0;
+            border-radius: 16px;
+        }
+
+        .pricing-container {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .pricing-header h2 {
+            font-size: 3.5em;
+            margin-bottom: 25px;
+            font-weight: 800;
+        }
+
+        .pricing-header p {
+            font-size: 1.4em;
+            opacity: 0.92;
+            margin-bottom: 60px;
+        }
+
+        .pricing-box {
+            background: rgba(255,255,255,0.08);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255,255,255,0.2);
+            border-radius: 12px;
+            padding: 60px 50px;
+        }
+
+        .price-display {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .price-original {
+            font-size: 2.5em;
+            text-decoration: line-through;
+            opacity: 0.5;
+            font-weight: 700;
+        }
+
+        .price-current {
+            font-size: 5.5em;
+            font-weight: 900;
+        }
+
+        .price-save {
+            background: var(--orange-accent);
+            display: inline-block;
+            padding: 12px 30px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 1.25em;
+            margin-bottom: 40px;
+        }
+
+        .whats-included {
+            text-align: left;
+            margin: 50px 0;
+            padding: 40px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 12px;
+        }
+
+        .whats-included h3 {
+            font-size: 1.8em;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .included-item {
+            padding: 18px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            font-size: 1.2em;
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+
+        .included-item:last-child {
+            border-bottom: none;
+        }
+
+        .check-icon {
+            color: #10B981;
+            font-weight: bold;
+            font-size: 1.4em;
+            flex-shrink: 0;
+        }
+
+        .payment-options {
+            margin: 40px 0;
+            padding: 30px;
+            background: rgba(255,255,255,0.08);
+            border-radius: 12px;
+        }
+
+        .payment-options h4 {
+            font-size: 1.2em;
+            margin-bottom: 15px;
+        }
+
+        .payment-options p {
+            font-size: 1.25em;
+            font-weight: 600;
+        }
+
+        .limited-spots {
+            background: rgba(255,107,53,0.15);
+            padding: 30px;
+            border-radius: 12px;
+            margin-top: 50px;
+            border: 2px solid var(--orange-accent);
+        }
+
+        .limited-spots p {
+            font-size: 1.3em;
+            margin-bottom: 10px;
+        }
+
+        .limited-spots .big-number {
+            font-size: 1.5em;
+            font-weight: 700;
+        }
+
+        /* Final CTA */
+        .final-cta {
+            background: var(--primary-purple);
+            color: white;
+            padding: 100px 40px;
+            text-align: center;
+            border-radius: 16px;
+            margin: 80px 0;
+        }
+
+        .final-cta h2 {
+            font-size: 3.8em;
+            margin-bottom: 35px;
+            line-height: 1.2;
+            font-weight: 800;
+        }
+
+        .final-cta p {
+            font-size: 1.5em;
+            margin-bottom: 45px;
+            max-width: 850px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
+
+        .cta-final-white {
+            background: white;
+            color: var(--primary-purple);
+            padding: 22px 60px;
+            font-size: 1.5em;
+            font-weight: 800;
+            border-radius: 8px;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s;
+        }
+
+        .cta-final-white:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+
+        /* Sticky CTA Bar */
+        .sticky-cta {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(26, 26, 46, 0.98);
+            backdrop-filter: blur(10px);
+            padding: 20px;
+            box-shadow: 0 -5px 25px rgba(0,0,0,0.3);
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+        }
+
+        .sticky-content {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .sticky-timer {
+            background: var(--orange-accent);
+            padding: 12px 28px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 1.15em;
+        }
+
+        .sticky-pricing {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .sticky-price-old {
+            font-size: 1.3em;
+            text-decoration: line-through;
+            opacity: 0.6;
+        }
+
+        .sticky-price-current {
+            font-size: 2.2em;
+            font-weight: 900;
+        }
+
+        .sticky-cta-btn {
+            background: var(--primary-purple);
+            color: white;
+            padding: 16px 45px;
+            font-size: 1.2em;
+            font-weight: 700;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .sticky-cta-btn:hover {
+            background: #6A0FB8;
+            transform: translateY(-2px);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 40px;
+            }
+
+            .problems-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .results-showcase {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .instructor-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .mv-type--title1 {
+                font-size: 2.5em;
+            }
+
+            .mv-type--title2 {
+                font-size: 2em;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .problems-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .results-showcase {
+                grid-template-columns: 1fr;
+            }
+
+            .value-header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .instructor-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .bonus-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .sticky-cta {
+                flex-direction: column;
+                gap: 15px;
+                padding: 15px;
+            }
+
+            .sticky-content {
+                flex-direction: column;
+                gap: 12px;
+                width: 100%;
+            }
+
+            .price-display {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <div class="hero">
+        <div class="hero-container">
+            <p class="mv-type--overline">ONE WEEKEND WORKSHOP</p>
+            <h1 class="mv-type--title1">What If You Could Design<br>A 3-Hour Work Day?</h1>
+            <p class="subheadline">
+                Stop drowning in repetitive tasks that steal your time. Build 4 AI clones this weekend that handle your busywork—
+                writing, meetings, decisions, and content. Walk away with 10+ hours reclaimed every week.
+            </p>
+
+            <!-- Video Section -->
+            <div class="video-container">
+                <div class="video-placeholder">
+                    <div class="play-button"></div>
+                </div>
+            </div>
+
+            <a href="#pricing" class="cta-primary">Join The March 15-16 Cohort</a>
+            <p class="guarantee-text">
+                <strong>15-Day Money-Back Guarantee</strong> — One-click refund, no questions asked
+            </p>
+        </div>
+    </div>
+
+    <!-- Stats Bar -->
+    <div class="stats-section">
+        <div class="stats-container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <span class="stat-number">14hrs</span>
+                    <span class="stat-label">Wasted weekly on repetitive tasks by the average professional</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">62%</span>
+                    <span class="stat-label">Of professionals say busywork prevents them from strategic thinking</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">10+hrs</span>
+                    <span class="stat-label">Reclaimed per week by participants using these 4 AI clones</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">73%</span>
+                    <span class="stat-label">Reduction in email time after building a communication clone</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Callout Section -->
+    <div class="container">
+        <div class="callout-section">
+            <div class="callout-header">
+                <h2 class="mv-type--title2">If These Tasks Are Stealing Your Time,<br>This Weekend Changes Everything</h2>
+                <p>Your calendar is packed. Your to-do list never ends. And you're the bottleneck in your own business.</p>
+            </div>
+
+            <div class="problems-grid">
+                <div class="problem-card">
+                    <div class="problem-icon">✉️</div>
+                    <h3>Inbox Overwhelm</h3>
+                    <p>Your inbox demands 2+ hours daily. Every email, message, and update needs your touch. Communication has become your full-time job.</p>
+                </div>
+
+                <div class="problem-card">
+                    <div class="problem-icon">📅</div>
+                    <h3>Meeting Black Holes</h3>
+                    <p>Back-to-back meetings with nothing documented. Decisions disappear. You spend more time following up than executing.</p>
+                </div>
+
+                <div class="problem-card">
+                    <div class="problem-icon">🤔</div>
+                    <h3>Decision Dependency</h3>
+                    <p>Your team can't move without you. Every question waits for your input. You're the filter for everything.</p>
+                </div>
+
+                <div class="problem-card">
+                    <div class="problem-icon">📱</div>
+                    <h3>Content Guilt</h3>
+                    <p>Haven't posted in weeks. Building your presence is always tomorrow's problem because you're drowning in today's tasks.</p>
+                </div>
+
+                <div class="problem-card">
+                    <div class="problem-icon">🤖</div>
+                    <h3>Generic AI Letdown</h3>
+                    <p>You've tried ChatGPT. The outputs feel robotic. Nothing sounds like you. Back to doing it all manually.</p>
+                </div>
+
+                <div class="problem-card">
+                    <div class="problem-icon">⏰</div>
+                    <h3>Time Poverty</h3>
+                    <p>Working 60+ hour weeks. Still behind. No time for strategy, growth, or work that actually moves the needle.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Solution Visual Section -->
+    <div class="container">
+        <div class="solution-visual">
+            <h2 class="mv-type--title2">What If You Could Clone The Best Parts of Yourself?</h2>
+            <p class="intro-text">
+                Not "learn AI tools." Not "watch demos." Actually replicate your voice, your thinking, your decision-making—
+                and scale yourself without burning out, hiring a team, or working weekends.
+            </p>
+
+            <!-- Results Showcase -->
+            <div class="results-showcase">
+                <div class="result-card">
+                    <span class="result-number">5-7hrs</span>
+                    <span class="result-label">Back every week from email alone</span>
+                </div>
+
+                <div class="result-card">
+                    <span class="result-number">100%</span>
+                    <span class="result-label">Of meetings automatically documented</span>
+                </div>
+
+                <div class="result-card">
+                    <span class="result-number">30 days</span>
+                    <span class="result-label">Of content from one voice note</span>
+                </div>
+
+                <div class="result-card">
+                    <span class="result-number">80%</span>
+                    <span class="result-label">Of decisions your team handles without you</span>
+                </div>
+
+                <div class="result-card">
+                    <span class="result-number">10+hrs</span>
+                    <span class="result-label">Total time reclaimed every single week</span>
+                </div>
+
+                <div class="result-card">
+                    <span class="result-number">$13,800</span>
+                    <span class="result-label">Annual value of time saved</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Value Stack Section -->
+    <div class="container">
+        <div class="section">
+            <h2 class="section-title mv-type--title2">The 4 AI Clones You Build This Weekend</h2>
+            <p class="section-subtitle">Each clone is built live during the sessions, tested on your real work, and ready to deploy Monday morning.</p>
+
+            <div class="value-stack">
+                <!-- Clone 1 -->
+                <div class="value-item">
+                    <div class="value-header">
+                        <div class="value-number">1</div>
+                        <div class="value-title-section">
+                            <h3>Your Communication Clone</h3>
+                            <span class="value-worth">Worth: $3,600/year</span>
+                        </div>
+                    </div>
+                    <div class="value-description">
+                        A Custom GPT trained on your actual writing that drafts emails, messages, updates, and posts in your authentic voice.
+                        Not generic AI outputs—responses your team thinks you wrote yourself.
+                    </div>
+                    <div class="value-benefits">
+                        <h4>How This Clone Works:</h4>
+                        <ul>
+                            <li>Upload 5-10 examples of your writing (emails, posts, memos)</li>
+                            <li>AI analyzes your tone, structure, phrases, and style</li>
+                            <li>Generates drafts in seconds requiring minimal editing</li>
+                            <li>Gets smarter over time as you refine it</li>
+                        </ul>
+                    </div>
+                    <div class="value-benefits">
+                        <h4>Real-World Use Cases:</h4>
+                        <ul>
+                            <li>Email responses to clients, partners, team members</li>
+                            <li>Slack updates and internal communications</li>
+                            <li>LinkedIn posts and social media content</li>
+                            <li>Meeting follow-ups and action summaries</li>
+                        </ul>
+                    </div>
+                    <span class="time-saved-badge">Returns 5-7 hours/week</span>
+                </div>
+
+                <!-- Clone 2 -->
+                <div class="value-item">
+                    <div class="value-header">
+                        <div class="value-number">2</div>
+                        <div class="value-title-section">
+                            <h3>Your Meeting Intelligence Clone</h3>
+                            <span class="value-worth">Worth: $2,800/year</span>
+                        </div>
+                    </div>
+                    <div class="value-description">
+                        Granola AI configured with your templates that automatically captures every meeting, extracts decisions, identifies action items,
+                        and generates strategic insights. Never manually take notes again.
+                    </div>
+                    <div class="value-benefits">
+                        <h4>How This Clone Works:</h4>
+                        <ul>
+                            <li>Automatically records and transcribes all meetings</li>
+                            <li>Extracts key decisions, action items, and owners</li>
+                            <li>Generates one-page briefs for each meeting</li>
+                            <li>Creates searchable meeting database</li>
+                        </ul>
+                    </div>
+                    <div class="value-benefits">
+                        <h4>Real-World Use Cases:</h4>
+                        <ul>
+                            <li>Client calls automatically become project briefs</li>
+                            <li>Team meetings turn into action item trackers</li>
+                            <li>Strategy sessions become documented decision logs</li>
+                            <li>One-on-ones generate coaching insights</li>
+                        </ul>
+                    </div>
+                    <span class="time-saved-badge">Returns 3-5 hours/week</span>
+                </div>
+
+                <!-- Clone 3 -->
+                <div class="value-item">
+                    <div class="value-header">
+                        <div class="value-number">3</div>
+                        <div class="value-title-section">
+                            <h3>Your Strategic Decision Clone</h3>
+                            <span class="value-worth">Worth: $4,200/year</span>
+                        </div>
+                    </div>
+                    <div class="value-description">
+                        A Claude Project loaded with your frameworks, goals, OKRs, and non-negotiables that provides strategic advice
+                        aligned with how you think. Your team gets 80% there without interrupting you.
+                    </div>
+                    <div class="value-benefits">
+                        <h4>How This Clone Works:</h4>
+                        <ul>
+                            <li>Document your decision-making frameworks and principles</li>
+                            <li>Upload strategic memos, OKRs, and business goals</li>
+                            <li>Team asks clone for input before coming to you</li>
+                            <li>You review final decisions instead of being in every conversation</li>
+                        </ul>
+                    </div>
+                    <div class="value-benefits">
+                        <h4>Real-World Use Cases:</h4>
+                        <ul>
+                            <li>Opportunity evaluation: "Should we pursue this partnership?"</li>
+                            <li>Priority setting: "Which 3 projects should we focus on?"</li>
+                            <li>Problem-solving: "How would we approach this challenge?"</li>
+                            <li>Resource allocation: "Where should we invest time and budget?"</li>
+                        </ul>
+                    </div>
+                    <span class="time-saved-badge">Returns 2-4 hours/week</span>
+                </div>
+
+                <!-- Clone 4 -->
+                <div class="value-item">
+                    <div class="value-header">
+                        <div class="value-number">4</div>
+                        <div class="value-title-section">
+                            <h3>Your Content Creation Clone</h3>
+                            <span class="value-worth">Worth: $3,200/year</span>
+                        </div>
+                    </div>
+                    <div class="value-description">
+                        A voice-to-content system that turns one 5-minute voice note into 30 days of scheduled posts.
+                        Never go silent online or spend hours on content again.
+                    </div>
+                    <div class="value-benefits">
+                        <h4>How This Clone Works:</h4>
+                        <ul>
+                            <li>Record a 5-minute voice note about any topic</li>
+                            <li>AI transcribes and extracts key messages</li>
+                            <li>Generates multiple formats: posts, threads, emails</li>
+                            <li>Schedule everything in Buffer for automated posting</li>
+                        </ul>
+                    </div>
+                    <div class="value-benefits">
+                        <h4>Real-World Use Cases:</h4>
+                        <ul>
+                            <li>Monthly content pipeline from one voice note session</li>
+                            <li>Consistent social presence without daily effort</li>
+                            <li>Repurpose webinars and workshops into content</li>
+                            <li>Turn customer conversations into valuable insights</li>
+                        </ul>
+                    </div>
+                    <span class="time-saved-badge">Returns 4-6 hours/week</span>
+                </div>
+            </div>
+
+            <!-- Total Value Banner -->
+            <div class="total-value">
+                <h3>Total Annual Value: $13,800</h3>
+                <p>That's 14-22 hours reclaimed every week. 728-1,144 hours per year.<br>Your investment today: $999 for lifetime access to everything.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Instructor Section -->
+    <div class="container">
+        <div class="instructor-section">
+            <h2 class="section-title mv-type--title2">Learn From People Running Real Businesses With AI</h2>
+            <p class="section-subtitle">Not AI theorists. Practitioners who use these exact clones to operate their companies every day.</p>
+
+            <div class="instructor-grid">
+                <div class="instructor-card">
+                    <div class="instructor-avatar"></div>
+                    <h3>Vishen Lakhiani</h3>
+                    <div class="instructor-title">Founder & CEO, Mindvalley</div>
+                    <div class="instructor-bio">
+                        Built Mindvalley from zero to 200+ employees reaching 20M+ students globally. Uses AI clones daily to run operations
+                        across 7 time zones while maintaining strategic focus.
+                    </div>
+                    <div class="credential-list">
+                        <div class="credential-item">3x New York Times Bestselling Author</div>
+                        <div class="credential-item">Spoke to 5,000+ HR leaders on AI</div>
+                        <div class="credential-item">20+ years in transformational education</div>
+                    </div>
+                    <div class="featured-in">
+                        <span class="featured-label">Featured In</span>
+                        <div class="logo-grid">
+                            <span class="logo-badge">Forbes</span>
+                            <span class="logo-badge">CNN</span>
+                            <span class="logo-badge">NYT</span>
+                            <span class="logo-badge">Inc</span>
+                            <span class="logo-badge">BBC</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="instructor-card">
+                    <div class="instructor-avatar"></div>
+                    <h3>Manon Dave</h3>
+                    <div class="instructor-title">Creative Director & AI Artist</div>
+                    <div class="instructor-bio">
+                        Award-winning creative who's worked with the world's most demanding brands. Creates 100% of her content with AI—
+                        and no one can tell the difference.
+                    </div>
+                    <div class="credential-list">
+                        <div class="credential-item">5x Time Magazine Best Invention Honoree</div>
+                        <div class="credential-item">Composer & Visual Artist</div>
+                        <div class="credential-item">AI Content Creation Pioneer</div>
+                    </div>
+                    <div class="featured-in">
+                        <span class="featured-label">Worked With</span>
+                        <div class="logo-grid">
+                            <span class="logo-badge">Apple</span>
+                            <span class="logo-badge">Disney</span>
+                            <span class="logo-badge">Google</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="instructor-card">
+                    <div class="instructor-avatar"></div>
+                    <h3>Vykintas Glodenis</h3>
+                    <div class="instructor-title">Chief AI Transformation Officer</div>
+                    <div class="instructor-bio">
+                        Technical architect behind Mindvalley's AI systems. Created AI Mastery program that's trained 400K+ people.
+                        Makes complex AI implementation simple for non-technical founders.
+                    </div>
+                    <div class="credential-list">
+                        <div class="credential-item">Built systems serving 1M+ users</div>
+                        <div class="credential-item">Trained 400K+ people in AI</div>
+                        <div class="credential-item">Expert in AI workflow integration</div>
+                    </div>
+                    <div class="featured-in">
+                        <span class="featured-label">Specializes In</span>
+                        <div class="logo-grid">
+                            <span class="logo-badge">Automation</span>
+                            <span class="logo-badge">Integration</span>
+                            <span class="logo-badge">Systems</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Early Bird Bonuses -->
+    <div class="container">
+        <div class="bonus-section">
+            <div class="bonus-header">
+                <span class="bonus-badge">Early Bird Only</span>
+                <h2 class="mv-type--title2">Enroll Before March 13 & Get These Bonuses</h2>
+                <p>Act fast. These bonuses disappear when early bird pricing ends.</p>
+            </div>
+
+            <div class="bonus-grid">
+                <div class="bonus-card">
+                    <div class="bonus-value-tag">$297 Value</div>
+                    <h3>The Clone Template Library</h3>
+                    <div class="bonus-description">
+                        50+ pre-built templates, prompts, and frameworks for cloning tasks beyond the core 4. Includes templates for:
+                        proposal writing, client onboarding, research summaries, data analysis, project briefs, meeting prep, and more.
+                    </div>
+                    <div class="bonus-why">
+                        <strong>Why This Matters:</strong>
+                        Once you master the framework, you'll want to clone everything. These templates give you a head start on your next 10 clones—
+                        saving you weeks of trial and error.
+                    </div>
+                </div>
+
+                <div class="bonus-card">
+                    <div class="bonus-value-tag">$197 Value</div>
+                    <h3>Conversion Hacking Masterclass Recording</h3>
+                    <div class="bonus-description">
+                        Exclusive recording of Vishen's conversion hacking principles workshop. Learn the exact strategies Mindvalley uses to
+                        convert visitors into customers. Includes psychology triggers, copy frameworks, and funnel design principles.
+                    </div>
+                    <div class="bonus-why">
+                        <strong>Why This Matters:</strong>
+                        You're building AI clones to save time—use that time to grow your business. This masterclass gives you the conversion
+                        strategies that drive real revenue growth.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pricing Section -->
+    <div class="container">
+        <div class="pricing-section" id="pricing">
+            <div class="pricing-container">
+                <div class="pricing-header">
+                    <h2>Join The March 15-16 Cohort</h2>
+                    <p>One weekend. Four clones. 10+ hours reclaimed every week for life.</p>
+                </div>
+
+                <div class="pricing-box">
+                    <div class="price-display">
+                        <span class="price-original">$1,299</span>
+                        <span class="price-current">$999</span>
+                    </div>
+                    <div class="price-save">Early Bird: Save $300</div>
+
+                    <div class="whats-included">
+                        <h3>Everything You Get:</h3>
+                        <div class="included-item">
+                            <span class="check-icon">✓</span>
+                            <span>8 hours live, hands-on training (March 15-16, 12pm-4pm EST)</span>
+                        </div>
+                        <div class="included-item">
+                            <span class="check-icon">✓</span>
+                            <span>Build 4 working AI clones during live sessions</span>
+                        </div>
+                        <div class="included-item">
+                            <span class="check-icon">✓</span>
+                            <span>45-minute Build Sprint with 1-on-1 facilitator support</span>
+                        </div>
+                        <div class="included-item">
+                            <span class="check-icon">✓</span>
+                            <span>Showcase: see 15-20 working clone examples from participants</span>
+                        </div>
+                        <div class="included-item">
+                            <span class="check-icon">✓</span>
+                            <span>Clone Template Library - 50+ templates ($297 value)</span>
+                        </div>
+                        <div class="included-item">
+                            <span class="check-icon">✓</span>
+                            <span>Conversion Hacking Masterclass recording ($197 value)</span>
+                        </div>
+                        <div class="included-item">
+                            <span class="check-icon">✓</span>
+                            <span>Lifetime access to all session recordings</span>
+                        </div>
+                        <div class="included-item">
+                            <span class="check-icon">✓</span>
+                            <span>15-Day Money-Back Guarantee (one-click refund)</span>
+                        </div>
+                    </div>
+
+                    <div class="payment-options">
+                        <h4>Payment Options:</h4>
+                        <p>Pay in full: $999 | Or 2 payments of $524</p>
+                    </div>
+
+                    <a href="#" class="cta-primary" style="font-size: 1.6em; padding: 22px 65px;">Reserve Your Spot Now</a>
+
+                    <p style="margin-top: 35px; font-size: 1.1em; opacity: 0.88;">
+                        15-Day Money-Back Guarantee · One-Click Refund · No Questions Asked
+                    </p>
+                </div>
+
+                <div class="limited-spots">
+                    <p class="big-number">Early bird pricing ends March 13 at 11:59 PM</p>
+                    <p>After that, price increases to $1,299. Limited to <strong>1,000 participants</strong> for this cohort to ensure quality facilitation during Build Sprints.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Final CTA -->
+    <div class="container">
+        <div class="final-cta">
+            <h2>Reclaim Your Time.<br>Amplify Your Impact.</h2>
+            <p>
+                You can keep doing everything yourself. Being the answer to every question. Working nights and weekends just to keep up with the busywork.
+            </p>
+            <p>
+                Or you can spend one weekend building AI clones that handle your repetitive work—and walk into Monday with 10+ hours reclaimed every week.
+            </p>
+            <a href="#pricing" class="cta-final-white">Join The March 15-16 Cohort</a>
+            <p style="margin-top: 40px; font-size: 1.25em;">
+                March 15-16, 2025 · 12pm-4pm EST · Live on Zoom<br>
+                15-Day Guarantee · One-Click Refund · Zero Risk
+            </p>
+        </div>
+    </div>
+
+    <!-- Sticky CTA Bar -->
+    <div class="sticky-cta">
+        <div class="sticky-content">
+            <div class="sticky-timer" id="countdown">Early Bird Ending In: --</div>
+            <div class="sticky-pricing">
+                <span class="sticky-price-old">$1,299</span>
+                <span class="sticky-price-current">$999</span>
+            </div>
+        </div>
+        <a href="#pricing" class="sticky-cta-btn">Reserve Your Spot</a>
+    </div>
+
+    <script>
+        // Countdown Timer
+        function updateCountdown() {
+            const endDate = new Date('2025-03-13T23:59:59').getTime();
+            const now = new Date().getTime();
+            const distance = endDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            if (distance < 0) {
+                document.getElementById('countdown').innerHTML = 'Early Bird Ended';
+            } else {
+                document.getElementById('countdown').innerHTML =
+                    `Early Bird Ending In: ${days}d ${hours}h ${minutes}m ${seconds}s`;
+            }
+        }
+
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+    </script>
+</body>
+</html>

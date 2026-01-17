@@ -1,0 +1,1095 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Clone Accelerator - Launch Strategy Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --mv-primary-purple: #7A12D4;
+            --mv-orange-accent: #FF6B35;
+            --mv-cool-grey-700: #2D3748;
+            --mv-cool-grey-500: #718096;
+            --mv-cool-grey-300: #CBD5E0;
+            --mv-cool-grey-250: #E2E8F0;
+            --mv-grey-lighter: #F7FAFC;
+            --mv-success: #10B981;
+            --mv-warning: #F59E0B;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--mv-cool-grey-700);
+            background: var(--mv-grey-lighter);
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 3rem;
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+        }
+
+        .header {
+            background: linear-gradient(135deg, var(--mv-primary-purple) 0%, #9D4EDD 100%);
+            color: white;
+            padding: 3rem;
+            border-radius: 12px;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        .header .subtitle {
+            font-size: 1.375rem;
+            opacity: 0.95;
+        }
+
+        .meta-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: var(--mv-grey-lighter);
+            border-radius: 12px;
+        }
+
+        .meta-item {
+            text-align: center;
+        }
+
+        .meta-label {
+            font-size: 0.875rem;
+            color: var(--mv-cool-grey-500);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .meta-value {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--mv-primary-purple);
+        }
+
+        h2 {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--mv-cool-grey-700);
+            margin: 3rem 0 1.5rem 0;
+            padding-bottom: 0.75rem;
+            border-bottom: 3px solid var(--mv-primary-purple);
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--mv-cool-grey-700);
+            margin: 2rem 0 1rem 0;
+        }
+
+        h4 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--mv-primary-purple);
+            margin: 1.5rem 0 0.75rem 0;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            line-height: 1.7;
+            font-size: 1.0625rem;
+        }
+
+        ul, ol {
+            margin-left: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        li {
+            margin-bottom: 0.75rem;
+            line-height: 1.6;
+        }
+
+        .section {
+            margin-bottom: 3rem;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(122, 18, 212, 0.08) 0%, rgba(157, 78, 221, 0.08) 100%);
+            border-left: 4px solid var(--mv-primary-purple);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+
+        .success-box {
+            background: rgba(16, 185, 129, 0.1);
+            border-left: 4px solid var(--mv-success);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+
+        .warning-box {
+            background: rgba(245, 158, 11, 0.1);
+            border-left: 4px solid var(--mv-warning);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+        }
+
+        th {
+            background: var(--mv-primary-purple);
+            color: white;
+            padding: 1rem;
+            text-align: left;
+            font-weight: 700;
+        }
+
+        td {
+            padding: 1rem;
+            border-bottom: 1px solid var(--mv-cool-grey-250);
+        }
+
+        tr:nth-child(even) {
+            background: var(--mv-grey-lighter);
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 3rem;
+            margin: 2rem 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0.75rem;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: var(--mv-primary-purple);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -2.3rem;
+            top: 0.5rem;
+            width: 1rem;
+            height: 1rem;
+            background: var(--mv-primary-purple);
+            border-radius: 50%;
+            border: 3px solid white;
+            box-shadow: 0 0 0 3px var(--mv-primary-purple);
+        }
+
+        .timeline-date {
+            font-weight: 700;
+            color: var(--mv-primary-purple);
+            margin-bottom: 0.5rem;
+        }
+
+        .funnel-stage {
+            background: white;
+            border: 2px solid var(--mv-cool-grey-250);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            transition: all 0.3s;
+        }
+
+        .funnel-stage:hover {
+            border-color: var(--mv-primary-purple);
+            box-shadow: 0 5px 20px rgba(122, 18, 212, 0.15);
+        }
+
+        .funnel-stage-title {
+            font-weight: 700;
+            font-size: 1.25rem;
+            color: var(--mv-primary-purple);
+            margin-bottom: 0.75rem;
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .metric-card {
+            background: var(--mv-grey-lighter);
+            padding: 1.5rem;
+            border-radius: 12px;
+            text-align: center;
+            border: 2px solid var(--mv-cool-grey-250);
+        }
+
+        .metric-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--mv-primary-purple);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .metric-label {
+            font-size: 0.9375rem;
+            color: var(--mv-cool-grey-500);
+            font-weight: 600;
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            .container {
+                box-shadow: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1.5rem;
+            }
+            .header h1 {
+                font-size: 2rem;
+            }
+            h2 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>AI Clone Accelerator</h1>
+            <div class="subtitle">Launch Strategy & Implementation Plan</div>
+        </div>
+
+        <div class="meta-info">
+            <div class="meta-item">
+                <div class="meta-label">Document Version</div>
+                <div class="meta-value">1.0</div>
+            </div>
+            <div class="meta-item">
+                <div class="meta-label">Last Updated</div>
+                <div class="meta-value">January 2026</div>
+            </div>
+            <div class="meta-item">
+                <div class="meta-label">Status</div>
+                <div class="meta-value">Pre-Launch</div>
+            </div>
+            <div class="meta-item">
+                <div class="meta-label">Owner</div>
+                <div class="meta-value">Mindvalley</div>
+            </div>
+        </div>
+
+        <!-- EXECUTIVE SUMMARY -->
+        <section class="section">
+            <h2>📋 Executive Summary</h2>
+
+            <p><strong>The AI Clone Accelerator</strong> is a 2-day intensive workshop where participants build 5 working AI clones that automate their most time-consuming repetitive tasks. The program promises to save participants 39-57 hours per week, worth $203K-$1.48M annually depending on hourly rate.</p>
+
+            <div class="highlight-box">
+                <h4>Core Value Proposition</h4>
+                <p><strong>"Build 5 AI Clones in 48 Hours—Get 40+ Hours Back Every Week"</strong></p>
+                <p>Unlike theoretical AI courses, this is 100% hands-on. Every participant leaves with working clones tested on their real work, ready to deploy Monday morning.</p>
+            </div>
+
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <span class="metric-number">2 Days</span>
+                    <span class="metric-label">Workshop Duration</span>
+                </div>
+                <div class="metric-card">
+                    <span class="metric-number">5 Clones</span>
+                    <span class="metric-label">Built Per Participant</span>
+                </div>
+                <div class="metric-card">
+                    <span class="metric-number">40+ hrs</span>
+                    <span class="metric-label">Saved Per Week</span>
+                </div>
+                <div class="metric-card">
+                    <span class="metric-number">$999</span>
+                    <span class="metric-label">Early Bird Price</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- PRODUCT OVERVIEW -->
+        <section class="section">
+            <h2>🎯 Product Overview</h2>
+
+            <h3>What is the AI Clone Accelerator?</h3>
+            <p>A live, virtual 2-day workshop (4 hours per day = 8 hours total) where participants build AI versions of themselves that handle:</p>
+
+            <ul>
+                <li><strong>Clone #1: Communication</strong> - Automates email, messages, updates (15-23 hrs/week saved)</li>
+                <li><strong>Clone #2: Meeting Intelligence</strong> - Auto-captures notes and action items (9-10 hrs/week saved)</li>
+                <li><strong>Clone #3: Content Creation</strong> - Turns voice notes into posts (5-7 hrs/week saved)</li>
+                <li><strong>Clone #4: Team Q&A Bot</strong> - Answers team questions automatically (5-10 hrs/week saved)</li>
+                <li><strong>Clone #5: Strategy Twin</strong> - Makes strategic decisions (10-17 hrs/week saved)</li>
+            </ul>
+
+            <div class="success-box">
+                <h4>✓ Workshop Deliverables</h4>
+                <ul>
+                    <li>5 working AI clones built during live sessions</li>
+                    <li>CAPTURE → BUILD → TEST framework for future cloning</li>
+                    <li>45-minute Build Sprint with 1-on-1 facilitator support</li>
+                    <li>Showcase: 15-20 working clone examples from cohort</li>
+                    <li>All recordings, templates, and prompts (lifetime access)</li>
+                    <li>Certificate of completion</li>
+                </ul>
+            </div>
+
+            <h3>Target Audience</h3>
+            <p><strong>Ideal Participant Profile:</strong></p>
+            <ul>
+                <li>Entrepreneurs, founders, executives, consultants</li>
+                <li>Spending 10+ hours/week on email and communication</li>
+                <li>In 10+ meetings per week with follow-up burden</li>
+                <li>Need to create content but it takes hours</li>
+                <li>Exhausted from decision fatigue and prioritization</li>
+                <li>Want to work smarter, not harder</li>
+                <li>Value their time at $100-500/hour or more</li>
+            </ul>
+
+            <h3>Tools Required (Participants Must Have)</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Tool</th>
+                        <th>Cost</th>
+                        <th>Required/Optional</th>
+                        <th>Purpose</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>ChatGPT Plus</td>
+                        <td>$20/month</td>
+                        <td>Required</td>
+                        <td>Communication & Content clones</td>
+                    </tr>
+                    <tr>
+                        <td>Granola AI</td>
+                        <td>Free tier</td>
+                        <td>Required</td>
+                        <td>Meeting Intelligence clone</td>
+                    </tr>
+                    <tr>
+                        <td>Buffer</td>
+                        <td>Free tier</td>
+                        <td>Required</td>
+                        <td>Content scheduling</td>
+                    </tr>
+                    <tr>
+                        <td>Claude Pro</td>
+                        <td>$20/month</td>
+                        <td>Optional</td>
+                        <td>Strategy Twin (alternative options provided)</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p><strong>Total ongoing cost:</strong> $20-40/month to run all 5 clones</p>
+        </section>
+
+        <!-- PRICING STRATEGY -->
+        <section class="section">
+            <h2>💰 Pricing Strategy</h2>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Price Tier</th>
+                        <th>Amount</th>
+                        <th>Payment Options</th>
+                        <th>Availability</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Early Bird</strong></td>
+                        <td>$999</td>
+                        <td>Pay in full OR 2 payments × $524</td>
+                        <td>Limited time (closes [DATE])</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Regular Price</strong></td>
+                        <td>$1,295</td>
+                        <td>Pay in full OR 2 payments × $679</td>
+                        <td>After early bird expires</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Standard (Future)</strong></td>
+                        <td>$1,995</td>
+                        <td>Pay in full OR 2 payments × $1,047</td>
+                        <td>After launch cohort</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Pricing Rationale</h3>
+            <div class="highlight-box">
+                <p><strong>ROI Justification:</strong></p>
+                <ul>
+                    <li>39-57 hours saved per week = 2,028-2,964 hours per year</li>
+                    <li>At $100/hour: $202,800-$296,400 annual value</li>
+                    <li>At $500/hour: $1.01M-$1.48M annual value</li>
+                    <li><strong>Payback period:</strong> Less than 1 day of saved time</li>
+                </ul>
+            </div>
+
+            <h3>Guarantee</h3>
+            <p><strong>15-Day Money-Back Guarantee</strong></p>
+            <ul>
+                <li>Attend both days</li>
+                <li>Build the clones with facilitators</li>
+                <li>Test on real work</li>
+                <li>If you don't have at least 4 working clones saving real time → Full refund within 14 days, no questions asked</li>
+            </ul>
+        </section>
+
+        <!-- LAUNCH TIMELINE -->
+        <section class="section">
+            <h2>📅 Launch Timeline</h2>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">PHASE 1: Pre-Launch (Weeks 1-2)</div>
+                    <h4>Build Awareness & Generate Leads</h4>
+                    <ul>
+                        <li>Launch free webinar registration page</li>
+                        <li>Run ads to webinar (FB, IG, LinkedIn, YouTube)</li>
+                        <li>Email existing Mindvalley list about webinar</li>
+                        <li>Social media organic posts + influencer partnerships</li>
+                        <li><strong>Goal:</strong> 1,000+ webinar registrations</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">PHASE 2: Webinar (Week 3)</div>
+                    <h4>Live Demo & Pitch Workshop</h4>
+                    <ul>
+                        <li>Host 90-minute live webinar with Vishen</li>
+                        <li>Demonstrate all 5 clones working live</li>
+                        <li>Pitch AI Clone Accelerator workshop at minute 60</li>
+                        <li>Offer early bird pricing for 48 hours post-webinar</li>
+                        <li><strong>Goal:</strong> 10-15% conversion (100-150 sales)</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">PHASE 3: Cart Open (Week 3-4)</div>
+                    <h4>Sales Push & Follow-Up Sequence</h4>
+                    <ul>
+                        <li>Email sequence to webinar attendees (5-7 emails over 5 days)</li>
+                        <li>Retargeting ads to webinar attendees</li>
+                        <li>Sales page live with testimonials and case studies</li>
+                        <li>Direct sales page traffic (no webinar required)</li>
+                        <li><strong>Goal:</strong> Close 50-100 additional sales</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">PHASE 4: Workshop Delivery (Week 5-6)</div>
+                    <h4>First Cohort Runs Live</h4>
+                    <ul>
+                        <li>2-day workshop (March 15-16 or confirmed dates)</li>
+                        <li>Live facilitation with Vishen + team</li>
+                        <li>Record all sessions for future cohorts</li>
+                        <li>Collect testimonials and results from participants</li>
+                        <li><strong>Goal:</strong> 90%+ satisfaction, 50+ testimonials</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">PHASE 5: Post-Launch (Ongoing)</div>
+                    <h4>Evergreen Funnel & Future Cohorts</h4>
+                    <ul>
+                        <li>Convert to evergreen webinar funnel</li>
+                        <li>Monthly or quarterly cohorts</li>
+                        <li>Upsell to ongoing community or coaching</li>
+                        <li>Referral program for alumni</li>
+                        <li><strong>Goal:</strong> Consistent monthly revenue</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- MARKETING FUNNEL -->
+        <section class="section">
+            <h2>🎯 Marketing Funnel</h2>
+
+            <div class="funnel-stage">
+                <div class="funnel-stage-title">STAGE 1: Awareness (Traffic Sources)</div>
+                <ul>
+                    <li><strong>Paid Ads:</strong> Facebook, Instagram, LinkedIn, YouTube (targeting entrepreneurs, founders, executives)</li>
+                    <li><strong>Organic Social:</strong> Vishen's channels (Instagram, LinkedIn, YouTube)</li>
+                    <li><strong>Email:</strong> Mindvalley existing list (segment: professionals, entrepreneurs)</li>
+                    <li><strong>Partnerships:</strong> Podcast interviews, guest blogs, influencer collaborations</li>
+                    <li><strong>PR:</strong> Press releases about AI productivity revolution</li>
+                </ul>
+                <p><strong>Key Message:</strong> "Stop wasting 40+ hours per week on repetitive tasks. See how AI clones can automate busywork."</p>
+            </div>
+
+            <div class="funnel-stage">
+                <div class="funnel-stage-title">STAGE 2: Lead Capture (Webinar Registration)</div>
+                <ul>
+                    <li><strong>Landing Page:</strong> clone-yourself-webinar-registration-v2.html</li>
+                    <li><strong>Registration Form:</strong> Name, Email, Timezone</li>
+                    <li><strong>Lead Magnet:</strong> Free 90-minute live demo webinar</li>
+                    <li><strong>Confirmation:</strong> Instant email with Zoom link + calendar invite</li>
+                    <li><strong>Reminder Sequence:</strong> 24 hours, 1 hour, 10 minutes before webinar</li>
+                </ul>
+                <p><strong>Conversion Goal:</strong> 30-40% landing page → registration</p>
+            </div>
+
+            <div class="funnel-stage">
+                <div class="funnel-stage-title">STAGE 3: Engagement (Webinar)</div>
+                <ul>
+                    <li><strong>Show-Up Rate Target:</strong> 40-50% of registrants</li>
+                    <li><strong>Webinar Format:</strong> 90 minutes (60 min demo + 30 min pitch)</li>
+                    <li><strong>Presenter:</strong> Vishen Lakhiani</li>
+                    <li><strong>Structure:</strong> Problem → Demo 5 Clones Live → Transformation Stories → Offer Workshop</li>
+                    <li><strong>CTA:</strong> "Join AI Clone Accelerator" (early bird $999)</li>
+                    <li><strong>Replay:</strong> Available to all registrants for 48 hours</li>
+                </ul>
+                <p><strong>Conversion Goal:</strong> 10-15% attendees → buyers</p>
+            </div>
+
+            <div class="funnel-stage">
+                <div class="funnel-stage-title">STAGE 4: Conversion (Sales Page)</div>
+                <ul>
+                    <li><strong>Sales Page:</strong> ai-accelerator-sales-page-v3.html</li>
+                    <li><strong>Traffic Sources:</strong> Webinar pitch + email sequence + retargeting ads</li>
+                    <li><strong>Cart Open Period:</strong> 5-7 days after webinar</li>
+                    <li><strong>Email Sequence (5-7 emails):</strong>
+                        <ol>
+                            <li>Day 1: Webinar replay + "Here's what you'll build"</li>
+                            <li>Day 2: ROI breakdown + case studies</li>
+                            <li>Day 3: FAQ + objection handling</li>
+                            <li>Day 4: "Meet the facilitators" + social proof</li>
+                            <li>Day 5: Scarcity (early bird ends) + final chance</li>
+                        </ol>
+                    </li>
+                    <li><strong>Checkout:</strong> Mindvalley payment system (Stripe/PayPal)</li>
+                </ul>
+                <p><strong>Conversion Goal:</strong> 5-10% email clicks → sales</p>
+            </div>
+
+            <div class="funnel-stage">
+                <div class="funnel-stage-title">STAGE 5: Fulfillment (Workshop Delivery)</div>
+                <ul>
+                    <li><strong>Onboarding:</strong> Welcome email + tool setup checklist</li>
+                    <li><strong>Pre-Workshop:</strong> Send agenda, pre-work, Zoom links</li>
+                    <li><strong>Workshop Days:</strong> 2 days × 4 hours live on Zoom</li>
+                    <li><strong>Post-Workshop:</strong> Recordings, templates, certificate</li>
+                    <li><strong>Follow-Up:</strong> Survey, testimonial request, upsell to future programs</li>
+                </ul>
+                <p><strong>Success Metric:</strong> 90%+ satisfaction, 80%+ completion rate</p>
+            </div>
+        </section>
+
+        <!-- REVENUE PROJECTIONS -->
+        <section class="section">
+            <h2>📊 Revenue Projections - Path to $1,000,000</h2>
+
+            <div class="highlight-box">
+                <h4>🎯 Revenue Goal: $1,000,000</h4>
+                <p><strong>Sales Target:</strong> 909 workshop sales @ $1,100 average price</p>
+                <p><strong>Strategy:</strong> Multiple webinars + cohorts throughout the year</p>
+            </div>
+
+            <h3>Realistic Conversion Rates (Based on Industry Standards)</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Funnel Stage</th>
+                        <th>Conversion Rate</th>
+                        <th>Industry Benchmark</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Email List → Webinar Registration</td>
+                        <td>20-30%</td>
+                        <td>Warm list (Mindvalley existing customers)</td>
+                    </tr>
+                    <tr>
+                        <td>Registration → Show-Up</td>
+                        <td>35-45%</td>
+                        <td>With good reminder sequence</td>
+                    </tr>
+                    <tr>
+                        <td>Attendee → Buyer</td>
+                        <td>6-8%</td>
+                        <td>Premium workshop ($999-$1,295)</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Scenario 1: Conservative Path to $1M (6% Conversion)</h3>
+            <p><strong>Assumption:</strong> 6% webinar conversion, 4 webinars throughout the year</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Metric</th>
+                        <th>Per Webinar</th>
+                        <th>Total (4 Webinars)</th>
+                        <th>Notes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Email List Size Contacted</td>
+                        <td>40,000</td>
+                        <td>160,000 total</td>
+                        <td>Can overlap/repeat audiences</td>
+                    </tr>
+                    <tr>
+                        <td>Webinar Registrations</td>
+                        <td>10,000</td>
+                        <td>40,000</td>
+                        <td>25% email → registration</td>
+                    </tr>
+                    <tr>
+                        <td>Webinar Attendees</td>
+                        <td>4,000</td>
+                        <td>16,000</td>
+                        <td>40% show-up rate</td>
+                    </tr>
+                    <tr>
+                        <td>Workshop Sales</td>
+                        <td>240</td>
+                        <td>960 sales</td>
+                        <td>6% conversion</td>
+                    </tr>
+                    <tr>
+                        <td>Average Price</td>
+                        <td colspan="2">$1,100</td>
+                        <td>Mix of $999 early bird + $1,295 regular</td>
+                    </tr>
+                    <tr style="background: rgba(122, 18, 212, 0.1); font-weight: 700;">
+                        <td><strong>Total Revenue</strong></td>
+                        <td>$264,000</td>
+                        <td style="font-size: 1.25rem; color: var(--mv-primary-purple);">$1,056,000</td>
+                        <td>🎯 Goal achieved!</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Scenario 2: Optimistic Path to $1M (8% Conversion)</h3>
+            <p><strong>Assumption:</strong> 8% webinar conversion (with warm Mindvalley audience + strong social proof)</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Metric</th>
+                        <th>Per Webinar</th>
+                        <th>Total (4 Webinars)</th>
+                        <th>Notes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Email List Size Contacted</td>
+                        <td>30,000</td>
+                        <td>120,000 total</td>
+                        <td>Can overlap/repeat audiences</td>
+                    </tr>
+                    <tr>
+                        <td>Webinar Registrations</td>
+                        <td>7,500</td>
+                        <td>30,000</td>
+                        <td>25% email → registration</td>
+                    </tr>
+                    <tr>
+                        <td>Webinar Attendees</td>
+                        <td>3,000</td>
+                        <td>12,000</td>
+                        <td>40% show-up rate</td>
+                    </tr>
+                    <tr>
+                        <td>Workshop Sales</td>
+                        <td>240</td>
+                        <td>960 sales</td>
+                        <td>8% conversion</td>
+                    </tr>
+                    <tr>
+                        <td>Average Price</td>
+                        <td colspan="2">$1,100</td>
+                        <td>Mix of $999 early bird + $1,295 regular</td>
+                    </tr>
+                    <tr style="background: rgba(16, 185, 129, 0.1); font-weight: 700;">
+                        <td><strong>Total Revenue</strong></td>
+                        <td>$264,000</td>
+                        <td style="font-size: 1.25rem; color: var(--mv-success);">$1,056,000</td>
+                        <td>🎯 Goal achieved!</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="warning-box">
+                <h4>⚠️ Key Requirements to Hit $1M</h4>
+                <ul>
+                    <li><strong>Email List Access:</strong> Need 120,000-160,000 email sends (can overlap audiences across 4 webinars)</li>
+                    <li><strong>Webinar Quality:</strong> Must maintain 6-8% conversion with excellent live demos and pitch</li>
+                    <li><strong>Multiple Webinars:</strong> Cannot hit $1M with single webinar - need 4 webinars spaced throughout year</li>
+                    <li><strong>Strong Follow-Up:</strong> Email nurture sequence post-webinar to capture fence-sitters</li>
+                    <li><strong>Social Proof:</strong> After cohort 1, leverage testimonials heavily to boost conversion</li>
+                </ul>
+            </div>
+
+            <h3>Revenue Timeline (Path to $1M)</h3>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">Q1: Webinar 1 + Cohort 1</div>
+                    <ul>
+                        <li>First webinar → 240 sales</li>
+                        <li>Deliver first workshop cohort</li>
+                        <li>Collect testimonials</li>
+                        <li><strong>Revenue: $264,000</strong></li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">Q2: Webinar 2 + Cohort 2</div>
+                    <ul>
+                        <li>Second webinar with testimonials from cohort 1</li>
+                        <li>Higher conversion expected (7-8%)</li>
+                        <li>Deliver second cohort</li>
+                        <li><strong>Cumulative Revenue: $528,000</strong></li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">Q3: Webinar 3 + Cohort 3</div>
+                    <ul>
+                        <li>Third webinar with strong social proof</li>
+                        <li>Consider raising price to $1,495</li>
+                        <li>Deliver third cohort</li>
+                        <li><strong>Cumulative Revenue: $792,000</strong></li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">Q4: Webinar 4 + Cohort 4</div>
+                    <ul>
+                        <li>Fourth webinar</li>
+                        <li>Deliver fourth cohort</li>
+                        <li>Set up evergreen funnel for Year 2</li>
+                        <li><strong>Total Year 1 Revenue: $1,056,000 ✅</strong></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="success-box">
+                <h4>🚀 Additional Revenue Streams (Beyond $1M)</h4>
+                <ul>
+                    <li><strong>Direct Sales:</strong> Some buyers will purchase from sales page without attending webinar (+5-10%)</li>
+                    <li><strong>Referrals:</strong> Alumni referral program can add 50-100 sales/year</li>
+                    <li><strong>Upsells:</strong> Community membership ($97/month), advanced workshops, coaching</li>
+                    <li><strong>Year 2:</strong> Evergreen funnel + monthly cohorts = $1.5M-$2M potential</li>
+                </ul>
+            </div>
+
+            <h3>What If We Don't Hit 6-8% Conversion?</h3>
+            <div class="warning-box">
+                <p><strong>Contingency Plan if conversion is only 4-5%:</strong></p>
+                <ul>
+                    <li>Run 6 webinars instead of 4 (need more email sends)</li>
+                    <li>Add direct sales funnel (cold traffic to sales page)</li>
+                    <li>Partner with influencers for affiliate webinars</li>
+                    <li>Increase price to $1,495-$1,995 to offset lower volume</li>
+                    <li>Extend to 18-month timeline instead of 12 months</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- SUCCESS METRICS -->
+        <section class="section">
+            <h2>📈 Success Metrics & KPIs</h2>
+
+            <h3>Marketing KPIs</h3>
+            <ul>
+                <li><strong>Webinar Registration Rate:</strong> 30-40% (landing page visitors → registrants)</li>
+                <li><strong>Webinar Show-Up Rate:</strong> 40-50% (registrants → attendees)</li>
+                <li><strong>Webinar Conversion Rate:</strong> 10-15% (attendees → buyers)</li>
+                <li><strong>Email Open Rate:</strong> 30-40%</li>
+                <li><strong>Email Click Rate:</strong> 10-15%</li>
+                <li><strong>Cost Per Lead (CPL):</strong> <$50</li>
+                <li><strong>Cost Per Acquisition (CPA):</strong> <$300</li>
+            </ul>
+
+            <h3>Product KPIs</h3>
+            <ul>
+                <li><strong>Workshop Completion Rate:</strong> 80%+ (attend both days)</li>
+                <li><strong>Clone Build Success:</strong> 90%+ (participants with 4+ working clones)</li>
+                <li><strong>Satisfaction Score:</strong> 4.5+/5.0</li>
+                <li><strong>Net Promoter Score (NPS):</strong> 50+</li>
+                <li><strong>Testimonials Collected:</strong> 50+ per cohort</li>
+                <li><strong>Time Saved (Avg):</strong> 30+ hours per week per participant</li>
+            </ul>
+
+            <h3>Financial KPIs</h3>
+            <ul>
+                <li><strong>Revenue Per Cohort:</strong> $100K+ (target)</li>
+                <li><strong>Profit Margin:</strong> 70%+ (virtual delivery, low overhead)</li>
+                <li><strong>Refund Rate:</strong> <5%</li>
+                <li><strong>Lifetime Value (LTV):</strong> $2,000+ (including upsells)</li>
+                <li><strong>Customer Acquisition Cost (CAC):</strong> <$300</li>
+                <li><strong>LTV:CAC Ratio:</strong> 5:1 or better</li>
+            </ul>
+        </section>
+
+        <!-- TEAM & RESOURCES -->
+        <section class="section">
+            <h2>👥 Team & Resources Required</h2>
+
+            <h3>Core Team</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Role</th>
+                        <th>Responsibility</th>
+                        <th>Time Commitment</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Vishen Lakhiani</strong></td>
+                        <td>Lead instructor, webinar host, brand face</td>
+                        <td>10 hours (webinar + 2-day workshop)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Facilitator #1</strong> (Manon or similar)</td>
+                        <td>Communication & Content clone sessions</td>
+                        <td>8 hours (workshop support)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Facilitator #2</strong> (Tech lead)</td>
+                        <td>Meeting, Team Q&A, Strategy sessions</td>
+                        <td>8 hours (workshop support)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Marketing Manager</strong></td>
+                        <td>Ads, email campaigns, funnel optimization</td>
+                        <td>Full-time (4-6 weeks)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Copywriter</strong></td>
+                        <td>Landing pages, emails, ads copy</td>
+                        <td>Part-time (2-3 weeks)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Designer</strong></td>
+                        <td>Landing page graphics, ad creatives, slides</td>
+                        <td>Part-time (2-3 weeks)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Tech Support</strong></td>
+                        <td>Zoom setup, participant troubleshooting</td>
+                        <td>16 hours (workshop days)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Customer Success</strong></td>
+                        <td>Onboarding, follow-up, testimonials</td>
+                        <td>Part-time (ongoing)</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Technology & Tools</h3>
+            <ul>
+                <li><strong>Webinar Platform:</strong> Zoom Webinar (500+ capacity)</li>
+                <li><strong>Workshop Platform:</strong> Zoom Meetings (breakout rooms enabled)</li>
+                <li><strong>Landing Pages:</strong> Custom HTML or Mindvalley platform</li>
+                <li><strong>Email Platform:</strong> ActiveCampaign / Mailchimp / ConvertKit</li>
+                <li><strong>Payment Processing:</strong> Stripe + PayPal</li>
+                <li><strong>CRM:</strong> Mindvalley existing system</li>
+                <li><strong>Analytics:</strong> Google Analytics, Facebook Pixel, LinkedIn Insight Tag</li>
+                <li><strong>Recording:</strong> Zoom cloud recording + backup local recording</li>
+            </ul>
+        </section>
+
+        <!-- RISKS & MITIGATION -->
+        <section class="section">
+            <h2>⚠️ Risks & Mitigation Strategies</h2>
+
+            <h3>Risk #1: Low Webinar Show-Up Rate</h3>
+            <div class="warning-box">
+                <p><strong>Risk:</strong> Only 20-30% of registrants show up live</p>
+                <p><strong>Mitigation:</strong></p>
+                <ul>
+                    <li>Send 3 reminder emails (24h, 1h, 10min before)</li>
+                    <li>SMS reminders for high-intent leads</li>
+                    <li>Make registration more friction-full (phone number required) to increase commitment</li>
+                    <li>Offer valuable pre-webinar content to build anticipation</li>
+                    <li>Replay available but emphasize "live-only bonuses"</li>
+                </ul>
+            </div>
+
+            <h3>Risk #2: Low Conversion Rate</h3>
+            <div class="warning-box">
+                <p><strong>Risk:</strong> Less than 5% of webinar attendees buy</p>
+                <p><strong>Mitigation:</strong></p>
+                <ul>
+                    <li>A/B test webinar pitch (timing, price reveal, scarcity)</li>
+                    <li>Strengthen social proof (more testimonials, case studies)</li>
+                    <li>Offer payment plans to reduce friction</li>
+                    <li>Extended email nurture sequence post-webinar</li>
+                    <li>Retargeting ads with different angles</li>
+                </ul>
+            </div>
+
+            <h3>Risk #3: Technical Issues During Workshop</h3>
+            <div class="warning-box">
+                <p><strong>Risk:</strong> Zoom crashes, participants can't build clones, tools don't work</p>
+                <p><strong>Mitigation:</strong></p>
+                <ul>
+                    <li>Dry run workshop 1 week before with test group</li>
+                    <li>Tech support team on standby during all sessions</li>
+                    <li>Backup Zoom accounts ready to switch</li>
+                    <li>Record everything (cloud + local backup)</li>
+                    <li>Clear troubleshooting docs shared in advance</li>
+                    <li>Slack/Discord channel for real-time tech help</li>
+                </ul>
+            </div>
+
+            <h3>Risk #4: Participants Don't Build Working Clones</h3>
+            <div class="warning-box">
+                <p><strong>Risk:</strong> People struggle to build clones, leave disappointed</p>
+                <p><strong>Mitigation:</strong></p>
+                <ul>
+                    <li>Build Sprint with 1-on-1 facilitator support</li>
+                    <li>Pre-workshop setup checklist sent 1 week before</li>
+                    <li>Breakout rooms for peer support</li>
+                    <li>Simplify build process (step-by-step templates)</li>
+                    <li>Office hours after workshop for stragglers</li>
+                    <li>30-day access to facilitators for Q&A</li>
+                </ul>
+            </div>
+
+            <h3>Risk #5: High Refund Rate</h3>
+            <div class="warning-box">
+                <p><strong>Risk:</strong> 10-20% refund rate tanks profitability</p>
+                <p><strong>Mitigation:</strong></p>
+                <ul>
+                    <li>Set expectations clearly (not magic, requires effort)</li>
+                    <li>Qualify leads better (webinar filters for serious buyers)</li>
+                    <li>Over-deliver on value (exceed expectations)</li>
+                    <li>Proactive check-ins during workshop</li>
+                    <li>Exit survey for refund requests to improve future cohorts</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- NEXT STEPS -->
+        <section class="section">
+            <h2>✅ Next Steps & Action Items</h2>
+
+            <h3>Immediate (Week 1)</h3>
+            <ol>
+                <li>[ ] Finalize workshop dates (March 15-16 or alternatives)</li>
+                <li>[ ] Design team: Create hero images for landing pages (5 images needed)</li>
+                <li>[ ] Set up Zoom Webinar account (500+ capacity)</li>
+                <li>[ ] Set up payment processing (Stripe/PayPal links)</li>
+                <li>[ ] Write webinar script final draft</li>
+                <li>[ ] Create webinar slide deck</li>
+                <li>[ ] Set up email automation sequences</li>
+                <li>[ ] Launch webinar registration page live</li>
+            </ol>
+
+            <h3>Short-Term (Week 2-3)</h3>
+            <ol>
+                <li>[ ] Launch paid ads to webinar (Facebook, LinkedIn, YouTube)</li>
+                <li>[ ] Send webinar announcement to Mindvalley email list</li>
+                <li>[ ] Record promotional videos for social media</li>
+                <li>[ ] Recruit 3 facilitators for workshop</li>
+                <li>[ ] Create workshop materials (templates, prompts, slides)</li>
+                <li>[ ] Test all tools (ChatGPT, Granola, Buffer, Claude)</li>
+                <li>[ ] Schedule dry run workshop with team</li>
+            </ol>
+
+            <h3>Medium-Term (Week 4-6)</h3>
+            <ol>
+                <li>[ ] Host webinar (90 minutes live)</li>
+                <li>[ ] Open cart for 5-7 days</li>
+                <li>[ ] Send email sequence to webinar attendees</li>
+                <li>[ ] Process sales and send onboarding emails</li>
+                <li>[ ] Deliver 2-day workshop</li>
+                <li>[ ] Collect testimonials and results</li>
+                <li>[ ] Process refund requests (if any)</li>
+            </ol>
+
+            <h3>Long-Term (Month 2+)</h3>
+            <ol>
+                <li>[ ] Analyze cohort 1 results and optimize</li>
+                <li>[ ] Plan cohort 2 dates</li>
+                <li>[ ] Convert to evergreen webinar funnel</li>
+                <li>[ ] Develop upsell programs (community, coaching, advanced workshops)</li>
+                <li>[ ] Build referral program for alumni</li>
+                <li>[ ] Scale ad spend based on ROI</li>
+            </ol>
+        </section>
+
+        <!-- CONCLUSION -->
+        <section class="section">
+            <h2>🎯 Conclusion</h2>
+
+            <div class="highlight-box">
+                <p><strong>The AI Clone Accelerator is uniquely positioned to capture the AI productivity wave.</strong></p>
+
+                <p>Unlike theoretical AI courses, this program delivers tangible, immediate results: working AI clones that save 40+ hours per week. The ROI is undeniable ($203K-$1.48M annual value for a $999-$1,295 investment), and the transformation is life-changing.</p>
+
+                <p><strong>With Vishen's authority, Mindvalley's marketing machine, and a proven webinar-to-workshop funnel, this launch has strong potential for 6-figure revenue in cohort 1 and 7-figure revenue in year 1.</strong></p>
+
+                <p>The key to success: <strong>flawless execution</strong>. Get the webinar right, deliver an exceptional workshop experience, and capture powerful testimonials. The rest will scale.</p>
+            </div>
+        </section>
+
+        <div style="text-align: center; padding: 3rem 0; border-top: 2px solid var(--mv-cool-grey-250); margin-top: 3rem;">
+            <p style="color: var(--mv-cool-grey-500); font-size: 0.9375rem;">
+                <strong>Document Owner:</strong> Mindvalley Team<br>
+                <strong>Last Updated:</strong> January 2026<br>
+                <strong>Next Review:</strong> Post-Cohort 1 Debrief
+            </p>
+        </div>
+    </div>
+</body>
+</html>

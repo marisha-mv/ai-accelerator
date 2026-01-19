@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>You're In! - Clone Yourself Webinar | Mindvalley</title>
+    <meta name="description" content="You're registered for the AI Clone webinar. Here's what happens next.">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --mv-primary-purple: #7A12D4;
+            --mv-orange-accent: #FF6B35;
+            --mv-cool-grey-700: #2D3748;
+            --mv-cool-grey-500: #718096;
+            --mv-cool-grey-300: #CBD5E0;
+            --mv-cool-grey-250: #E2E8F0;
+            --mv-grey-lighter: #F7FAFC;
+            --mv-white: #FFFFFF;
+            --mv-success: #10B981;
+            --mv-warning: #F59E0B;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--mv-cool-grey-700);
+            background: var(--mv-grey-lighter);
+        }
+
+        /* Typography */
+        .mv-type--title1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            line-height: 1.1;
+        }
+
+        .mv-type--title2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 800;
+            line-height: 1.2;
+        }
+
+        .mv-type--title3 {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            font-weight: 700;
+            line-height: 1.3;
+        }
+
+        .mv-type--body {
+            font-size: 1.125rem;
+            line-height: 1.7;
+        }
+
+        /* Hero */
+        .hero {
+            background: linear-gradient(135deg, var(--mv-success) 0%, #059669 100%);
+            color: white;
+            padding: 5rem 1.5rem 4rem 1.5rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 50% 0%, rgba(255,255,255,0.15) 0%, transparent 70%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .hero-icon {
+            font-size: 5rem;
+            margin-bottom: 1.5rem;
+            animation: bounce 1s ease-in-out;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .hero h1 {
+            margin-bottom: 1.25rem;
+        }
+
+        .hero p {
+            font-size: 1.375rem;
+            opacity: 0.95;
+            line-height: 1.6;
+        }
+
+        /* Container */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Step Section */
+        .step-section {
+            background: white;
+            padding: 3.5rem 2.5rem;
+            margin: 2rem 0;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            border: 1px solid var(--mv-cool-grey-250);
+        }
+
+        .step-header {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .step-number {
+            flex-shrink: 0;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--mv-primary-purple) 0%, #9D4EDD 100%);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.75rem;
+            font-weight: 800;
+            box-shadow: 0 8px 20px rgba(122, 18, 212, 0.25);
+        }
+
+        .step-title {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--mv-cool-grey-700);
+        }
+
+        .step-content {
+            padding-left: 4.5rem;
+        }
+
+        .step-description {
+            color: var(--mv-cool-grey-500);
+            margin-bottom: 1.5rem;
+            font-size: 1.125rem;
+            line-height: 1.7;
+        }
+
+        /* Countdown */
+        .countdown-box {
+            background: var(--mv-grey-lighter);
+            padding: 2.5rem;
+            border-radius: 16px;
+            text-align: center;
+            margin: 2rem 0;
+        }
+
+        .countdown-title {
+            font-size: 1.125rem;
+            font-weight: 700;
+            color: var(--mv-cool-grey-700);
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .countdown-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+
+        .countdown-item {
+            background: white;
+            padding: 1.5rem 1rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .countdown-number {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 800;
+            color: var(--mv-primary-purple);
+            display: block;
+            line-height: 1;
+        }
+
+        .countdown-label {
+            font-size: 0.75rem;
+            color: var(--mv-cool-grey-500);
+            text-transform: uppercase;
+            margin-top: 0.5rem;
+            font-weight: 600;
+        }
+
+        /* Button */
+        .btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            border-radius: 8px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.3s;
+            font-size: 1rem;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: var(--mv-primary-purple);
+            color: white;
+            box-shadow: 0 4px 15px rgba(122, 18, 212, 0.3);
+        }
+
+        .btn-primary:hover {
+            background: #6A0FB8;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: var(--mv-cool-grey-250);
+            color: var(--mv-cool-grey-700);
+        }
+
+        .btn-secondary:hover {
+            background: var(--mv-cool-grey-300);
+        }
+
+        .btn-success {
+            background: var(--mv-success);
+            color: white;
+        }
+
+        .btn-success:hover {
+            background: #059669;
+        }
+
+        .btn-large {
+            padding: 1.25rem 3rem;
+            font-size: 1.125rem;
+        }
+
+        /* Calendar Buttons */
+        .calendar-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 1.5rem;
+        }
+
+        .calendar-btn {
+            flex: 1;
+            min-width: 150px;
+            text-align: center;
+        }
+
+        /* SMS Form */
+        .sms-form {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .sms-input {
+            flex: 1;
+            padding: 1rem 1.25rem;
+            border: 2px solid var(--mv-cool-grey-250);
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: inherit;
+        }
+
+        .sms-input:focus {
+            outline: none;
+            border-color: var(--mv-primary-purple);
+        }
+
+        /* Social Share */
+        .social-share {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 1.5rem;
+        }
+
+        .social-btn {
+            flex: 1;
+            min-width: 140px;
+            padding: 0.875rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9375rem;
+            text-align: center;
+            transition: all 0.3s;
+            color: white;
+        }
+
+        .social-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .social-whatsapp { background: #25D366; }
+        .social-linkedin { background: #0A66C2; }
+        .social-twitter { background: #1DA1F2; }
+        .social-facebook { background: #1877F2; }
+        .social-email { background: var(--mv-cool-grey-500); }
+
+        /* Warning Box */
+        .warning-box {
+            background: rgba(245, 158, 11, 0.1);
+            border-left: 5px solid var(--mv-warning);
+            padding: 2rem;
+            border-radius: 12px;
+            margin: 2rem 0;
+        }
+
+        .warning-title {
+            font-weight: 700;
+            color: var(--mv-warning);
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+        }
+
+        /* Success Box */
+        .success-box {
+            background: rgba(16, 185, 129, 0.1);
+            border-left: 5px solid var(--mv-success);
+            padding: 2rem;
+            border-radius: 12px;
+            margin: 2rem 0;
+        }
+
+        /* Info Box */
+        .info-box {
+            background: rgba(122, 18, 212, 0.08);
+            border-left: 5px solid var(--mv-primary-purple);
+            padding: 2rem;
+            border-radius: 12px;
+            margin: 2rem 0;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--mv-cool-grey-700);
+            color: white;
+            padding: 3rem 1.5rem;
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero {
+                padding: 4rem 1.5rem 3rem 1.5rem;
+            }
+
+            .step-section {
+                padding: 2.5rem 1.75rem;
+            }
+
+            .step-content {
+                padding-left: 0;
+            }
+
+            .step-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .countdown-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .calendar-buttons,
+            .social-share {
+                flex-direction: column;
+            }
+
+            .sms-form {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hero -->
+    <div class="hero">
+        <div class="hero-content">
+            <div class="hero-icon">🎉</div>
+            <h1 class="mv-type--title1">You're In!</h1>
+            <p>Your spot is reserved for the AI Clone webinar with Vishen. Check your email for the Zoom link.</p>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div style="padding: 3rem 0;">
+        <div class="container">
+
+            <!-- Step 1: Check Email -->
+            <div class="step-section">
+                <div class="step-header">
+                    <div class="step-number">1</div>
+                    <h2 class="step-title">Check Your Inbox</h2>
+                </div>
+                <div class="step-content">
+                    <p class="step-description">
+                        We just sent you a confirmation email with your Zoom link for the webinar. If you don't see it in 2 minutes, check your spam folder.
+                    </p>
+                    <div class="info-box">
+                        <div class="info-box-title" style="color: var(--mv-primary-purple); font-weight: 700; margin-bottom: 0.75rem;">📧 What's in the Email:</div>
+                        <ul style="margin-left: 1.5rem; color: var(--mv-cool-grey-700); line-height: 1.8;">
+                            <li>Zoom webinar link (save this!)</li>
+                            <li>Webinar date and time in your timezone</li>
+                            <li>Calendar invite (.ics file)</li>
+                            <li>What to expect during the 90 minutes</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 2: Mark Your Calendar -->
+            <div class="step-section">
+                <div class="step-header">
+                    <div class="step-number">2</div>
+                    <h2 class="step-title">Add to Your Calendar</h2>
+                </div>
+                <div class="step-content">
+                    <p class="step-description">
+                        Block 90 minutes on your calendar right now so nothing gets scheduled over this webinar.
+                    </p>
+
+                    <!-- Countdown Timer -->
+                    <div class="countdown-box">
+                        <div class="countdown-title">Webinar Starts In:</div>
+                        <div class="countdown-grid">
+                            <div class="countdown-item">
+                                <span class="countdown-number" id="days">00</span>
+                                <span class="countdown-label">Days</span>
+                            </div>
+                            <div class="countdown-item">
+                                <span class="countdown-number" id="hours">00</span>
+                                <span class="countdown-label">Hours</span>
+                            </div>
+                            <div class="countdown-item">
+                                <span class="countdown-number" id="minutes">00</span>
+                                <span class="countdown-label">Minutes</span>
+                            </div>
+                            <div class="countdown-item">
+                                <span class="countdown-number" id="seconds">00</span>
+                                <span class="countdown-label">Seconds</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p style="font-weight: 600; margin-bottom: 1rem; color: var(--mv-cool-grey-700);">📅 [Insert Date & Time] • 90 Minutes • Live on Zoom</p>
+
+                    <div class="calendar-buttons">
+                        <a href="#" class="btn btn-primary calendar-btn">Add to Google Calendar</a>
+                        <a href="#" class="btn btn-secondary calendar-btn">Add to Apple Calendar</a>
+                        <a href="#" class="btn btn-secondary calendar-btn">Add to Outlook</a>
+                    </div>
+
+                    <p style="margin-top: 1.5rem; font-size: 0.9375rem; color: var(--mv-cool-grey-500); font-style: italic;">
+                        Timezone conversions: <strong>9:00 AM PST</strong> | <strong>12:00 PM EST</strong> | <strong>5:00 PM GMT</strong> | <strong>10:30 PM IST</strong>
+                    </p>
+                </div>
+            </div>
+
+            <!-- Step 3: Get SMS Reminders -->
+            <div class="step-section">
+                <div class="step-header">
+                    <div class="step-number">3</div>
+                    <h2 class="step-title">Get Text Reminders</h2>
+                </div>
+                <div class="step-content">
+                    <p class="step-description">
+                        Never miss the webinar. We'll text you 1 hour before it starts.
+                    </p>
+                    <form class="sms-form" id="sms-form">
+                        <input type="tel" class="sms-input" placeholder="Your phone number (e.g., +1 555-123-4567)" id="phone" required>
+                        <button type="submit" class="btn btn-success" style="white-space: nowrap;">Send Me Reminders</button>
+                    </form>
+                    <p style="margin-top: 1rem; font-size: 0.875rem; color: var(--mv-cool-grey-500);">
+                        We'll only text you webinar reminders. Unsubscribe anytime.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Step 4: Download VIP Pass -->
+            <div class="step-section">
+                <div class="step-header">
+                    <div class="step-number">4</div>
+                    <h2 class="step-title">Add Your VIP Access Pass</h2>
+                </div>
+                <div class="step-content">
+                    <p class="step-description">
+                        Get push notifications on your phone right before the webinar starts.
+                    </p>
+                    <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem;">
+                        <a href="#" class="btn btn-primary" style="background: #000;">
+                            <span style="font-size: 1.5rem; margin-right: 0.5rem;"></span> Add to Apple Wallet
+                        </a>
+                        <a href="#" class="btn btn-primary" style="background: #4285F4;">
+                            <span style="font-size: 1.5rem; margin-right: 0.5rem;">G</span> Add to Google Pay
+                        </a>
+                    </div>
+                    <p style="margin-top: 1.5rem; font-size: 0.875rem; color: var(--mv-cool-grey-500); font-style: italic;">
+                        You'll get a push notification 1 hour and 10 minutes before the webinar starts—right on your phone's lock screen.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Step 5: Share With Friends -->
+            <div class="step-section">
+                <div class="step-header">
+                    <div class="step-number">5</div>
+                    <h2 class="step-title">Share With Friends</h2>
+                </div>
+                <div class="step-content">
+                    <p class="step-description">
+                        Know someone drowning in email and meetings? Invite them to watch Vishen's AI clones work live.
+                    </p>
+                    <div class="social-share">
+                        <a href="whatsapp://send?text=I%20just%20registered%20for%20Vishen's%20AI%20Clone%20webinar%E2%80%94watch%205%20AI%20clones%20work%20live%20and%20learn%20how%20to%20get%2040%2B%20hours%20back%20every%20week.%20Join%20me!%20[LINK]" class="social-btn social-whatsapp">Share on WhatsApp</a>
+                        <a href="https://www.linkedin.com/sharing/share-offsite/?url=[LINK]" target="_blank" class="social-btn social-linkedin">Share on LinkedIn</a>
+                        <a href="https://twitter.com/intent/tweet?text=Registered%20for%20@vishen's%20AI%20Clone%20webinar.%20See%205%20AI%20clones%20work%20live%20%2B%20get%2040%2B%20hours%20back%20per%20week.%20Free!%20[LINK]" target="_blank" class="social-btn social-twitter">Share on Twitter</a>
+                        <a href="https://www.facebook.com/sharer/sharer.php?u=[LINK]" target="_blank" class="social-btn social-facebook">Share on Facebook</a>
+                        <a href="mailto:?subject=Check%20out%20this%20free%20AI%20webinar&body=I%20just%20registered%20for%20Vishen's%20AI%20Clone%20webinar.%20You'll%20see%205%20AI%20clones%20work%20live%20and%20learn%20how%20to%20automate%20repetitive%20tasks.%20Free%20to%20attend!%20[LINK]" class="social-btn social-email">Share via Email</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Important Notice -->
+            <div class="warning-box">
+                <div class="warning-title">⚠️ IMPORTANT: No Replay Available</div>
+                <p style="color: var(--mv-cool-grey-700); line-height: 1.7; font-size: 1.0625rem;">
+                    This webinar will <strong>NOT be available for replay.</strong> If you miss the live session, you'll miss:
+                </p>
+                <ul style="margin-left: 1.5rem; margin-top: 1rem; color: var(--mv-cool-grey-700); line-height: 1.8;">
+                    <li>Watching the 5 AI clones work in real-time</li>
+                    <li>The $999 early bird offer (only available to live attendees)</li>
+                    <li>Live-attendee-only bonuses</li>
+                </ul>
+                <p style="margin-top: 1.5rem; font-weight: 700; color: var(--mv-warning); font-size: 1.125rem;">
+                    Mark your calendar. Set 3 reminders. Don't miss this.
+                </p>
+            </div>
+
+            <!-- Live Bonus -->
+            <div class="success-box">
+                <h3 style="color: var(--mv-success); font-weight: 700; font-size: 1.5rem; margin-bottom: 1rem;">🎁 Live Attendee Bonus</h3>
+                <p style="color: var(--mv-cool-grey-700); line-height: 1.7; font-size: 1.125rem;">
+                    <strong>First 1,000 live attendees</strong> will get instant access to the <strong>Clone Template Library</strong> ($297 value)—50+ pre-built templates for cloning tasks beyond the core 5.
+                </p>
+                <p style="margin-top: 1rem; font-weight: 700; color: var(--mv-success);">
+                    You must be live on the webinar to claim this. No replay attendees eligible.
+                </p>
+            </div>
+
+            <!-- What to Expect -->
+            <div class="step-section">
+                <h2 class="mv-type--title3" style="margin-bottom: 1.5rem; text-align: center;">What Happens Next</h2>
+
+                <div style="display: grid; gap: 1.5rem;">
+                    <div style="padding: 1.5rem; background: var(--mv-grey-lighter); border-radius: 12px;">
+                        <h4 style="font-weight: 700; margin-bottom: 0.75rem; color: var(--mv-cool-grey-700);">📅 24 Hours Before</h4>
+                        <p style="color: var(--mv-cool-grey-500);">We'll send you a reminder email with the Zoom link and what to have ready.</p>
+                    </div>
+
+                    <div style="padding: 1.5rem; background: var(--mv-grey-lighter); border-radius: 12px;">
+                        <h4 style="font-weight: 700; margin-bottom: 0.75rem; color: var(--mv-cool-grey-700);">⏰ 1 Hour Before</h4>
+                        <p style="color: var(--mv-cool-grey-500);">Email + SMS reminder (if you signed up). Plus push notification if you added the VIP pass.</p>
+                    </div>
+
+                    <div style="padding: 1.5rem; background: var(--mv-grey-lighter); border-radius: 12px;">
+                        <h4 style="font-weight: 700; margin-bottom: 0.75rem; color: var(--mv-cool-grey-700);">🚀 Webinar Time</h4>
+                        <p style="color: var(--mv-cool-grey-500);">Join the Zoom link 5 minutes early. Grab coffee. Watch 5 AI clones work live. Get your mind blown.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- What You'll See -->
+            <div class="step-section" style="background: linear-gradient(135deg, #F8EFFF 0%, #E8D4FF 100%); border: none;">
+                <h2 class="mv-type--title3" style="margin-bottom: 1.5rem; text-align: center;">What You'll See on the Webinar</h2>
+
+                <ul style="list-style: none; padding: 0;">
+                    <li style="padding: 1rem 0 1rem 3rem; position: relative; color: var(--mv-cool-grey-700); line-height: 1.7;">
+                        <span style="position: absolute; left: 0; color: var(--mv-success); font-size: 1.75rem; font-weight: 800;">✓</span>
+                        <strong>Vishen's transformation:</strong> From 60-hour weeks to 30-hour weeks (with proof)
+                    </li>
+                    <li style="padding: 1rem 0 1rem 3rem; position: relative; color: var(--mv-cool-grey-700); line-height: 1.7;">
+                        <span style="position: absolute; left: 0; color: var(--mv-success); font-size: 1.75rem; font-weight: 800;">✓</span>
+                        <strong>Live demo:</strong> Watch his Communication Clone handle 4 emails in 2 minutes
+                    </li>
+                    <li style="padding: 1rem 0 1rem 3rem; position: relative; color: var(--mv-cool-grey-700); line-height: 1.7;">
+                        <span style="position: absolute; left: 0; color: var(--mv-success); font-size: 1.75rem; font-weight: 800;">✓</span>
+                        <strong>Live demo:</strong> Watch him turn a voice note into 3 pieces of content in 5 minutes
+                    </li>
+                    <li style="padding: 1rem 0 1rem 3rem; position: relative; color: var(--mv-cool-grey-700); line-height: 1.7;">
+                        <span style="position: absolute; left: 0; color: var(--mv-success); font-size: 1.75rem; font-weight: 800;">✓</span>
+                        <strong>Live demo:</strong> Watch his Meeting Intelligence process a meeting in 30 seconds
+                    </li>
+                    <li style="padding: 1rem 0 1rem 3rem; position: relative; color: var(--mv-cool-grey-700); line-height: 1.7;">
+                        <span style="position: absolute; left: 0; color: var(--mv-success); font-size: 1.75rem; font-weight: 800;">✓</span>
+                        <strong>Live demo:</strong> Watch all 5 clones and see the exact time + money saved
+                    </li>
+                    <li style="padding: 1rem 0 1rem 3rem; position: relative; color: var(--mv-cool-grey-700); line-height: 1.7;">
+                        <span style="position: absolute; left: 0; color: var(--mv-success); font-size: 1.75rem; font-weight: 800;">✓</span>
+                        <strong>How to build your own:</strong> Discover the 2-day accelerator (special offer for attendees)
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Follow on Social -->
+            <div class="step-section">
+                <h2 class="mv-type--title3" style="margin-bottom: 1.5rem; text-align: center;">Follow Vishen & Mindvalley</h2>
+                <p class="step-description" style="text-align: center;">
+                    Get AI tips and updates leading up to the webinar
+                </p>
+                <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-top: 1.5rem;">
+                    <a href="https://instagram.com/vishen" target="_blank" class="btn btn-secondary">@vishen on Instagram</a>
+                    <a href="https://instagram.com/mindvalley" target="_blank" class="btn btn-secondary">@mindvalley on Instagram</a>
+                    <a href="https://linkedin.com/in/vishen" target="_blank" class="btn btn-secondary">Vishen on LinkedIn</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p style="margin-bottom: 0.75rem; font-size: 1rem;">© 2026 Mindvalley. All rights reserved.</p>
+            <p style="color: rgba(255,255,255,0.7); font-size: 0.875rem; margin-bottom: 1.5rem;">Questions? Email: support@mindvalley.com</p>
+            <p style="color: rgba(255,255,255,0.5); font-size: 0.8125rem;">
+                We're so excited to show you what's possible. See you on the webinar!
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // COUNTDOWN TIMER
+        const webinarDate = new Date('February 15, 2026 12:00:00 EST').getTime();
+
+        const countdown = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = webinarDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById('days').innerHTML = days.toString().padStart(2, '0');
+            document.getElementById('hours').innerHTML = hours.toString().padStart(2, '0');
+            document.getElementById('minutes').innerHTML = minutes.toString().padStart(2, '0');
+            document.getElementById('seconds').innerHTML = seconds.toString().padStart(2, '0');
+
+            if (distance < 0) {
+                clearInterval(countdown);
+                document.querySelector('.countdown-box').innerHTML = '<div style="padding: 2rem; font-size: 1.5rem; font-weight: 700; color: var(--mv-success); text-align: center;">Webinar is starting now! Join via your Zoom link.</div>';
+            }
+        }, 1000);
+
+        // SMS FORM SUBMISSION
+        document.getElementById('sms-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const phone = document.getElementById('phone').value;
+
+            // Add your SMS opt-in logic here
+            console.log('SMS opt-in:', phone);
+
+            // Show success message
+            this.innerHTML = '<div style="padding: 1.5rem; background: rgba(16, 185, 129, 0.1); border-radius: 8px; text-align: center; color: var(--mv-success); font-weight: 700;">✓ Perfect! We\'ll text you 1 hour before the webinar starts.</div>';
+        });
+    </script>
+
+</body>
+</html>

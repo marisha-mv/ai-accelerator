@@ -15,6 +15,7 @@ A 2-day intensive workshop where participants build 5 working AI clones that sav
 
 ### Phase 1: Webinar (Free Lead Gen)
 - **`clone-yourself-webinar-registration-v2.html`** - Landing page for webinar registrations
+- **`webinar-thank-you.html`** - Post-registration thank you page
 - **`clone-yourself-webinar.html`** - 90-minute webinar script for Vishen
 
 ### Phase 2: Accelerator (Paid Workshop)
@@ -24,6 +25,14 @@ A 2-day intensive workshop where participants build 5 working AI clones that sav
 
 ### Strategy
 - **`AI-ACCELERATOR-STRATEGY.html`** - Complete launch strategy document
+
+## 📅 Timeline
+
+- **Promotion Period:** January 22-30, 2026
+- **Webinar Date:** January 31, 2026 at 12:00 PM EST
+- **Workshop Dates:** February 6-7, 2026 (12:00 PM - 4:00 PM EST each day)
+- **Early Bird Deadline:** February 4, 2026 at 11:59 PM EST
+- **Refund Deadline:** February 5, 2026 at 11:59 PM EST (24h before workshop)
 
 ## 🚀 Launch Requirements
 

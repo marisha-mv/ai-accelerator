@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI Clone Accelerator - Build 5 AI Clones in 2 Days | Mindvalley</title>
-    <meta name="description" content="Build 5 working AI clones that save 40+ hours per week. 2-day intensive workshop with Vishen Lakhiani. Early bird pricing from $999.">
+    <meta name="description" content="Build 5 working AI clones that save 40+ hours per week. 2-day intensive workshop with Vishen Lakhiani. Early bird pricing from $1,200.">
     <meta name="theme-color" content="#7a12d4">
     <link rel="stylesheet" href="public/mindvalley-font.css">
 
@@ -687,7 +687,7 @@
             <!-- Total Value Banner -->
             <div style="background: linear-gradient(135deg, #7a12d4 0%, #9d4edd 100%); color: white; padding: 4rem 3rem; border-radius: 28px; text-align: center; margin-top: 5rem; box-shadow: 0 24px 60px rgba(122, 18, 212, 0.35);">
                 <h3 class="title-bold-2" style="margin-bottom: 1.5rem; color: white;">Total Annual Value: $16,200</h3>
-                <p class="body-lg" style="color: white; opacity: 0.95; line-height: 1.8;">That's 17-28 hours reclaimed every week. 884-1,456 hours per year. Your investment today: Starting at $999 for lifetime access to everything.</p>
+                <p class="body-lg" style="color: white; opacity: 0.95; line-height: 1.8;">That's 17-28 hours reclaimed every week. 884-1,456 hours per year. Your investment today: Starting at $1,200 for lifetime access to everything.</p>
             </div>
         </div>
     </section>
@@ -840,11 +840,11 @@
                 </div>
 
                 <div class="price-display">
-                    <span class="price-original">$1,499</span>
-                    <span class="price-current" id="current-price">$999</span>
+                    <span class="price-original">$1,500</span>
+                    <span class="price-current" id="current-price">$1,200</span>
                 </div>
                 <div style="text-align: center; margin-bottom: 3.5rem; position: relative; z-index: 1;">
-                    <span class="price-save" id="savings-badge">Early Bird: Save $500</span>
+                    <span class="price-save" id="savings-badge">Early Bird: Save $300</span>
                 </div>
 
                 <!-- What's Included -->
@@ -879,7 +879,7 @@
             <!-- Price Increase Warning -->
             <div style="background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); padding: 2.5rem; border-radius: 20px; text-align: center; margin-top: 3rem; max-width: 950px; margin-left: auto; margin-right: auto; border: 1px solid #fbbf24;">
                 <p style="font-size: 28px; font-weight: 700; color: #92400e; margin-bottom: 0.75rem;" id="price-countdown">Price increases in --</p>
-                <p style="font-size: 16px; color: #92400e; line-height: 1.7;">Regular price is $1,499. Current early bird price locks in the discount. Price increases every 24 hours until Feb 6.</p>
+                <p style="font-size: 16px; color: #92400e; line-height: 1.7;">Regular price is $1,500. Current early bird price locks in the discount. Price increases every 24 hours until Feb 6.</p>
             </div>
         </div>
     </section>
@@ -962,7 +962,7 @@
                     </div>
                     <div class="accordion-content">
                         <div class="accordion-body">
-                            We use progressive pricing (like event tickets). Price starts at $999 and increases by $50 every 48 hours until it reaches $1,499. The earlier you join, the more you save. Lock in the current price now before it goes up.
+                            We use progressive pricing (like event tickets). Price starts at $1,200 on Jan 31 and increases by $50 every 24 hours until it reaches $1,500 on Feb 6. The earlier you join, the more you save. Lock in the current price now before it goes up.
                         </div>
                     </div>
                 </div>
@@ -997,11 +997,11 @@
 
     <script>
         // PROGRESSIVE PRICING SYSTEM
-        const PRICE_START = 999;
+        const PRICE_START = 1200;
         const PRICE_INCREMENT = 50;
-        const PRICE_MAX = 1499;
+        const PRICE_MAX = 1500;
         const INCREMENT_HOURS = 24;
-        const launchDate = new Date('2026-01-22T00:00:00-05:00').getTime();
+        const launchDate = new Date('2026-01-31T00:00:00-05:00').getTime();
 
         function getProgressivePricing() {
             const now = new Date().getTime();
@@ -1028,7 +1028,7 @@
             document.getElementById('savings-badge').textContent = `Early Bird: Save $${savings}`;
 
             if (pricing.isMaxPrice) {
-                document.getElementById('price-countdown').textContent = 'Regular price of $1,499';
+                document.getElementById('price-countdown').textContent = 'Regular price of $1,500';
             } else {
                 const now = new Date().getTime();
                 const distance = pricing.nextIncreaseDate - now;

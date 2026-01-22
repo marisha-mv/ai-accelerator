@@ -1436,10 +1436,10 @@
 
                 <div class="pricing-box">
                     <div class="price-display">
-                        <span class="price-original">$1,299</span>
-                        <span class="price-current">$999</span>
+                        <span class="price-original">$1,499</span>
+                        <span class="price-current" id="current-price">$999</span>
                     </div>
-                    <div class="price-save">Early Bird: Save $300</div>
+                    <div class="price-save" id="savings-amount">Early Bird: Save $500</div>
 
                     <div class="whats-included">
                         <h3>Everything You Get:</h3>
@@ -1478,11 +1478,11 @@
                     </div>
 
                     <div class="payment-options">
-                        <h4>Payment Options:</h4>
-                        <p>Pay in full: $999 | Or 2 payments of $524</p>
+                        <h4>Investment:</h4>
+                        <p>Pay in full only — Lock in current price now</p>
                     </div>
 
-                    <a href="#" class="cta-primary" style="font-size: 1.6em; padding: 22px 65px;">Reserve Your Spot Now</a>
+                    <a href="#" class="cta-primary" style="font-size: 1.6em; padding: 22px 65px;">Lock In Current Price Now</a>
 
                     <p style="margin-top: 35px; font-size: 1.1em; opacity: 0.88;">
                         Full Refund Until Workshop Starts · One-Click Refund · No Questions Asked
@@ -1490,8 +1490,8 @@
                 </div>
 
                 <div class="limited-spots">
-                    <p class="big-number">Early bird pricing ends February 4 at 11:59 PM EST</p>
-                    <p>After that, price increases to $1,299. Limited spots available for this cohort to ensure quality facilitation during Build Sprints.</p>
+                    <p class="big-number" id="price-increase-countdown">Price increases in --</p>
+                    <p>Regular price is $1,499. Current early bird price locks in the discount. Price increases every 48 hours.</p>
                 </div>
             </div>
         </div>
@@ -1518,37 +1518,82 @@
     <!-- Sticky CTA Bar -->
     <div class="sticky-cta">
         <div class="sticky-content">
-            <div class="sticky-timer" id="countdown">Early Bird Ending In: --</div>
+            <div class="sticky-timer" id="countdown">Price Increases In: --</div>
             <div class="sticky-pricing">
-                <span class="sticky-price-old">$1,299</span>
-                <span class="sticky-price-current">$999</span>
+                <span class="sticky-price-old">$1,499</span>
+                <span class="sticky-price-current" id="sticky-current-price">$999</span>
             </div>
         </div>
-        <a href="#pricing" class="sticky-cta-btn">Reserve Your Spot</a>
+        <a href="#pricing" class="sticky-cta-btn">Lock In Current Price</a>
     </div>
 
     <script>
-        // Countdown Timer
-        function updateCountdown() {
-            const endDate = new Date('2026-02-04T23:59:59').getTime();
+        // Progressive Pricing Configuration
+        // Price starts at $999 and increases by $50 every 48 hours
+        const PRICE_START = 999;
+        const PRICE_INCREMENT = 50;
+        const PRICE_MAX = 1499;
+        const INCREMENT_HOURS = 48;
+
+        // Set your launch date here (when pricing starts)
+        const launchDate = new Date('2026-01-31T16:00:00-05:00').getTime(); // 4 PM EST after webinar
+
+        function getProgressivePricing() {
             const now = new Date().getTime();
-            const distance = endDate - now;
+            const hoursElapsed = (now - launchDate) / (1000 * 60 * 60);
+            const incrementsPassed = Math.floor(hoursElapsed / INCREMENT_HOURS);
 
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            const currentPrice = Math.min(PRICE_START + (incrementsPassed * PRICE_INCREMENT), PRICE_MAX);
+            const nextPrice = Math.min(currentPrice + PRICE_INCREMENT, PRICE_MAX);
 
-            if (distance < 0) {
-                document.getElementById('countdown').innerHTML = 'Early Bird Ended';
+            // Calculate time until next price increase
+            const hoursUntilNextIncrease = INCREMENT_HOURS - (hoursElapsed % INCREMENT_HOURS);
+            const nextIncreaseDate = now + (hoursUntilNextIncrease * 60 * 60 * 1000);
+
+            return {
+                currentPrice,
+                nextPrice,
+                nextIncreaseDate,
+                isMaxPrice: currentPrice >= PRICE_MAX
+            };
+        }
+
+        function updatePricingDisplay() {
+            const pricing = getProgressivePricing();
+
+            // Update current price displays
+            document.getElementById('current-price').textContent = `$${pricing.currentPrice}`;
+            document.getElementById('sticky-current-price').textContent = `$${pricing.currentPrice}`;
+
+            // Update savings
+            const savings = PRICE_MAX - pricing.currentPrice;
+            document.getElementById('savings-amount').textContent = `Early Bird: Save $${savings}`;
+
+            // Update countdown timer
+            if (pricing.isMaxPrice) {
+                document.getElementById('countdown').innerHTML = 'Regular Price';
+                document.getElementById('price-increase-countdown').innerHTML = 'Regular price of $1,499';
             } else {
-                document.getElementById('countdown').innerHTML =
-                    `Early Bird Ending In: ${days}d ${hours}h ${minutes}m ${seconds}s`;
+                const now = new Date().getTime();
+                const distance = pricing.nextIncreaseDate - now;
+
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                const countdownText = days > 0
+                    ? `${days}d ${hours}h ${minutes}m ${seconds}s`
+                    : `${hours}h ${minutes}m ${seconds}s`;
+
+                document.getElementById('countdown').innerHTML = `Price Increases In: ${countdownText}`;
+                document.getElementById('price-increase-countdown').innerHTML = `Price increases in ${countdownText}`;
             }
         }
 
-        setInterval(updateCountdown, 1000);
-        updateCountdown();
+        // Update every second
+        setInterval(updatePricingDisplay, 1000);
+        updatePricingDisplay();
     </script>
 </body>
 </html>

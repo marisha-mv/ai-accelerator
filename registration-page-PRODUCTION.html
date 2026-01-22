@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clone Yourself With AI - Free Live Masterclass with Vishen | Mindvalley</title>
+    <meta name="description" content="Watch 5 AI Clones Work Live. See how to get 40+ hours back every week. Free 90-minute masterclass with Vishen Lakhiani.">
+    <meta name="theme-color" content="#7a12d4">
+    <link rel="stylesheet" href="public/mindvalley-font.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: white;
+            overflow-x: hidden;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(180deg, #f9f7fc 0%, #ffffff 100%);
+            padding: 6rem 0;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent 0%, #7a12d4 50%, transparent 100%);
+            opacity: 0.3;
+        }
+
+        /* Countdown Timer */
+        .countdown-container {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: white;
+            padding: 2.5rem 2rem;
+            border-radius: 20px;
+            text-align: center;
+            max-width: 650px;
+            margin: 3rem auto;
+            box-shadow: 0 20px 60px rgba(26, 26, 46, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .countdown-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #7a12d4, transparent);
+            animation: shimmer 3s infinite;
+        }
+
+        @keyframes shimmer {
+            0%, 100% { left: -100%; }
+            50% { left: 100%; }
+        }
+
+        .countdown-label {
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: rgba(255,255,255,0.6);
+            margin-bottom: 1.5rem;
+        }
+
+        .countdown-grid {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .countdown-item {
+            text-align: center;
+            position: relative;
+        }
+
+        .countdown-number {
+            font-size: 48px;
+            font-weight: 700;
+            display: block;
+            line-height: 1;
+            background: linear-gradient(180deg, #ffffff 0%, rgba(255,255,255,0.8) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .countdown-text {
+            font-size: 11px;
+            color: rgba(255,255,255,0.5);
+            margin-top: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        /* Form Container */
+        .form-container {
+            background: white;
+            border: 2px solid #e5e7eb;
+            border-radius: 24px;
+            padding: 3rem;
+            max-width: 600px;
+            margin: 0 auto;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.04);
+            transition: all 0.3s ease;
+        }
+
+        .form-container:hover {
+            box-shadow: 0 20px 60px rgba(122, 18, 212, 0.1);
+            border-color: #d1c4e9;
+        }
+
+        .form-group {
+            margin-bottom: 1.75rem;
+        }
+
+        .form-label {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            color: #0f131a;
+            margin-bottom: 0.75rem;
+            letter-spacing: 0.01em;
+        }
+
+        .form-input,
+        .form-select {
+            width: 100%;
+            padding: 1.125rem 1.25rem;
+            border: 2px solid #e5e7eb;
+            border-radius: 12px;
+            font-size: 16px;
+            font-family: inherit;
+            transition: all 0.2s ease;
+            background: #fafafa;
+        }
+
+        .form-input:focus,
+        .form-select:focus {
+            outline: none;
+            border-color: #7a12d4;
+            background: white;
+            box-shadow: 0 0 0 4px rgba(122, 18, 212, 0.08);
+        }
+
+        /* Trust Badges */
+        .trust-badges {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 2.5rem;
+            flex-wrap: wrap;
+        }
+
+        .trust-badge {
+            text-align: center;
+        }
+
+        .trust-badge-icon {
+            font-size: 2.25rem;
+            margin-bottom: 0.75rem;
+            filter: grayscale(0.3);
+        }
+
+        .trust-badge-text {
+            font-size: 13px;
+            color: #6b7280;
+            font-weight: 500;
+        }
+
+        /* Clone Cards */
+        .clone-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .clone-card {
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 20px;
+            padding: 2.5rem;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .clone-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #7a12d4, #9d4edd);
+            border-radius: 20px 20px 0 0;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .clone-card:hover {
+            box-shadow: 0 12px 40px rgba(0,0,0,0.08);
+            transform: translateY(-4px);
+            border-color: #d1c4e9;
+        }
+
+        .clone-card:hover::before {
+            opacity: 1;
+        }
+
+        .clone-icon {
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, #7a12d4 0%, #9d4edd 100%);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.75rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 8px 20px rgba(122, 18, 212, 0.25);
+        }
+
+        /* Testimonial Card */
+        .testimonial-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            border: 1px solid #e5e7eb;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: 1.5rem;
+            left: 1.5rem;
+            font-size: 80px;
+            color: #f5f0fa;
+            font-family: Georgia, serif;
+            line-height: 1;
+        }
+
+        .testimonial-card:hover {
+            border-color: #d1c4e9;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.06);
+        }
+
+        .testimonial-quote {
+            font-style: italic;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #4b5563;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .testimonial-author {
+            font-weight: 700;
+            color: #7a12d4;
+            margin-bottom: 0.25rem;
+            font-size: 15px;
+        }
+
+        .testimonial-title {
+            font-size: 13px;
+            color: #6b7280;
+        }
+
+        /* FAQ Accordion */
+        .faq-item {
+            border-bottom: 1px solid #e5e7eb;
+            padding: 2rem 0;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .faq-item:hover {
+            background: linear-gradient(90deg, transparent, #f9f7fc, transparent);
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+
+        .faq-question {
+            font-size: 18px;
+            font-weight: 600;
+            color: #0f131a;
+            margin-bottom: 0.75rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-question::after {
+            content: '+';
+            font-size: 28px;
+            color: #7a12d4;
+            font-weight: 300;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .faq-question::after {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            font-size: 15px;
+            color: #4b5563;
+            line-height: 1.8;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+            margin-top: 1rem;
+        }
+
+        /* Logo Scroller */
+        .logo-scroller {
+            display: flex;
+            gap: 4rem;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            opacity: 0.4;
+            padding: 2rem 0;
+        }
+
+        .logo-scroller img {
+            height: 32px;
+            filter: grayscale(100%);
+            transition: all 0.3s ease;
+        }
+
+        .logo-scroller img:hover {
+            filter: grayscale(0%);
+            opacity: 1;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero {
+                padding: 4rem 0 3rem 0;
+            }
+
+            .form-container {
+                padding: 2rem;
+            }
+
+            .clone-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .countdown-grid {
+                gap: 1.5rem;
+            }
+
+            .countdown-number {
+                font-size: 36px;
+            }
+
+            .trust-badges {
+                gap: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="mv-container">
+            <div class="overline-text" style="margin-bottom: 1.5rem; color: #7a12d4; text-align: center;">
+                FREE LIVE MASTERCLASS WITH VISHEN LAKHIANI
+            </div>
+            <h1 class="title-bold-1" style="max-width: 52rem; margin: 0 auto 1.5rem auto; text-align: center;">
+                Clone Yourself With AI
+            </h1>
+            <p class="body-lg" style="max-width: 42rem; margin: 0 auto; color: #4b5563; text-align: center; line-height: 1.8;">
+                Watch 5 AI Clones Work Live—See How to Get 40+ Hours Back Every Week
+            </p>
+
+            <!-- IMAGE PLACEHOLDER: Hero Visual -->
+            <div style="max-width: 900px; margin: 3.5rem auto; background: linear-gradient(135deg, rgba(122, 18, 212, 0.03) 0%, rgba(157, 78, 221, 0.03) 100%); border: 2px dashed #cbd5e0; border-radius: 24px; padding: 5rem 2rem; text-align: center; position: relative;">
+                <div style="position: absolute; top: 1rem; right: 1rem; background: #7a12d4; color: white; padding: 0.5rem 1rem; border-radius: 999px; font-size: 12px; font-weight: 600;">HERO IMAGE</div>
+                <p style="font-weight: 700; font-size: 20px; color: #7a12d4; margin-bottom: 1rem;">🎨 Premium Hero Visualization</p>
+                <p style="font-size: 14px; line-height: 1.7; color: #6b7280; max-width: 600px; margin: 0 auto;">
+                    <strong>Design Brief:</strong> Vishen at desk with holographic AI avatars floating around him OR split-screen showing 5 AI clones working simultaneously<br>
+                    <strong>Dimensions:</strong> 1800×1000px (WebP, 2x retina)<br>
+                    <strong>Style:</strong> Modern, premium, tech-forward with purple accent lighting
+                </p>
+            </div>
+
+            <!-- Countdown Timer -->
+            <div class="countdown-container">
+                <p class="countdown-label">WEBINAR STARTS IN</p>
+                <div class="countdown-grid">
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="days">00</span>
+                        <p class="countdown-text">Days</p>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="hours">00</span>
+                        <p class="countdown-text">Hours</p>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="minutes">00</span>
+                        <p class="countdown-text">Minutes</p>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="seconds">00</span>
+                        <p class="countdown-text">Seconds</p>
+                    </div>
+                </div>
+            </div>
+
+            <div style="margin-top: 3rem; text-align: center;">
+                <a href="#register" class="button button-primary button-lg" style="box-shadow: 0 10px 30px rgba(122, 18, 212, 0.3);">
+                    Claim Your Free Virtual Access
+                </a>
+            </div>
+            <p class="body-sm" style="margin-top: 1.25rem; color: #6b7280; text-align: center;">
+                90 minutes • Live on Zoom • Free to attend • No replay available
+            </p>
+        </div>
+    </section>
+
+    <!-- Stats Bar -->
+    <section class="stats-section">
+        <div class="mv-container">
+            <div class="stats-grid">
+                <div>
+                    <span class="stat-number">90 min</span>
+                    <span class="stat-label">Live Demo Session</span>
+                </div>
+                <div>
+                    <span class="stat-number">5 Clones</span>
+                    <span class="stat-label">Working in Real-Time</span>
+                </div>
+                <div>
+                    <span class="stat-number">40+ hrs</span>
+                    <span class="stat-label">Saved Per Week</span>
+                </div>
+                <div>
+                    <span class="stat-number">100%</span>
+                    <span class="stat-label">Free to Attend</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof: As Seen In -->
+    <section style="background-color: #f9f7fc; padding: 4rem 0;">
+        <div class="mv-container">
+            <p class="body-sm" style="text-align: center; color: #6b7280; margin-bottom: 2rem; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 600;">Vishen & Mindvalley Featured In</p>
+            <div class="logo-scroller">
+                <!-- IMAGE PLACEHOLDERS: Media Logos -->
+                <div style="width: 120px; height: 32px; background: #d1d5db; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 10px; color: #6b7280;">FORBES</div>
+                <div style="width: 120px; height: 32px; background: #d1d5db; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 10px; color: #6b7280;">NY TIMES</div>
+                <div style="width: 120px; height: 32px; background: #d1d5db; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 10px; color: #6b7280;">TIME</div>
+                <div style="width: 120px; height: 32px; background: #d1d5db; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 10px; color: #6b7280;">ENTREPRENEUR</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Problem -->
+    <section style="background-color: white; padding: 6rem 0;">
+        <div class="mv-container">
+            <h2 class="title-bold-2" style="margin-bottom: 1.25rem; text-align: center; max-width: 48rem; margin-left: auto; margin-right: auto;">
+                You're Drowning in Repetitive Tasks
+            </h2>
+            <p class="body-lg" style="max-width: 42rem; margin: 0 auto 4rem auto; text-align: center; color: #4b5563; line-height: 1.8;">
+                Most entrepreneurs waste 40-60 hours every week on the same tasks over and over. Email. Meetings. Content. Decisions. These tasks steal your life.
+            </p>
+
+            <div class="clone-grid">
+                <div class="clone-card">
+                    <h3 class="title-bold-6" style="margin-bottom: 1rem;">Email & Communication</h3>
+                    <p style="font-size: 36px; font-weight: 700; color: #ef4444; margin-bottom: 1.25rem; line-height: 1;">15-20 hrs/week</p>
+                    <p class="body" style="color: #4b5563; line-height: 1.8;">
+                        Responding to emails, messages, updates. Your mornings are gone before you even start real work.
+                    </p>
+                </div>
+
+                <div class="clone-card">
+                    <h3 class="title-bold-6" style="margin-bottom: 1rem;">Meetings & Notes</h3>
+                    <p style="font-size: 36px; font-weight: 700; color: #ef4444; margin-bottom: 1.25rem; line-height: 1;">10+ hrs/week</p>
+                    <p class="body" style="color: #4b5563; line-height: 1.8;">
+                        Taking notes, writing follow-ups, documenting decisions. Your afternoons vanish into administrative work.
+                    </p>
+                </div>
+
+                <div class="clone-card">
+                    <h3 class="title-bold-6" style="margin-bottom: 1rem;">Content Creation</h3>
+                    <p style="font-size: 36px; font-weight: 700; color: #ef4444; margin-bottom: 1.25rem; line-height: 1;">5-10 hrs/week</p>
+                    <p class="body" style="color: #4b5563; line-height: 1.8;">
+                        LinkedIn posts, tweets, newsletters, social media. Your Sundays are consumed by content stress.
+                    </p>
+                </div>
+
+                <div class="clone-card">
+                    <h3 class="title-bold-6" style="margin-bottom: 1rem;">Daily Decisions</h3>
+                    <p style="font-size: 36px; font-weight: 700; color: #ef4444; margin-bottom: 1.25rem; line-height: 1;">10-15 hrs/week</p>
+                    <p class="body" style="color: #4b5563; line-height: 1.8;">
+                        Prioritizing tasks, evaluating opportunities, strategic thinking. Decision fatigue is draining you.
+                    </p>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 5rem;">
+                <p class="title-bold-2" style="color: #ef4444; margin-bottom: 1.25rem;">That's 40-60 Hours Per Week</p>
+                <p class="body-lg" style="color: #4b5563; max-width: 40rem; margin: 0 auto; line-height: 1.8;">Spent on repetitive tasks that could be automated. That's your LIFE being stolen by busy work.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Solution -->
+    <section style="background-color: #f9f7fc; padding: 6rem 0;">
+        <div class="mv-container">
+            <h2 class="title-bold-2" style="margin-bottom: 1.25rem; text-align: center;">
+                What If You Could Automate All of It?
+            </h2>
+            <p class="body-lg" style="max-width: 42rem; margin: 0 auto 4rem auto; text-align: center; color: #4b5563; line-height: 1.8;">
+                In this 90-minute live demo, you'll watch Vishen's 5 AI clones work in real-time. No theory. Just working AI that saves 40+ hours every week.
+            </p>
+
+            <div class="clone-grid">
+                <div class="clone-card">
+                    <div class="clone-icon">📧</div>
+                    <h3 class="title-bold-6" style="margin-bottom: 0.75rem;">Communication Clone</h3>
+                    <p style="font-size: 32px; font-weight: 700; color: #10b981; margin-bottom: 1.25rem; line-height: 1;">15-23 hrs/week</p>
+                    <p class="body" style="color: #4b5563; line-height: 1.8;">
+                        Automates all email responses, messages, and updates. Writes in your exact voice. Watch it handle 4 emails in 2 minutes.
+                    </p>
+                </div>
+
+                <div class="clone-card">
+                    <div class="clone-icon">✍️</div>
+                    <h3 class="title-bold-6" style="margin-bottom: 0.75rem;">Content Creation Clone</h3>
+                    <p style="font-size: 32px; font-weight: 700; color: #10b981; margin-bottom: 1.25rem; line-height: 1;">5-7 hrs/week</p>
+                    <p class="body" style="color: #4b5563; line-height: 1.8;">
+                        Turns voice notes into LinkedIn posts, tweets, newsletters. Watch Vishen create 2 weeks of content in 5 minutes.
+                    </p>
+                </div>
+
+                <div class="clone-card">
+                    <div class="clone-icon">📝</div>
+                    <h3 class="title-bold-6" style="margin-bottom: 0.75rem;">Meeting Intelligence Clone</h3>
+                    <p style="font-size: 32px; font-weight: 700; color: #10b981; margin-bottom: 1.25rem; line-height: 1;">9-10 hrs/week</p>
+                    <p class="body" style="color: #4b5563; line-height: 1.8;">
+                        Auto-captures meeting notes and action items. Watch it process a meeting in 30 seconds flat.
+                    </p>
+                </div>
+
+                <div class="clone-card">
+                    <div class="clone-icon">💬</div>
+                    <h3 class="title-bold-6" style="margin-bottom: 0.75rem;">Team Q&A Bot</h3>
+                    <p style="font-size: 32px; font-weight: 700; color: #10b981; margin-bottom: 1.25rem; line-height: 1;">5-10 hrs/week</p>
+                    <p class="body" style="color: #4b5563; line-height: 1.8;">
+                        Answers 80% of team questions automatically. See it answer complex questions in seconds.
+                    </p>
+                </div>
+
+                <div class="clone-card">
+                    <div class="clone-icon">🎯</div>
+                    <h3 class="title-bold-6" style="margin-bottom: 0.75rem;">Strategy Twin</h3>
+                    <p style="font-size: 32px; font-weight: 700; color: #10b981; margin-bottom: 1.25rem; line-height: 1;">10-17 hrs/week</p>
+                    <p class="body" style="color: #4b5563; line-height: 1.8;">
+                        Makes strategic decisions based on YOUR framework. Watch it prioritize an entire week in 60 seconds.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Total Value Banner -->
+            <div style="background: linear-gradient(135deg, #10b981 0%, #059669 100%); color: white; padding: 3.5rem 3rem; border-radius: 24px; text-align: center; margin-top: 5rem; max-width: 850px; margin-left: auto; margin-right: auto; box-shadow: 0 20px 60px rgba(16, 185, 129, 0.3);">
+                <p style="font-size: 56px; font-weight: 700; margin-bottom: 1.5rem; line-height: 1; letter-spacing: -0.02em;">39-57 Hours Per Week</p>
+                <p style="font-size: 20px; line-height: 1.7; opacity: 0.95;">That's 2-3 full work days back. Every single week. Worth $203K-$1.48M/year depending on your hourly rate.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- What You'll See -->
+    <section style="background-color: white; padding: 6rem 0;">
+        <div class="mv-container">
+            <h2 class="title-bold-2" style="margin-bottom: 1.25rem; text-align: center;">
+                Here's Exactly What You'll See in 90 Minutes
+            </h2>
+            <p class="body-lg" style="max-width: 42rem; margin: 0 auto 4rem auto; text-align: center; color: #4b5563; line-height: 1.8;">
+                This isn't a teaching webinar. It's a DEMO. You'll watch real AI clones working live.
+            </p>
+
+            <div style="max-width: 52rem; margin: 0 auto;">
+                <ul style="list-style: none; padding: 0;">
+                    <li style="padding: 1.5rem 0 1.5rem 3rem; position: relative; font-size: 18px; line-height: 1.8; color: #0f131a; border-bottom: 1px solid #e5e7eb;">
+                        <span style="position: absolute; left: 0; color: #10b981; font-size: 2rem; font-weight: 800;">✓</span>
+                        <strong>Vishen's transformation:</strong> How he went from 60-hour weeks to 30-hour weeks (with proof)
+                    </li>
+                    <li style="padding: 1.5rem 0 1.5rem 3rem; position: relative; font-size: 18px; line-height: 1.8; color: #0f131a; border-bottom: 1px solid #e5e7eb;">
+                        <span style="position: absolute; left: 0; color: #10b981; font-size: 2rem; font-weight: 800;">✓</span>
+                        <strong>Live demo #1:</strong> Watch his Communication Clone handle 4 emails in 2 minutes
+                    </li>
+                    <li style="padding: 1.5rem 0 1.5rem 3rem; position: relative; font-size: 18px; line-height: 1.8; color: #0f131a; border-bottom: 1px solid #e5e7eb;">
+                        <span style="position: absolute; left: 0; color: #10b981; font-size: 2rem; font-weight: 800;">✓</span>
+                        <strong>Live demo #2:</strong> Watch him record a voice note and turn it into 3 pieces of content instantly
+                    </li>
+                    <li style="padding: 1.5rem 0 1.5rem 3rem; position: relative; font-size: 18px; line-height: 1.8; color: #0f131a; border-bottom: 1px solid #e5e7eb;">
+                        <span style="position: absolute; left: 0; color: #10b981; font-size: 2rem; font-weight: 800;">✓</span>
+                        <strong>Live demo #3:</strong> Watch his Meeting Intelligence process a meeting in 30 seconds
+                    </li>
+                    <li style="padding: 1.5rem 0 1.5rem 3rem; position: relative; font-size: 18px; line-height: 1.8; color: #0f131a; border-bottom: 1px solid #e5e7eb;">
+                        <span style="position: absolute; left: 0; color: #10b981; font-size: 2rem; font-weight: 800;">✓</span>
+                        <strong>The total picture:</strong> See the exact hours and dollar value saved per clone
+                    </li>
+                    <li style="padding: 1.5rem 0 1.5rem 3rem; position: relative; font-size: 18px; line-height: 1.8; color: #0f131a;">
+                        <span style="position: absolute; left: 0; color: #10b981; font-size: 2rem; font-weight: 800;">✓</span>
+                        <strong>How to build your own:</strong> Discover the 2-day accelerator where you build all 5 clones
+                    </li>
+                </ul>
+            </div>
+
+            <div style="text-align: center; margin-top: 4rem;">
+                <a href="#register" class="button button-primary button-lg" style="box-shadow: 0 10px 30px rgba(122, 18, 212, 0.3);">Save My Free Spot</a>
+                <p class="body-sm" style="margin-top: 1.25rem; color: #6b7280;">No pitch until minute 60. Just pure demonstration of what's possible.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof -->
+    <section style="background-color: #f9f7fc; padding: 6rem 0;">
+        <div class="mv-container">
+            <h2 class="title-bold-2" style="margin-bottom: 1.25rem; text-align: center;">
+                What Others Are Saying
+            </h2>
+            <p class="body-lg" style="max-width: 42rem; margin: 0 auto 4rem auto; text-align: center; color: #4b5563; line-height: 1.8;">
+                People who've built these clones are getting their lives back.
+            </p>
+
+            <div class="clone-grid">
+                <div class="testimonial-card">
+                    <p class="testimonial-quote">
+                        "I was working 55 hours per week, missing family dinners. Now I work 32 hours and travel monthly with my kids. I got my life back."
+                    </p>
+                    <p class="testimonial-author">Sarah M.</p>
+                    <p class="testimonial-title">Marketing Director</p>
+                    <p style="margin-top: 1.25rem; font-weight: 600; color: #10b981; font-size: 14px;">✓ 23 hours/week saved</p>
+                </div>
+
+                <div class="testimonial-card">
+                    <p class="testimonial-quote">
+                        "I took a 3-week vacation and my business ran without me. First time in 8 years I actually rested. These clones changed everything."
+                    </p>
+                    <p class="testimonial-author">Mike T.</p>
+                    <p class="testimonial-title">Startup Founder</p>
+                    <p style="margin-top: 1.25rem; font-weight: 600; color: #10b981; font-size: 14px;">✓ 18 hours/week saved</p>
+                </div>
+
+                <div class="testimonial-card">
+                    <p class="testimonial-quote">
+                        "Decision fatigue was killing me. Now my Strategy Twin handles prioritization. I have mental space again. Started training for a triathlon."
+                    </p>
+                    <p class="testimonial-author">Jennifer K.</p>
+                    <p class="testimonial-title">Executive Coach</p>
+                    <p style="margin-top: 1.25rem; font-weight: 600; color: #10b981; font-size: 14px;">✓ 15 hours/week saved</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vishen Section -->
+    <section style="background-color: white; padding: 6rem 0;">
+        <div class="mv-container">
+            <h2 class="title-bold-2" style="margin-bottom: 4rem; text-align: center;">
+                Meet Vishen Lakhiani
+            </h2>
+
+            <div style="background: #f9f7fc; border-radius: 24px; padding: 4rem; max-width: 900px; margin: 0 auto; border: 1px solid #e5e7eb;">
+                <!-- IMAGE PLACEHOLDER: Vishen Photo -->
+                <div style="background: linear-gradient(135deg, rgba(122, 18, 212, 0.05) 0%, rgba(157, 78, 221, 0.05) 100%); border: 2px dashed #cbd5e0; border-radius: 16px; padding: 3rem 2rem; text-align: center; margin-bottom: 3rem;">
+                    <p style="font-weight: 700; font-size: 14px; color: #7a12d4; margin-bottom: 0.75rem;">🎨 VISHEN PROFESSIONAL HEADSHOT</p>
+                    <p style="font-size: 12px; color: #6b7280;">Professional portrait • 500×500px • WebP format</p>
+                </div>
+
+                <p class="body-lg" style="text-align: center; margin-bottom: 2.5rem; font-weight: 600; color: #0f131a;">
+                    Founder of Mindvalley • New York Times Bestselling Author • Followed by 3M+ People
+                </p>
+
+                <p class="body-italic" style="margin-bottom: 1.75rem; color: #4b5563; line-height: 1.8;">
+                    "Six months ago, I was working 70-hour weeks. Drowning in email. No time for my kids. Then I discovered AI cloning."
+                </p>
+                <p class="body-italic" style="margin-bottom: 1.75rem; color: #4b5563; line-height: 1.8;">
+                    "Today, I work 30-35 hours per week. I took a 2-week vacation without my laptop. I'm present with my family. I have my life back."
+                </p>
+                <p class="title-bold-6" style="color: #10b981; text-align: center; line-height: 1.6;">
+                    "Now I want to show you the exact system—live—so you don't waste 25 hours like I did."
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Registration Form -->
+    <section style="background-color: #f9f7fc; padding: 6rem 0;" id="register">
+        <div class="mv-container">
+            <div class="form-container">
+                <div class="overline-text" style="text-align: center; margin-bottom: 1rem; color: #7a12d4;">
+                    JOIN THE NEXT SESSION
+                </div>
+                <h2 class="title-bold-3" style="text-align: center; margin-bottom: 1rem;">
+                    Reserve Your Free Spot
+                </h2>
+                <p class="body" style="text-align: center; color: #4b5563; margin-bottom: 3rem; line-height: 1.7;">
+                    Join hundreds of entrepreneurs who are about to see AI clones work live
+                </p>
+
+                <form id="registration-form">
+                    <div class="form-group">
+                        <label for="name" class="form-label">Full Name *</label>
+                        <input type="text" id="name" name="name" class="form-input" required placeholder="Enter your full name">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email" class="form-label">Email Address *</label>
+                        <input type="email" id="email" name="email" class="form-input" required placeholder="your@email.com">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="timezone" class="form-label">Your Timezone (Optional)</label>
+                        <select id="timezone" name="timezone" class="form-select">
+                            <option value="">Select timezone</option>
+                            <option value="PST">Pacific Time (PST)</option>
+                            <option value="MST">Mountain Time (MST)</option>
+                            <option value="CST">Central Time (CST)</option>
+                            <option value="EST">Eastern Time (EST)</option>
+                            <option value="GMT">London (GMT)</option>
+                            <option value="CET">Central Europe (CET)</option>
+                            <option value="IST">India (IST)</option>
+                            <option value="SGT">Singapore (SGT)</option>
+                            <option value="AEST">Sydney (AEST)</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="button button-primary button-lg" style="width: 100%; margin-top: 1.5rem; box-shadow: 0 10px 30px rgba(122, 18, 212, 0.3);">
+                        Reserve My Free Spot Now
+                    </button>
+
+                    <div class="trust-badges">
+                        <div class="trust-badge">
+                            <div class="trust-badge-icon">🔒</div>
+                            <div class="trust-badge-text">Secure Registration</div>
+                        </div>
+                        <div class="trust-badge">
+                            <div class="trust-badge-icon">✓</div>
+                            <div class="trust-badge-text">Instant Confirmation</div>
+                        </div>
+                        <div class="trust-badge">
+                            <div class="trust-badge-icon">📧</div>
+                            <div class="trust-badge-text">Zoom Link Immediately</div>
+                        </div>
+                    </div>
+
+                    <p class="body-sm" style="text-align: center; margin-top: 2rem; color: #6b7280; line-height: 1.7;">
+                        Your information is safe. We'll send you the Zoom link and reminders. Unsubscribe anytime.
+                    </p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section style="background-color: white; padding: 6rem 0;">
+        <div class="mv-container">
+            <h2 class="title-bold-2" style="margin-bottom: 4rem; text-align: center;">
+                Common Questions
+            </h2>
+
+            <div style="max-width: 52rem; margin: 0 auto;">
+                <div class="faq-item">
+                    <h3 class="faq-question">Is this really free?</h3>
+                    <div class="faq-answer">Yes, 100% free. No credit card required. We'll send you the Zoom link immediately after you register. There IS an offer at the end (the AI Clone Accelerator workshop), but the first 60 minutes are pure demonstration and value.</div>
+                </div>
+
+                <div class="faq-item">
+                    <h3 class="faq-question">What if I can't attend live?</h3>
+                    <div class="faq-answer">You should attend live to see the demos in real-time. The webinar will NOT be available for replay. If you miss it, you'll miss the $999 early bird offer (only available to live attendees).</div>
+                </div>
+
+                <div class="faq-item">
+                    <h3 class="faq-question">Do I need to be technical?</h3>
+                    <div class="faq-answer">Not at all. You'll see Vishen (who's not technical) demo these clones using simple tools like ChatGPT and voice notes. If you can send an email, you can understand this.</div>
+                </div>
+
+                <div class="faq-item">
+                    <h3 class="faq-question">Will you actually show the clones working or just talk about them?</h3>
+                    <div class="faq-answer">Vishen will screen share the ENTIRE time. You'll watch him open his inbox and let his Communication Clone handle emails. You'll watch him record a voice note and see it become content. All live, all real.</div>
+                </div>
+
+                <div class="faq-item">
+                    <h3 class="faq-question">Can I really save 40 hours per week?</h3>
+                    <div class="faq-answer">Vishen saves 39-57 hours per week with his 5 clones. You'll see the exact breakdown on the webinar. Your results will depend on how many repetitive tasks you currently do, but even saving 20 hours/week is life-changing.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section style="background-color: #f9f7fc; padding: 6rem 0; text-align: center;">
+        <div class="mv-container">
+            <h2 class="title-bold-2" style="max-width: 42rem; margin: 0 auto 1.5rem auto;">
+                Your Spot is Waiting
+            </h2>
+            <p class="body-lg" style="max-width: 38rem; margin: 0 auto 3rem auto; color: #4b5563; line-height: 1.8;">
+                90 minutes that could change how you work forever
+            </p>
+
+            <div style="background: white; padding: 2.5rem; border-radius: 20px; max-width: 550px; margin: 0 auto 3rem auto; border: 1px solid #e5e7eb;">
+                <p class="body" style="margin-bottom: 1rem; line-height: 1.8;">📅 <strong>January 31, 2026 at 12:00 PM EST</strong></p>
+                <p class="body" style="margin-bottom: 1rem; line-height: 1.8;">⏱️ <strong>90 Minutes Live</strong></p>
+                <p class="body" style="margin-bottom: 1rem; line-height: 1.8;">💻 <strong>Zoom Webinar</strong></p>
+                <p class="body" style="line-height: 1.8;">🎟️ <strong>Free to Attend</strong></p>
+            </div>
+
+            <a href="#register" class="button button-primary button-lg" style="box-shadow: 0 10px 30px rgba(122, 18, 212, 0.3);">Claim Your Free Spot Now</a>
+            <p class="body-sm" style="margin-top: 1.5rem; color: #6b7280;">Registration closes 24 hours before the webinar starts</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer style="background-color: #0f131a; padding: 4rem 0; text-align: center;">
+        <div class="mv-container">
+            <p class="body" style="margin-bottom: 1rem; color: #9ca3af;">© 2026 Mindvalley. All rights reserved.</p>
+            <p class="body-sm" style="color: #6b7280; margin-bottom: 2rem;">Questions? Email: support@mindvalley.com</p>
+            <div style="display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap;">
+                <a href="#" class="body-sm" style="color: #9ca3af; text-decoration: none; transition: color 0.2s;">Privacy Policy</a>
+                <a href="#" class="body-sm" style="color: #9ca3af; text-decoration: none; transition: color 0.2s;">Terms of Service</a>
+                <a href="#" class="body-sm" style="color: #9ca3af; text-decoration: none; transition: color 0.2s;">Refund Policy</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // COUNTDOWN TIMER
+        const webinarDate = new Date('January 31, 2026 12:00:00 EST').getTime();
+
+        const countdown = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = webinarDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById('days').innerHTML = days.toString().padStart(2, '0');
+            document.getElementById('hours').innerHTML = hours.toString().padStart(2, '0');
+            document.getElementById('minutes').innerHTML = minutes.toString().padStart(2, '0');
+            document.getElementById('seconds').innerHTML = seconds.toString().padStart(2, '0');
+
+            if (distance < 0) {
+                clearInterval(countdown);
+                document.querySelector('.countdown-container').innerHTML = '<p style="padding: 2rem; font-size: 20px; font-weight: 700; color: #10b981;">Webinar is starting now! Join via your Zoom link.</p>';
+            }
+        }, 1000);
+
+        // FORM SUBMISSION
+        document.getElementById('registration-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                timezone: document.getElementById('timezone').value
+            };
+
+            // Add your form submission logic here
+            console.log('Form submitted:', formData);
+
+            alert('Registration successful! ✓\n\nCheck your email for:\n• Zoom link\n• Calendar invite\n• Pre-webinar guide');
+
+            // Redirect to thank you page
+            window.location.href = 'thank-you-page-PRODUCTION.html';
+        });
+
+        // SMOOTH SCROLL
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // FAQ ACCORDION
+        document.querySelectorAll('.faq-item').forEach(item => {
+            item.addEventListener('click', function() {
+                // Close all other items
+                document.querySelectorAll('.faq-item').forEach(otherItem => {
+                    if (otherItem !== item) {
+                        otherItem.classList.remove('active');
+                    }
+                });
+                // Toggle current item
+                this.classList.toggle('active');
+            });
+        });
+    </script>
+
+</body>
+</html>

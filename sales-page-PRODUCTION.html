@@ -1,0 +1,1076 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Clone Accelerator - Build 5 AI Clones in 2 Days | Mindvalley</title>
+    <meta name="description" content="Build 5 working AI clones that save 40+ hours per week. 2-day intensive workshop with Vishen Lakhiani. Early bird pricing from $999.">
+    <meta name="theme-color" content="#7a12d4">
+    <link rel="stylesheet" href="public/mindvalley-font.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: white;
+            overflow-x: hidden;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Sticky Navigation */
+        .sticky-nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #e5e7eb;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            transition: all 0.3s ease;
+        }
+
+        .sticky-nav-content {
+            display: none;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem 0;
+        }
+
+        @media (min-width: 1024px) {
+            .sticky-nav-content {
+                display: flex;
+            }
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-link {
+            font-size: 14px;
+            font-weight: 500;
+            color: #0f131a;
+            text-decoration: none;
+            transition: color 0.2s;
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #7a12d4;
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: #7a12d4;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* Hero */
+        .hero {
+            background: linear-gradient(180deg, #f9f7fc 0%, #ffffff 100%);
+            padding: 6rem 0;
+            position: relative;
+        }
+
+        /* Value Stack Card */
+        .value-card {
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 24px;
+            padding: 3rem;
+            margin-bottom: 2.5rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .value-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #7a12d4, #9d4edd);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .value-card:hover {
+            box-shadow: 0 16px 48px rgba(0,0,0,0.08);
+            transform: translateY(-4px);
+            border-color: #d1c4e9;
+        }
+
+        .value-card:hover::before {
+            opacity: 1;
+        }
+
+        .value-header {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            margin-bottom: 2.5rem;
+            padding-bottom: 2.5rem;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .value-number {
+            flex-shrink: 0;
+            width: 72px;
+            height: 72px;
+            background: linear-gradient(135deg, #7a12d4 0%, #9d4edd 100%);
+            color: white;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 36px;
+            font-weight: 700;
+            box-shadow: 0 8px 24px rgba(122, 18, 212, 0.3);
+        }
+
+        .value-worth {
+            display: inline-block;
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+            padding: 0.625rem 1.25rem;
+            border-radius: 999px;
+            font-weight: 600;
+            font-size: 14px;
+            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.25);
+        }
+
+        .benefits-box {
+            background: #f9f7fc;
+            padding: 2.5rem;
+            border-radius: 16px;
+            margin-top: 2rem;
+        }
+
+        .benefits-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .benefits-list li {
+            padding: 1rem 0 1rem 2.5rem;
+            position: relative;
+            font-size: 16px;
+            line-height: 1.8;
+            border-bottom: 1px solid rgba(229, 231, 235, 0.5);
+        }
+
+        .benefits-list li:last-child {
+            border-bottom: none;
+        }
+
+        .benefits-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #7a12d4;
+            font-weight: 700;
+            font-size: 20px;
+        }
+
+        /* Pricing Section */
+        .pricing-box {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: white;
+            padding: 4.5rem 3.5rem;
+            border-radius: 28px;
+            max-width: 950px;
+            margin: 0 auto;
+            box-shadow: 0 24px 80px rgba(26, 26, 46, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pricing-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 100%;
+            background: radial-gradient(circle at top right, rgba(122, 18, 212, 0.1), transparent);
+            pointer-events: none;
+        }
+
+        .price-display {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2.5rem;
+            margin: 2.5rem 0;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 1;
+        }
+
+        .price-original {
+            font-size: 42px;
+            text-decoration: line-through;
+            opacity: 0.4;
+            font-weight: 700;
+        }
+
+        .price-current {
+            font-size: 80px;
+            font-weight: 700;
+            background: linear-gradient(180deg, #ffffff 0%, rgba(255,255,255,0.9) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.02em;
+        }
+
+        .price-save {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            display: inline-block;
+            padding: 0.875rem 1.75rem;
+            border-radius: 999px;
+            font-weight: 700;
+            font-size: 16px;
+            box-shadow: 0 8px 20px rgba(16, 185, 129, 0.4);
+        }
+
+        /* Guarantee Badge */
+        .guarantee-section {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            background: linear-gradient(135deg, #f9f7fc 0%, #f5f0fa 100%);
+            padding: 2.5rem;
+            border-radius: 20px;
+            max-width: 750px;
+            margin: 4rem auto;
+            border: 1px solid #e5e7eb;
+        }
+
+        .guarantee-badge {
+            width: 88px;
+            height: 88px;
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            border-radius: 50%;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            box-shadow: 0 8px 24px rgba(16, 185, 129, 0.3);
+        }
+
+        /* Instructor Cards */
+        .instructor-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .instructor-card {
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 24px;
+            padding: 3rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .instructor-card:hover {
+            box-shadow: 0 16px 48px rgba(0,0,0,0.08);
+            transform: translateY(-4px);
+            border-color: #d1c4e9;
+        }
+
+        .instructor-avatar {
+            width: 140px;
+            height: 140px;
+            background: linear-gradient(135deg, #7a12d4 0%, #9d4edd 100%);
+            border-radius: 50%;
+            margin: 0 auto 2rem;
+            box-shadow: 0 12px 32px rgba(122, 18, 212, 0.25);
+            position: relative;
+        }
+
+        .instructor-avatar::after {
+            content: '🎨';
+            position: absolute;
+            bottom: -8px;
+            right: -8px;
+            font-size: 12px;
+            background: white;
+            padding: 0.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        /* Comparison Table */
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .comparison-card {
+            padding: 2.5rem;
+            border-radius: 20px;
+            border: 1px solid #e5e7eb;
+        }
+
+        .comparison-card.traditional {
+            background: #fef2f2;
+            border-color: #fecaca;
+        }
+
+        .comparison-card.mindvalley {
+            background: linear-gradient(135deg, #f9f7fc 0%, #f5f0fa 100%);
+            border-color: #d1c4e9;
+            position: relative;
+        }
+
+        .comparison-card.mindvalley::before {
+            content: 'RECOMMENDED';
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, #7a12d4 0%, #9d4edd 100%);
+            color: white;
+            padding: 0.375rem 1rem;
+            border-radius: 999px;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+        }
+
+        /* Accordion Curriculum */
+        .accordion-item {
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 16px;
+            margin-bottom: 1.5rem;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .accordion-item:hover {
+            border-color: #d1c4e9;
+        }
+
+        .accordion-header {
+            padding: 1.75rem 2rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.2s ease;
+        }
+
+        .accordion-header:hover {
+            background: #f9f7fc;
+        }
+
+        .accordion-icon {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: #7a12d4;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            transition: transform 0.3s ease;
+        }
+
+        .accordion-item.active .accordion-icon {
+            transform: rotate(45deg);
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .accordion-item.active .accordion-content {
+            max-height: 800px;
+        }
+
+        .accordion-body {
+            padding: 0 2rem 2rem 2rem;
+            color: #4b5563;
+            line-height: 1.8;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero {
+                padding: 4rem 0 3rem 0;
+            }
+
+            .value-header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .price-display {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
+            .price-current {
+                font-size: 64px;
+            }
+
+            .guarantee-section {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .comparison-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .pricing-box {
+                padding: 3rem 2rem;
+            }
+
+            .value-card {
+                padding: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Sticky Navigation -->
+    <nav class="sticky-nav">
+        <div class="mv-container">
+            <div class="sticky-nav-content">
+                <ul class="nav-links">
+                    <li><a href="#clones" class="nav-link">The 5 Clones</a></li>
+                    <li><a href="#curriculum" class="nav-link">Curriculum</a></li>
+                    <li><a href="#instructors" class="nav-link">Instructors</a></li>
+                    <li><a href="#pricing" class="nav-link">Pricing</a></li>
+                    <li><a href="#faq" class="nav-link">FAQs</a></li>
+                </ul>
+                <div style="display: flex; align-items: center; gap: 1.5rem;">
+                    <span style="font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: #7a12d4;">
+                        WORKSHOP: FEB 6-7, 2026
+                    </span>
+                    <a href="#pricing" class="button button-primary button-sm">Join Now</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="mv-container">
+            <div class="overline-text" style="margin-bottom: 1.5rem; color: #7a12d4; text-align: center;">
+                2-DAY INTENSIVE WORKSHOP
+            </div>
+            <h1 class="title-bold-1" style="max-width: 52rem; margin: 0 auto 1.5rem auto; text-align: center;">
+                Build 5 AI Clones That Give You 40+ Hours Back Every Week
+            </h1>
+            <p class="body-lg" style="max-width: 44rem; margin: 0 auto 2.5rem auto; color: #4b5563; text-align: center; line-height: 1.8;">
+                Stop drowning in repetitive tasks. Build 5 AI clones this weekend that handle your busywork—writing, meetings, decisions, and content. Walk away with 10+ hours reclaimed every week.
+            </p>
+
+            <div style="display: flex; gap: 1rem; margin-top: 3rem; justify-content: center; flex-wrap: wrap;">
+                <a href="#pricing" class="button button-primary button-lg" style="box-shadow: 0 10px 30px rgba(122, 18, 212, 0.3);">Join The February 6-7 Cohort</a>
+            </div>
+
+            <p class="body-sm" style="margin-top: 1.5rem; color: #6b7280; text-align: center;">
+                <strong>Full Refund Until Workshop Starts</strong> — One-click refund, no questions asked
+            </p>
+        </div>
+    </section>
+
+    <!-- Stats Bar -->
+    <section class="stats-section">
+        <div class="mv-container">
+            <div class="stats-grid">
+                <div>
+                    <span class="stat-number">14hrs</span>
+                    <span class="stat-label">Wasted weekly on repetitive tasks</span>
+                </div>
+                <div>
+                    <span class="stat-number">62%</span>
+                    <span class="stat-label">Say busywork prevents strategic thinking</span>
+                </div>
+                <div>
+                    <span class="stat-number">10+hrs</span>
+                    <span class="stat-label">Reclaimed per week by participants</span>
+                </div>
+                <div>
+                    <span class="stat-number">73%</span>
+                    <span class="stat-label">Reduction in email time after cloning</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The 5 Clones -->
+    <section style="background-color: white; padding: 6rem 0;" id="clones">
+        <div class="mv-container">
+            <h2 class="title-bold-2" style="margin-bottom: 1.25rem; text-align: center;">
+                The 5 AI Clones You Build This Weekend
+            </h2>
+            <p class="body-lg" style="max-width: 44rem; margin: 0 auto 4rem auto; text-align: center; color: #4b5563; line-height: 1.8;">
+                Each clone is built live during the sessions, tested on your real work, and ready to deploy Monday morning.
+            </p>
+
+            <!-- Clone 1 -->
+            <div class="value-card">
+                <div class="value-header">
+                    <div class="value-number">1</div>
+                    <div>
+                        <h3 class="title-bold-5" style="margin-bottom: 0.75rem;">Your Communication Clone</h3>
+                        <span class="value-worth">Worth: $3,600/year</span>
+                    </div>
+                </div>
+                <p class="body" style="color: #0f131a; margin-bottom: 2rem; line-height: 1.8;">
+                    A Custom GPT trained on your actual writing that drafts emails, messages, updates, and posts in your authentic voice. Not generic AI outputs—responses your team thinks you wrote yourself.
+                </p>
+                <div class="benefits-box">
+                    <h4 class="title-bold-7" style="margin-bottom: 1.5rem;">How This Clone Works:</h4>
+                    <ul class="benefits-list">
+                        <li>Upload 5-10 examples of your writing (emails, posts, memos)</li>
+                        <li>AI analyzes your tone, structure, phrases, and style</li>
+                        <li>Generates drafts in seconds requiring minimal editing</li>
+                        <li>Gets smarter over time as you refine it</li>
+                    </ul>
+                </div>
+                <div style="text-align: center; margin-top: 2.5rem;">
+                    <span style="display: inline-block; background: linear-gradient(135deg, #7a12d4 0%, #9d4edd 100%); color: white; padding: 0.875rem 2rem; border-radius: 999px; font-weight: 700; font-size: 18px; box-shadow: 0 8px 20px rgba(122, 18, 212, 0.3);">
+                        Returns 5-7 hours/week
+                    </span>
+                </div>
+            </div>
+
+            <!-- Clone 2 -->
+            <div class="value-card">
+                <div class="value-header">
+                    <div class="value-number">2</div>
+                    <div>
+                        <h3 class="title-bold-5" style="margin-bottom: 0.75rem;">Your Meeting Intelligence Clone</h3>
+                        <span class="value-worth">Worth: $2,800/year</span>
+                    </div>
+                </div>
+                <p class="body" style="color: #0f131a; margin-bottom: 2rem; line-height: 1.8;">
+                    Granola AI configured with your templates that automatically captures every meeting, extracts decisions, identifies action items, and generates strategic insights. Never manually take notes again.
+                </p>
+                <div class="benefits-box">
+                    <h4 class="title-bold-7" style="margin-bottom: 1.5rem;">How This Clone Works:</h4>
+                    <ul class="benefits-list">
+                        <li>Automatically records and transcribes all meetings</li>
+                        <li>Extracts key decisions, action items, and owners</li>
+                        <li>Generates one-page briefs for each meeting</li>
+                        <li>Creates searchable meeting database</li>
+                    </ul>
+                </div>
+                <div style="text-align: center; margin-top: 2.5rem;">
+                    <span style="display: inline-block; background: linear-gradient(135deg, #7a12d4 0%, #9d4edd 100%); color: white; padding: 0.875rem 2rem; border-radius: 999px; font-weight: 700; font-size: 18px; box-shadow: 0 8px 20px rgba(122, 18, 212, 0.3);">
+                        Returns 3-5 hours/week
+                    </span>
+                </div>
+            </div>
+
+            <!-- Clone 3 -->
+            <div class="value-card">
+                <div class="value-header">
+                    <div class="value-number">3</div>
+                    <div>
+                        <h3 class="title-bold-5" style="margin-bottom: 0.75rem;">Your Strategic Decision Clone</h3>
+                        <span class="value-worth">Worth: $4,200/year</span>
+                    </div>
+                </div>
+                <p class="body" style="color: #0f131a; margin-bottom: 2rem; line-height: 1.8;">
+                    A Claude Project loaded with your frameworks, goals, OKRs, and non-negotiables that provides strategic advice aligned with how you think. Your team gets 80% there without interrupting you.
+                </p>
+                <div class="benefits-box">
+                    <h4 class="title-bold-7" style="margin-bottom: 1.5rem;">How This Clone Works:</h4>
+                    <ul class="benefits-list">
+                        <li>Document your decision-making frameworks and principles</li>
+                        <li>Upload strategic memos, OKRs, and business goals</li>
+                        <li>Team asks clone for input before coming to you</li>
+                        <li>You review final decisions instead of being in every conversation</li>
+                    </ul>
+                </div>
+                <div style="text-align: center; margin-top: 2.5rem;">
+                    <span style="display: inline-block; background: linear-gradient(135deg, #7a12d4 0%, #9d4edd 100%); color: white; padding: 0.875rem 2rem; border-radius: 999px; font-weight: 700; font-size: 18px; box-shadow: 0 8px 20px rgba(122, 18, 212, 0.3);">
+                        Returns 2-4 hours/week
+                    </span>
+                </div>
+            </div>
+
+            <!-- Clone 4 -->
+            <div class="value-card">
+                <div class="value-header">
+                    <div class="value-number">4</div>
+                    <div>
+                        <h3 class="title-bold-5" style="margin-bottom: 0.75rem;">Your Content Creation Clone</h3>
+                        <span class="value-worth">Worth: $3,200/year</span>
+                    </div>
+                </div>
+                <p class="body" style="color: #0f131a; margin-bottom: 2rem; line-height: 1.8;">
+                    A voice-to-content system that turns one 5-minute voice note into 30 days of scheduled posts. Never go silent online or spend hours on content again.
+                </p>
+                <div class="benefits-box">
+                    <h4 class="title-bold-7" style="margin-bottom: 1.5rem;">How This Clone Works:</h4>
+                    <ul class="benefits-list">
+                        <li>Record a 5-minute voice note about any topic</li>
+                        <li>AI transcribes and extracts key messages</li>
+                        <li>Generates multiple formats: posts, threads, emails</li>
+                        <li>Schedule everything in Buffer for automated posting</li>
+                    </ul>
+                </div>
+                <div style="text-align: center; margin-top: 2.5rem;">
+                    <span style="display: inline-block; background: linear-gradient(135deg, #7a12d4 0%, #9d4edd 100%); color: white; padding: 0.875rem 2rem; border-radius: 999px; font-weight: 700; font-size: 18px; box-shadow: 0 8px 20px rgba(122, 18, 212, 0.3);">
+                        Returns 4-6 hours/week
+                    </span>
+                </div>
+            </div>
+
+            <!-- Clone 5 -->
+            <div class="value-card">
+                <div class="value-header">
+                    <div class="value-number">5</div>
+                    <div>
+                        <h3 class="title-bold-5" style="margin-bottom: 0.75rem;">Your Team Knowledge Bot</h3>
+                        <span class="value-worth">Worth: $2,400/year</span>
+                    </div>
+                </div>
+                <p class="body" style="color: #0f131a; margin-bottom: 2rem; line-height: 1.8;">
+                    A custom chatbot trained on all your company docs, SOPs, and FAQs that answers 80% of team questions instantly. No more Slack interruptions or "quick questions."
+                </p>
+                <div class="benefits-box">
+                    <h4 class="title-bold-7" style="margin-bottom: 1.5rem;">How This Clone Works:</h4>
+                    <ul class="benefits-list">
+                        <li>Upload all company documentation and SOPs</li>
+                        <li>AI indexes and understands your knowledge base</li>
+                        <li>Team asks questions in natural language</li>
+                        <li>Instant accurate answers with source citations</li>
+                    </ul>
+                </div>
+                <div style="text-align: center; margin-top: 2.5rem;">
+                    <span style="display: inline-block; background: linear-gradient(135deg, #7a12d4 0%, #9d4edd 100%); color: white; padding: 0.875rem 2rem; border-radius: 999px; font-weight: 700; font-size: 18px; box-shadow: 0 8px 20px rgba(122, 18, 212, 0.3);">
+                        Returns 3-6 hours/week
+                    </span>
+                </div>
+            </div>
+
+            <!-- Total Value Banner -->
+            <div style="background: linear-gradient(135deg, #7a12d4 0%, #9d4edd 100%); color: white; padding: 4rem 3rem; border-radius: 28px; text-align: center; margin-top: 5rem; box-shadow: 0 24px 60px rgba(122, 18, 212, 0.35);">
+                <h3 class="title-bold-2" style="margin-bottom: 1.5rem; color: white;">Total Annual Value: $16,200</h3>
+                <p class="body-lg" style="color: white; opacity: 0.95; line-height: 1.8;">That's 17-28 hours reclaimed every week. 884-1,456 hours per year. Your investment today: Starting at $999 for lifetime access to everything.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Curriculum -->
+    <section style="background-color: #f9f7fc; padding: 6rem 0;" id="curriculum">
+        <div class="mv-container">
+            <h2 class="title-bold-2" style="margin-bottom: 1.25rem; text-align: center;">
+                Your 2-Day Build Sprint
+            </h2>
+            <p class="body-lg" style="max-width: 44rem; margin: 0 auto 4rem auto; text-align: center; color: #4b5563; line-height: 1.8;">
+                8 hours of hands-on building. Live instruction. Real implementation. Working clones by Sunday evening.
+            </p>
+
+            <div style="max-width: 900px; margin: 0 auto;">
+                <!-- Day 1 -->
+                <div class="accordion-item active">
+                    <div class="accordion-header">
+                        <div>
+                            <h3 class="title-bold-6" style="margin-bottom: 0.5rem;">Day 1: February 6, 2026 (12pm-4pm EST)</h3>
+                            <p class="body-sm" style="color: #6b7280;">Build Clones 1-3: Communication, Meeting Intelligence, Strategic Decision</p>
+                        </div>
+                        <div class="accordion-icon">+</div>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            <ul class="benefits-list">
+                                <li><strong>12:00-12:30 PM:</strong> Welcome & AI Clone Framework Overview</li>
+                                <li><strong>12:30-1:30 PM:</strong> Build Session 1 - Communication Clone (Custom GPT training)</li>
+                                <li><strong>1:30-2:00 PM:</strong> Break + Individual Build Sprint</li>
+                                <li><strong>2:00-3:00 PM:</strong> Build Session 2 - Meeting Intelligence (Granola setup)</li>
+                                <li><strong>3:00-3:45 PM:</strong> Build Session 3 - Strategic Decision Clone (Claude Project)</li>
+                                <li><strong>3:45-4:00 PM:</strong> Day 1 Review & Homework Assignment</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Day 2 -->
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <div>
+                            <h3 class="title-bold-6" style="margin-bottom: 0.5rem;">Day 2: February 7, 2026 (12pm-4pm EST)</h3>
+                            <p class="body-sm" style="color: #6b7280;">Build Clones 4-5: Content Creation, Knowledge Bot + Showcase</p>
+                        </div>
+                        <div class="accordion-icon">+</div>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            <ul class="benefits-list">
+                                <li><strong>12:00-12:15 PM:</strong> Day 1 Recap & Q&A</li>
+                                <li><strong>12:15-1:15 PM:</strong> Build Session 4 - Content Creation Clone (Voice-to-content)</li>
+                                <li><strong>1:15-1:45 PM:</strong> Break + Individual Build Sprint</li>
+                                <li><strong>1:45-2:45 PM:</strong> Build Session 5 - Team Knowledge Bot (Custom ChatGPT)</li>
+                                <li><strong>2:45-3:30 PM:</strong> Clone Showcase - See 15-20 working examples from participants</li>
+                                <li><strong>3:30-4:00 PM:</strong> Optimization & Next Steps</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bonus -->
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <div>
+                            <h3 class="title-bold-6" style="margin-bottom: 0.5rem;">Bonus: Live Q&A + Ongoing Support</h3>
+                            <p class="body-sm" style="color: #6b7280;">Access to facilitators during build sprints + lifetime recordings</p>
+                        </div>
+                        <div class="accordion-icon">+</div>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            <ul class="benefits-list">
+                                <li>45-minute individual build sprint with 1-on-1 facilitator support</li>
+                                <li>Live troubleshooting during each session</li>
+                                <li>Clone Template Library with 50+ templates ($297 value)</li>
+                                <li>Conversion Hacking Masterclass recording ($197 value)</li>
+                                <li>Lifetime access to all session recordings</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Instructors -->
+    <section style="background-color: white; padding: 6rem 0;" id="instructors">
+        <div class="mv-container">
+            <h2 class="title-bold-2" style="margin-bottom: 1.25rem; text-align: center;">
+                Learn From People Running Real Businesses With AI
+            </h2>
+            <p class="body-lg" style="max-width: 44rem; margin: 0 auto 4rem auto; text-align: center; color: #4b5563; line-height: 1.8;">
+                Not AI theorists. Practitioners who use these exact clones to operate their companies every day.
+            </p>
+
+            <div class="instructor-grid">
+                <div class="instructor-card">
+                    <div class="instructor-avatar"></div>
+                    <h3 class="title-bold-6" style="margin-bottom: 0.5rem;">Vishen Lakhiani</h3>
+                    <p class="body-sm" style="color: #7a12d4; margin-bottom: 1.75rem; font-weight: 600;">Founder & CEO, Mindvalley</p>
+                    <p class="body" style="color: #4b5563; margin-bottom: 2rem; line-height: 1.8;">
+                        Built Mindvalley from zero to 200+ employees reaching 20M+ students globally. Uses AI clones daily to run operations across 7 time zones while maintaining strategic focus.
+                    </p>
+                    <div style="background: #f9f7fc; padding: 1.5rem; border-radius: 12px; font-size: 14px; color: #0f131a; line-height: 1.8;">
+                        <div style="margin-bottom: 0.75rem;">✓ 3x New York Times Bestselling Author</div>
+                        <div style="margin-bottom: 0.75rem;">✓ Spoke to 5,000+ HR leaders on AI</div>
+                        <div>✓ 20+ years in transformational education</div>
+                    </div>
+                </div>
+
+                <div class="instructor-card">
+                    <div class="instructor-avatar"></div>
+                    <h3 class="title-bold-6" style="margin-bottom: 0.5rem;">Manon Dave</h3>
+                    <p class="body-sm" style="color: #7a12d4; margin-bottom: 1.75rem; font-weight: 600;">Creative Director & AI Artist</p>
+                    <p class="body" style="color: #4b5563; margin-bottom: 2rem; line-height: 1.8;">
+                        Award-winning creative who's worked with the world's most demanding brands. Creates 100% of her content with AI—and no one can tell the difference.
+                    </p>
+                    <div style="background: #f9f7fc; padding: 1.5rem; border-radius: 12px; font-size: 14px; color: #0f131a; line-height: 1.8;">
+                        <div style="margin-bottom: 0.75rem;">✓ 5x Time Magazine Best Invention Honoree</div>
+                        <div style="margin-bottom: 0.75rem;">✓ Composer & Visual Artist</div>
+                        <div>✓ AI Content Creation Pioneer</div>
+                    </div>
+                </div>
+
+                <div class="instructor-card">
+                    <div class="instructor-avatar"></div>
+                    <h3 class="title-bold-6" style="margin-bottom: 0.5rem;">Vykintas Glodenis</h3>
+                    <p class="body-sm" style="color: #7a12d4; margin-bottom: 1.75rem; font-weight: 600;">Chief AI Transformation Officer</p>
+                    <p class="body" style="color: #4b5563; margin-bottom: 2rem; line-height: 1.8;">
+                        Technical architect behind Mindvalley's AI systems. Created AI Mastery program that's trained 400K+ people. Makes complex AI implementation simple for non-technical founders.
+                    </p>
+                    <div style="background: #f9f7fc; padding: 1.5rem; border-radius: 12px; font-size: 14px; color: #0f131a; line-height: 1.8;">
+                        <div style="margin-bottom: 0.75rem;">✓ Built systems serving 1M+ users</div>
+                        <div style="margin-bottom: 0.75rem;">✓ Trained 400K+ people in AI</div>
+                        <div>✓ Expert in AI workflow integration</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section style="background-color: #f9f7fc; padding: 6rem 0;" id="pricing">
+        <div class="mv-container">
+            <div class="pricing-box">
+                <div style="text-align: center; position: relative; z-index: 1;">
+                    <h2 class="title-bold-2" style="margin-bottom: 1.25rem; color: white;">Join The February 6-7 Cohort</h2>
+                    <p class="body-lg" style="opacity: 0.9; margin-bottom: 2.5rem;">One weekend. Five clones. 10+ hours reclaimed every week for life.</p>
+                </div>
+
+                <div class="price-display">
+                    <span class="price-original">$1,499</span>
+                    <span class="price-current" id="current-price">$999</span>
+                </div>
+                <div style="text-align: center; margin-bottom: 3.5rem; position: relative; z-index: 1;">
+                    <span class="price-save" id="savings-badge">Early Bird: Save $500</span>
+                </div>
+
+                <!-- What's Included -->
+                <div style="background: rgba(255,255,255,0.05); backdrop-filter: blur(10px); padding: 3rem; border-radius: 20px; margin-bottom: 2.5rem; position: relative; z-index: 1; border: 1px solid rgba(255,255,255,0.1);">
+                    <h3 class="title-bold-6" style="margin-bottom: 2.5rem; text-align: center; color: white;">Everything You Get:</h3>
+                    <ul class="benefits-list" style="border-bottom-color: rgba(255,255,255,0.1);">
+                        <li style="color: white;">8 hours live, hands-on training (February 6-7, 12pm-4pm EST)</li>
+                        <li style="color: white;">Build 5 working AI clones during live sessions</li>
+                        <li style="color: white;">45-minute Build Sprint with 1-on-1 facilitator support</li>
+                        <li style="color: white;">Showcase: see 15-20 working clone examples from participants</li>
+                        <li style="color: white;">Clone Template Library - 50+ templates ($297 value)</li>
+                        <li style="color: white;">Conversion Hacking Masterclass recording ($197 value)</li>
+                        <li style="color: white;">Lifetime access to all session recordings</li>
+                        <li style="color: white; border-bottom: none;">Full refund available until workshop starts (one-click refund)</li>
+                    </ul>
+                </div>
+
+                <div style="text-align: center; margin-bottom: 2.5rem; position: relative; z-index: 1;">
+                    <p class="body" style="color: white; opacity: 0.9; margin-bottom: 1rem;"><strong>Investment:</strong></p>
+                    <p class="body" style="color: white; opacity: 0.9;">Pay in full only — Lock in current price before it increases</p>
+                </div>
+
+                <a href="#" class="button button-primary button-lg" style="width: 100%; background: white; color: #7a12d4; justify-content: center; box-shadow: 0 12px 40px rgba(255,255,255,0.2);">
+                    Lock In Current Price Now
+                </a>
+
+                <p style="margin-top: 2.5rem; font-size: 14px; text-align: center; opacity: 0.8; position: relative; z-index: 1;">
+                    Full Refund Until Workshop Starts • One-Click Refund • No Questions Asked
+                </p>
+            </div>
+
+            <!-- Price Increase Warning -->
+            <div style="background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); padding: 2.5rem; border-radius: 20px; text-align: center; margin-top: 3rem; max-width: 950px; margin-left: auto; margin-right: auto; border: 1px solid #fbbf24;">
+                <p style="font-size: 28px; font-weight: 700; color: #92400e; margin-bottom: 0.75rem;" id="price-countdown">Price increases in --</p>
+                <p style="font-size: 16px; color: #92400e; line-height: 1.7;">Regular price is $1,499. Current early bird price locks in the discount. Price increases every 48 hours until Feb 6.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Guarantee -->
+    <section style="background-color: white; padding: 6rem 0;">
+        <div class="mv-container">
+            <div class="guarantee-section">
+                <div class="guarantee-badge">✓</div>
+                <div>
+                    <p class="title-bold-6" style="margin-bottom: 1rem; color: #0f131a;">Zero-Risk Guarantee</p>
+                    <p class="body" style="color: #4b5563; line-height: 1.8;">
+                        Lock in the early bird price now. If you change your mind for ANY reason, get a full refund up until 24 hours before the workshop starts. No questions asked. One-click refund in your account.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section style="background-color: #f9f7fc; padding: 6rem 0;" id="faq">
+        <div class="mv-container">
+            <h2 class="title-bold-2" style="margin-bottom: 4rem; text-align: center;">
+                Frequently Asked Questions
+            </h2>
+
+            <div style="max-width: 52rem; margin: 0 auto;">
+                <div class="accordion-item active">
+                    <div class="accordion-header">
+                        <h3 class="title-bold-7">What exactly will I build during the workshop?</h3>
+                        <div class="accordion-icon">+</div>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            You'll build 5 working AI clones during live sessions: Communication Clone, Meeting Intelligence, Strategic Decision Clone, Content Creation, and Knowledge Bot. Each is tested on your real work before moving on.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <h3 class="title-bold-7">Do I need to be technical?</h3>
+                        <div class="accordion-icon">+</div>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            Not at all. If you can send an email and use ChatGPT, you can build these clones. We use simple tools (ChatGPT, Granola, Buffer) with step-by-step guidance. Plus you have 3 facilitators helping throughout.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <h3 class="title-bold-7">What tools do I need?</h3>
+                        <div class="accordion-icon">+</div>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            ChatGPT Plus ($20/month - required), Granola AI (free tier works), Buffer (free tier works), and optionally Claude Pro ($20/month). Total ongoing cost: $20-40/month to keep all clones running.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <h3 class="title-bold-7">Can I get a refund?</h3>
+                        <div class="accordion-icon">+</div>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            Yes. Full refund available any time up until 24 hours before the workshop starts. One-click refund, no questions asked. Once the workshop begins, refunds are no longer available since we'll be delivering the complete program live.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <h3 class="title-bold-7">Why does the price keep increasing?</h3>
+                        <div class="accordion-icon">+</div>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            We use progressive pricing (like event tickets). Price starts at $999 and increases by $50 every 48 hours until it reaches $1,499. The earlier you join, the more you save. Lock in the current price now before it goes up.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section style="background-color: white; padding: 6rem 0; text-align: center;">
+        <div class="mv-container">
+            <h2 class="title-bold-2" style="max-width: 44rem; margin: 0 auto 1.5rem auto;">
+                Reclaim Your Time. Amplify Your Impact.
+            </h2>
+            <p class="body-lg" style="max-width: 38rem; margin: 0 auto 3rem auto; color: #4b5563; line-height: 1.8;">
+                You can keep doing everything yourself. Or you can spend one weekend building AI clones that handle your repetitive work—and walk into Monday with 10+ hours reclaimed every week.
+            </p>
+            <a href="#pricing" class="button button-primary button-lg" style="box-shadow: 0 10px 30px rgba(122, 18, 212, 0.3);">Join The February 6-7 Cohort</a>
+            <p class="body-sm" style="margin-top: 1.5rem; color: #6b7280;">
+                February 6-7, 2026 • 12pm-4pm EST • Live on Zoom<br>
+                Full Refund Until Workshop Starts • Zero Risk
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer style="background-color: #0f131a; padding: 4rem 0; text-align: center;">
+        <div class="mv-container">
+            <p class="body" style="margin-bottom: 1rem; color: #9ca3af;">© 2026 Mindvalley. All rights reserved.</p>
+            <p class="body-sm" style="color: #6b7280;">Questions? Email: support@mindvalley.com</p>
+        </div>
+    </footer>
+
+    <script>
+        // PROGRESSIVE PRICING SYSTEM
+        const PRICE_START = 999;
+        const PRICE_INCREMENT = 50;
+        const PRICE_MAX = 1499;
+        const INCREMENT_HOURS = 48;
+        const launchDate = new Date('2026-02-01T00:00:00-05:00').getTime();
+
+        function getProgressivePricing() {
+            const now = new Date().getTime();
+            const hoursElapsed = (now - launchDate) / (1000 * 60 * 60);
+            const incrementsPassed = Math.floor(hoursElapsed / INCREMENT_HOURS);
+
+            const currentPrice = Math.min(PRICE_START + (incrementsPassed * PRICE_INCREMENT), PRICE_MAX);
+            const hoursUntilNextIncrease = INCREMENT_HOURS - (hoursElapsed % INCREMENT_HOURS);
+            const nextIncreaseDate = now + (hoursUntilNextIncrease * 60 * 60 * 1000);
+
+            return {
+                currentPrice,
+                nextIncreaseDate,
+                isMaxPrice: currentPrice >= PRICE_MAX
+            };
+        }
+
+        function updatePricing() {
+            const pricing = getProgressivePricing();
+
+            document.getElementById('current-price').textContent = `$${pricing.currentPrice}`;
+
+            const savings = PRICE_MAX - pricing.currentPrice;
+            document.getElementById('savings-badge').textContent = `Early Bird: Save $${savings}`;
+
+            if (pricing.isMaxPrice) {
+                document.getElementById('price-countdown').textContent = 'Regular price of $1,499';
+            } else {
+                const now = new Date().getTime();
+                const distance = pricing.nextIncreaseDate - now;
+
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+
+                const countdownText = days > 0
+                    ? `${days}d ${hours}h ${minutes}m`
+                    : `${hours}h ${minutes}m`;
+
+                document.getElementById('price-countdown').textContent = `Price increases in ${countdownText}`;
+            }
+        }
+
+        setInterval(updatePricing, 1000);
+        updatePricing();
+
+        // SMOOTH SCROLL
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // ACCORDION
+        document.querySelectorAll('.accordion-item').forEach(item => {
+            const header = item.querySelector('.accordion-header');
+            header.addEventListener('click', function() {
+                // Toggle current item
+                item.classList.toggle('active');
+            });
+        });
+    </script>
+
+</body>
+</html>
